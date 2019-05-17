@@ -17,5 +17,14 @@ export default new Router({
     //   component: () =>
     //     import(/* webpackChunkName: "about" */ "./views/About.vue")
     // }
+    {
+      path: "/sidebar",
+      name: "sidebar",
+      component: () => import("./components/Sidebar.vue")
+    },
+    {
+      path: "*",
+      redirect: "/sidebar"
+    }
   ]
 });
