@@ -3,12 +3,16 @@
     <a-layout-sider collapsible v-model="collapsed">
       <div class="logo" />
       <a-menu theme="dark" :defaultSelectedKeys="['']" mode="inline">
-        <a-sub-menu :key="teacheringWork">
+        <a-sub-menu key="teacheringWork">
           <span slot="title"> <a-icon type="user" /><span>教学工作</span></span>
-          <a-menu-item key="teacheringWork_classroomTeaching"
+          <a-menu-item
+            key="teacheringWork_classroomTeaching"
+            @click="() => jump('/classroomTeaching')"
             >课堂教学</a-menu-item
           >
-          <a-menu-item key="teacheringWork_experimentalPracticeTeaching"
+          <a-menu-item
+            key="
+                       teacheringWork_experimentalPracticeTeaching"
             >实验实践教学</a-menu-item
           >
           <a-menu-item key="teacheringWork_internshipGuide"
@@ -29,7 +33,7 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu :key="scientificResearch">
+        <a-sub-menu key="scientificResearch">
           <span slot="title"> <a-icon type="user" /><span>科学研究</span></span>
           <a-menu-item key="scientificResearch_longitudinalTopicsProject"
             >纵向课题项目</a-menu-item
@@ -45,7 +49,7 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu :key="teachingConstruction">
+        <a-sub-menu key="teachingConstruction">
           <span slot="title">
             <a-icon type="user" /><span>教改教研教学建设</span></span
           >
@@ -69,7 +73,7 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu :key="publicAffairs">
+        <a-sub-menu key="publicAffairs">
           <span slot="title"> <a-icon type="user" /><span>公共事务</span></span>
           <a-menu-item key="publicAffairs_admissions">招生</a-menu-item>
           <a-menu-item key="publicAffairs_employment">就业</a-menu-item>
@@ -80,7 +84,7 @@
           <a-menu-item key="publicAffairs_socialServices">社会服务</a-menu-item>
         </a-sub-menu>
 
-        <a-sub-menu :key="others">
+        <a-sub-menu key="others">
           <span slot="title"> <a-icon type="user" /><span>其他部分</span></span>
           <a-menu-item key="others_annualReviewStatus"
             >年度考核情况</a-menu-item
@@ -97,15 +101,23 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
-    <a-layout> </a-layout>
+    <a-layout>
+      <router-view />
+    </a-layout>
   </a-layout>
 </template>
 <script>
+import router from "../router";
 export default {
   data() {
     return {
       collapsed: false
     };
+  },
+  methods: {
+    jump(address) {
+      this.$router.push(address);
+    }
   }
 };
 </script>

@@ -20,7 +20,15 @@ export default new Router({
     {
       path: "/sidebar",
       name: "sidebar",
-      component: () => import("./components/Sidebar.vue")
+      component: () => import("./components/Sidebar.vue"),
+      children: [
+        {
+          path: "/classroomTeaching",
+          name: "classroomTeaching",
+          component: () =>
+            import("./views/teacheringWork/ClassroomTeaching.vue")
+        }
+      ]
     },
     {
       path: "*",
