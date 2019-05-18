@@ -81,33 +81,11 @@ const columns = [
   }
 ];
 
-const data = [];
-for (let i = 0; i < 100; i++) {
-  data.push({
-    key: i,
-    name: `课程名称 ${i}`,
-    character: `课程性质 ${i}`,
-    type: `授课形式 ${i}`,
-    yesorno: `是否 ${i}`,
-    credits: `学分 ${i}`,
-    hours: `学时 ${i}`,
-    classesNumber: `授课班个数 ${i}`,
-    parallelClassesNumber: `平行班个数 ${i}`,
-    homeworkNumber: `作业次数 ${i}`,
-    correctingNumber: `批改次数 ${i}`,
-    answeringNumber: `答疑次数 ${i}`,
-    note: `备注 ${i}`,
-    year: `学年 ${i}`,
-    semester: `学期 ${i}`,
-    status: `审核情况 ${i}`
-  });
-}
-
 export default {
   components: { floder, edit },
   data() {
     return {
-      data,
+      data: [],
       columns
     };
   },
@@ -117,6 +95,47 @@ export default {
       this.data = data.filter(item => item.key !== key);
     }
   },
-  mounted: {}
+  mounted() {
+    this.axios
+      .post(
+        "/fruitClassTeaching/findClassTeaching",
+        this.qs.stringify({
+          classTeacher: this.$store.state.teacherid,
+          pageNum: 1,
+          pageSize: 9
+        }),
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        }
+      )
+      .then(
+        function(res) {
+          console.log(res.data);
+          //每条数据需要一个唯一的key值
+          for (let index = 0; index < res.data.list.length; index++) {
+            var str = JSON.stringify(res.data.list[index]);
+            str = str.split("}")[0];
+            str = str + ',"key":' + index + "}";
+            console.log(str);
+            res.data.list[index] = JSON.parse(str);
+            console.log(res.data.list[index]);
+          }
+          this.data = res.data.list;
+          //控制台打印请求成功时返回的数据
+          //bind(this)可以不用
+        }.bind(this)
+      )
+      .catch(
+        function(err) {
+          if (err.response) {
+            console.log(err.response);
+            //控制台打印错误返回的内容
+          }
+          //bind(this)可以不用
+        }.bind(this)
+      );
+  }
 };
 </script>

@@ -273,6 +273,33 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
+          {
+            this.axios
+              .post(
+                "/fruitClassTeaching/commitClassTeaching",
+                this.qs.stringify({}),
+                {
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              )
+              .then(
+                function(res) {
+                  console.log(res.data);
+                  //每条数据需要一个唯一的key值
+                }.bind(this)
+              )
+              .catch(
+                function(err) {
+                  if (err.response) {
+                    console.log(err.response);
+                    //控制台打印错误返回的内容
+                  }
+                  //bind(this)可以不用
+                }.bind(this)
+              );
+          }
         }
       });
     }
