@@ -1,11 +1,11 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">新建</a-button>
+    <a-button type="primary" @click="showModal">修改</a-button>
     <a-modal
-      title="正在新添加课堂教学内容"
+      title="正在修改课堂教学内容"
       :visible="visible"
       @ok="handleOk"
-      okText="确认添加"
+      okText="确认修改"
       cancelText="取消"
       :maskClosable="false"
       :confirmLoading="confirmLoading"
@@ -249,9 +249,11 @@
 </template>
 <script>
 export default {
+  props: {
+    editData: {}
+  },
   data() {
     return {
-      ModalText: "Content of the modal",
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this)
@@ -260,8 +262,24 @@ export default {
   methods: {
     showModal() {
       this.visible = true;
+      console.log(this.editData);
+      setTimeout(() => {
+        this.form.setFieldsValue({
+          name: this.editData.name,
+          credits: this.editData.credits,
+          hours: this.editData.hours,
+          classesNumber: this.editData.classesNumber,
+          parallelClassesNumber: this.editData.parallelClassesNumber,
+          homeworkNumber: this.editData.homeworkNumber,
+          correctingNumber: this.editData.correctingNumber,
+          answeringNumber: this.editData.answeringNumber,
+          note: this.editData.note,
+          semester: this.editData.semester
+        });
+      }, 0);
     },
     handleOk(e) {
+      this.ModalText = "The modal will be closed after two seconds";
       this.confirmLoading = true;
       this.handleSubmit(e);
     },

@@ -8,7 +8,10 @@
         :dataSource="data"
         :scroll="{ x: 3300, y: 610 }"
       >
-        <template slot="operation" slot-scope="text, record">
+        <template slot="operation1" slot-scope="text, record">
+          <edit :editData="data[record.key]"></edit>
+        </template>
+        <template slot="operation2" slot-scope="text, record">
           <a-popconfirm
             v-if="data.length"
             title="点击确认以删除?"
@@ -25,7 +28,8 @@
 </template>
 
 <script>
-import floder from "./Floder";
+import floder from "./Floder.vue";
+import edit from "./Edit.vue";
 const columns = [
   {
     title: "课程名称",
@@ -61,11 +65,19 @@ const columns = [
   },
   {
     title: "操作",
-    dataIndex: "operation",
+    dataIndex: "operation1",
     key: "16",
-    width: 200,
+    width: 100,
     fixed: "right",
-    scopedSlots: { customRender: "operation" }
+    scopedSlots: { customRender: "operation1" }
+  },
+  {
+    title: "",
+    dataIndex: "operation2",
+    key: "17",
+    width: 100,
+    fixed: "right",
+    scopedSlots: { customRender: "operation2" }
   }
 ];
 
@@ -92,19 +104,19 @@ for (let i = 0; i < 100; i++) {
 }
 
 export default {
-  components: { floder },
+  components: { floder, edit },
   data() {
     return {
       data,
-      columns,
-      floder
+      columns
     };
   },
   methods: {
-    onDelete(key, record) {
+    onDelete(key) {
       const data = [...this.data];
       this.data = data.filter(item => item.key !== key);
     }
-  }
+  },
+  mounted: {}
 };
 </script>
