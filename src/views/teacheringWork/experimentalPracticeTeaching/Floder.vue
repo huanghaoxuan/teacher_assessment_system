@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">新建</a-button>
     <a-modal
-      title="正在新添加课堂教学内容"
+      title="正在新添加实验实践教学内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认添加"
@@ -13,129 +13,83 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="课程名称"
+          label="实验课程名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '课程名称不能为空' }] }
+              { rules: [{ required: true, message: '实验课程名称不能为空' }] }
             ]"
-            placeholder="请输入课程名称'"
+            placeholder="请输入实验课程名称'"
           />
         </a-form-item>
         <a-form-item
-          label="课程性质"
+          label="角色"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
               'character',
-              { rules: [{ required: true, message: '课程性质不能为空' }] }
+              { rules: [{ required: true, message: '角色不能为空' }] }
             ]"
           >
-            <a-radio value="通识基础">
-              通识基础
+            <a-radio value="第一指导">
+              第一指导
             </a-radio>
-            <a-radio value="专业基础">
-              专业基础
+            <a-radio value="第二指导">
+              第二指导
             </a-radio>
-            <a-radio value="专业主干">
-              专业主干
+            <a-radio value="第三指导">
+              第三指导
             </a-radio>
-            <a-radio value="专业方向">
-              专业方向
-            </a-radio>
-            <a-radio value="素质类选修课">
-              素质类选修课
+            <a-radio value="参与">
+              参与
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="授课形式"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'type',
-              { rules: [{ required: true, message: '授课形式不能为空' }] }
-            ]"
-          >
-            <a-radio value="讲授为主">
-              讲授为主
-            </a-radio>
-            <a-radio value="理论和实践对半">
-              理论和实践对半
-            </a-radio>
-            <a-radio value="实践为主">
-              实践为主
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="是否"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'yesorno',
-              { rules: [{ required: true, message: '是否不能为空' }] }
-            ]"
-          >
-            <a-radio value="新开课">
-              新开课
-            </a-radio>
-            <a-radio value="整合课">
-              整合课
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="学分"
+          label="总时数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'credits',
-              { rules: [{ required: true, message: '学分不能为空' }] }
+              'allTime',
+              { rules: [{ required: true, message: '总时数不能为空' }] }
             ]"
-            placeholder="请输入学分'"
+            placeholder="请输入总时数'"
           />
         </a-form-item>
 
         <a-form-item
-          label="学时"
+          label="周学时"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'hours',
-              { rules: [{ required: true, message: '学时不能为空' }] }
+              'weekTime',
+              { rules: [{ required: true, message: '周学时不能为空' }] }
             ]"
-            placeholder="请输入学时'"
+            placeholder="请输入周学时'"
           />
         </a-form-item>
 
         <a-form-item
-          label="授课班个数"
+          label="学生人数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'classesNumber',
-              { rules: [{ required: true, message: '授课班个数不能为空' }] }
+              'studentNumber',
+              { rules: [{ required: true, message: '学生人数不能为空' }] }
             ]"
-            placeholder="请输入授课班个数'"
+            placeholder="请输入学生人数'"
           />
         </a-form-item>
 
@@ -154,16 +108,87 @@
         </a-form-item>
 
         <a-form-item
-          label="作业次数"
+          label="每班分组次数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'homeworkNumber',
-              { rules: [{ required: true, message: '作业次数不能为空' }] }
+              'groupingPerClassNumber',
+              { rules: [{ required: true, message: '每班分组次数不能为空' }] }
             ]"
-            placeholder="请输入作业次数'"
+            placeholder="请输入每班分组次数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="指导教师人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'instructorsNumber',
+              { rules: [{ required: true, message: '指导教师人数不能为空' }] }
+            ]"
+            placeholder="请输入指导教师人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="实验类型"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-checkbox-group
+            v-decorator="[
+              'experimentType',
+              { rules: [{ required: true, message: '实验类型不能为空' }] }
+            ]"
+            placeholder="请输入实验类型'"
+            style="width: 100%;"
+          >
+            <a-row>
+              <a-col :span="8">
+                <a-checkbox value="演示性">
+                  演示性
+                </a-checkbox>
+              </a-col>
+              <a-col :span="8">
+                <a-checkbox value="验证性">
+                  验证性
+                </a-checkbox>
+              </a-col>
+              <a-col :span="8">
+                <a-checkbox value="设计性">
+                  设计性
+                </a-checkbox>
+              </a-col>
+              <a-col :span="8">
+                <a-checkbox value="综合性">
+                  综合性
+                </a-checkbox>
+              </a-col>
+              <a-col :span="8">
+                <a-checkbox value="创新性">
+                  创新性
+                </a-checkbox>
+              </a-col>
+            </a-row>
+          </a-checkbox-group>
+        </a-form-item>
+
+        <a-form-item
+          label="交试验报告次数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'reportsNumber',
+              { rules: [{ required: true, message: '交试验报告次数不能为空' }] }
+            ]"
+            placeholder="请输入交试验报告次数'"
           />
         </a-form-item>
 
@@ -174,24 +199,10 @@
         >
           <a-input
             v-decorator="[
-              'correctingNumber',
+              'correctionsNumber',
               { rules: [{ required: true, message: '批改次数不能为空' }] }
             ]"
             placeholder="请输入批改次数'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="答疑次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'answeringNumber',
-              { rules: [{ required: true, message: '答疑次数不能为空' }] }
-            ]"
-            placeholder="请输入答疑次数'"
           />
         </a-form-item>
 

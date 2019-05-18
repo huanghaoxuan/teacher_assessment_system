@@ -11,17 +11,23 @@
             >课堂教学</a-menu-item
           >
           <a-menu-item
-            key="
-                       teacheringWork_experimentalPracticeTeaching"
+            key="teacheringWork_experimentalPracticeTeaching"
+            @click="() => jump('/experimentalPracticeTeaching/status')"
             >实验实践教学</a-menu-item
           >
-          <a-menu-item key="teacheringWork_internshipGuide"
+          <a-menu-item
+            key="teacheringWork_internshipGuide"
+            @click="() => jump('/internshipGuide/status')"
             >实习指导</a-menu-item
           >
-          <a-menu-item key="teacheringWork_practicalTrainingGuidance"
+          <a-menu-item
+            key="teacheringWork_practicalTrainingGuidance"
+            @click="() => jump('/practicalTrainingGuidance/status')"
             >实训指导</a-menu-item
           >
-          <a-menu-item key="teacheringWork_graduationDesignGuide"
+          <a-menu-item
+            key="teacheringWork_graduationDesignGuide"
+            @click="() => jump('/graduationDesignGuide/status')"
             >毕业设计指导</a-menu-item
           >
           <a-menu-item key="teacheringWork_guideTheGreatCreation"

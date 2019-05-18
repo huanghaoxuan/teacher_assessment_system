@@ -16,7 +16,31 @@ export default new Router({
           path: "/classroomTeaching/status",
           name: "classroomTeachingStatus",
           component: () =>
-            import("./views/teacheringWork/classroomTeaching/status.vue")
+            import("./views/teacheringWork/classroomTeaching/Status.vue")
+        },
+        {
+          path: "/experimentalPracticeTeaching/status",
+          name: "experimentalPracticeTeachingStatus",
+          component: () =>
+            import("./views/teacheringWork/experimentalPracticeTeaching/Status.vue")
+        },
+        {
+          path: "/internshipGuide/status",
+          name: "internshipGuideStatus",
+          component: () =>
+            import("./views/teacheringWork/internshipGuide/Status.vue")
+        },
+        {
+          path: "/practicalTrainingGuidance/status",
+          name: "practicalTrainingGuidanceStatus",
+          component: () =>
+            import("./views/teacheringWork/practicalTrainingGuidance/Status.vue")
+        },
+        {
+          path: "/graduationDesignGuide/status",
+          name: "graduationDesignGuideStatus",
+          component: () =>
+            import("./views/teacheringWork/graduationDesignGuide/Status.vue")
         }
       ]
     },
