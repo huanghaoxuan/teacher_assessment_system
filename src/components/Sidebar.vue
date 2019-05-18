@@ -7,7 +7,7 @@
           <span slot="title"> <a-icon type="user" /><span>教学工作</span></span>
           <a-menu-item
             key="teacheringWork_classroomTeaching"
-            @click="() => jump('/classroomTeaching')"
+            @click="() => jump('/classroomTeaching/status')"
             >课堂教学</a-menu-item
           >
           <a-menu-item

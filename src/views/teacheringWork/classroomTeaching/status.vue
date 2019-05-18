@@ -1,24 +1,31 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
-    <a-table
-      :columns="columns"
-      :dataSource="data"
-      :scroll="{ x: 3100, y: 600 }"
-    >
-      <template slot="operation" slot-scope="text, record">
-        <a-popconfirm
-          v-if="data.length"
-          title="确认删除?"
-          @confirm="() => onDelete(record.key)"
-        >
-          <a href="#">删除</a>
-        </a-popconfirm>
-      </template>
-    </a-table>
+    <a-card title="课堂教学">
+      <floder slot="extra"></floder>
+      <a-table
+        :pagination="{ defaultPageSize: 9 }"
+        :columns="columns"
+        :dataSource="data"
+        :scroll="{ x: 3300, y: 610 }"
+      >
+        <template slot="operation" slot-scope="text, record">
+          <a-popconfirm
+            v-if="data.length"
+            title="点击确认以删除?"
+            cancelText="取消"
+            okText="确认"
+            @confirm="() => onDelete(record.key)"
+          >
+            <a-button type="danger" @click="() => {}">删除</a-button>
+          </a-popconfirm>
+        </template>
+      </a-table>
+    </a-card>
   </div>
 </template>
 
 <script>
+import floder from "./Floder";
 const columns = [
   {
     title: "课程名称",
@@ -43,18 +50,19 @@ const columns = [
   { title: "批改次数", dataIndex: "correctingNumber", key: "10", width: 200 },
   { title: "答疑次数", dataIndex: "answeringNumber", key: "11", width: 200 },
   { title: "备注", dataIndex: "note", key: "12", width: 200 },
-  { title: "学年/学期", dataIndex: "year", key: "13", width: 200 },
+  { title: "学年", dataIndex: "year", key: "13", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "14", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "14",
+    key: "15",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation",
-    key: "15",
+    key: "16",
     width: 200,
     fixed: "right",
     scopedSlots: { customRender: "operation" }
@@ -77,16 +85,19 @@ for (let i = 0; i < 100; i++) {
     correctingNumber: `批改次数 ${i}`,
     answeringNumber: `答疑次数 ${i}`,
     note: `备注 ${i}`,
-    year: `学年/学期 ${i}`,
+    year: `学年 ${i}`,
+    semester: `学期 ${i}`,
     status: `审核情况 ${i}`
   });
 }
 
 export default {
+  components: { floder },
   data() {
     return {
       data,
-      columns
+      columns,
+      floder
     };
   },
   methods: {

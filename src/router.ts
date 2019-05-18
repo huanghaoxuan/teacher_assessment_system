@@ -23,10 +23,10 @@ export default new Router({
       component: () => import("./components/Sidebar.vue"),
       children: [
         {
-          path: "/classroomTeaching",
-          name: "classroomTeaching",
+          path: "/classroomTeaching/status",
+          name: "classroomTeachingStatus",
           component: () =>
-            import("./views/teacheringWork/ClassroomTeaching.vue")
+            import("./views/teacheringWork/classroomTeaching/status.vue")
         }
       ]
     },
