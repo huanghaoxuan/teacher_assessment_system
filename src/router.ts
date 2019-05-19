@@ -146,6 +146,28 @@ export default new Router({
           name: "socialServicesStatus",
           component: () =>
             import("./views/publicAffairs/socialServices/Status.vue")
+        },
+        {
+          path: "/annualReviewStatus/status",
+          name: "annualReviewStatusStatus",
+          component: () =>
+            import("./views/others/annualReviewStatus/Status.vue")
+        },
+        {
+          path: "/comprehensiveAwardWinning/status",
+          name: "comprehensiveAwardWinningStatus",
+          component: () =>
+            import("./views/others/comprehensiveAwardWinning/Status.vue")
+        },
+        {
+          path: "/files/status",
+          name: "filesStatus",
+          component: () => import("./views/others/files/Status.vue")
+        },
+        {
+          path: "/employment/status",
+          name: "employmentStatus",
+          component: () => import("./views/others/employment/Status.vue")
         }
       ]
     },

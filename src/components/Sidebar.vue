@@ -138,16 +138,22 @@
 
         <a-sub-menu key="others">
           <span slot="title"> <a-icon type="user" /><span>其他部分</span></span>
-          <a-menu-item key="others_annualReviewStatus"
+          <a-menu-item
+            key="others_annualReviewStatus"
+            @click="() => jump('/annualReviewStatus/status')"
             >年度考核情况</a-menu-item
           >
-          <a-menu-item key="others_comprehensiveAward-winning"
+          <a-menu-item
+            key="others_comprehensiveAwardWinning"
+            @click="() => jump('/comprehensiveAwardWinning/status')"
             >综合获奖</a-menu-item
           >
-          <a-menu-item key="others_files"
+          <a-menu-item key="others_files" @click="() => jump('/files/status')"
             >任职以来起草、制定的重要文件、报告</a-menu-item
           >
-          <a-menu-item key="others_employment"
+          <a-menu-item
+            key="others_employment"
+            @click="() => jump('/employment/status')"
             >任职以来所带已毕业班级就业率考研率违纪率情况</a-menu-item
           >
         </a-sub-menu>
