@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">修改</a-button>
     <a-modal
-      title="正在修改承担教研教改课题内容"
+      title="正在修改教材建设内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认修改"
@@ -13,183 +13,144 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="课题名称"
+          label="教材名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '课题名称不能为空' }] }
+              { rules: [{ required: true, message: '教材名称不能为空' }] }
             ]"
-            placeholder="请输入课题名称'"
+            placeholder="请输入教材名称'"
           />
         </a-form-item>
 
         <a-form-item
-          label="课题来源"
+          label="出版社"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
+          <a-input
             v-decorator="[
-              'source',
-              { rules: [{ required: true, message: '课题来源不能为空' }] }
+              'press',
+              { rules: [{ required: true, message: '出版社不能为空' }] }
             ]"
-            placeholder="请输入课题来源'"
-          >
-            <a-select-option value="国家级">
-              国家级
-            </a-select-option>
-            <a-select-option value="省部级">
-              省部级
-            </a-select-option>
-            <a-select-option value="市局级">
-              市局级
-            </a-select-option>
-            <a-select-option value="院级">
-              院级
-            </a-select-option>
-          </a-select>
+            placeholder="请输入出版社'"
+          />
         </a-form-item>
 
         <a-form-item
-          label="任务角色"
+          label="出版时间"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
+          <a-date-picker
+            v-decorator="[
+              'publicationTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '出版时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入出版时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="教材字数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'textbooksNumber',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '教材字数输入有误（请输入数字）'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入教材字数"
+            addonAfter="万字"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="本人贡献"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
             v-decorator="[
               'character',
-              { rules: [{ required: true, message: '任务角色不能为空' }] }
+              { rules: [{ required: true, message: '本人贡献不能为空' }] }
             ]"
-            placeholder="请输入任务角色'"
+            placeholder="请输入本人贡献'"
           >
-            <a-select-option value="负责人">
-              负责人
-            </a-select-option>
-            <a-select-option value="第二负责人">
-              第二负责人
-            </a-select-option>
-            <a-select-option value="主要参与人">
-              主要参与人
-            </a-select-option>
-            <a-select-option value="一般参与人">
-              一般参与人
-            </a-select-option>
-          </a-select>
-        </a-form-item>
-
-        <a-form-item
-          label="课题性质"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'type',
-              { rules: [{ required: true, message: '课题性质不能为空' }] }
-            ]"
-            placeholder="请输入课题性质"
-          >
-            <a-radio value="重点资助">
-              重点资助
+            <a-radio value="主编">
+              主编
             </a-radio>
-            <a-radio value="一般资助">
-              一般资助
+            <a-radio value="副主编">
+              副主编
             </a-radio>
-            <a-radio value="立项">
-              立项
+            <a-radio value="参编">
+              参编
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="项目状况"
+          label="是否"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
+          <a-checkbox-group
             v-decorator="[
-              'condition',
-              { rules: [{ required: true, message: '项目状况不能为空' }] }
+              'yesorno',
+              { rules: [{ required: true, message: '是否不能为空' }] }
             ]"
-            placeholder="请输入项目状况"
+            placeholder="请输入是否"
+            style="width: 100%;"
           >
-            <a-radio value="结题">
-              结题
-            </a-radio>
-            <a-radio value="在研">
-              在研
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="立项时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-date-picker
-            v-decorator="[
-              'startTime',
-              {
-                rules: [
-                  {
-                    type: 'object',
-                    required: true,
-                    message: '立项时间不能为空'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入立项时间"
-            style="width:100%"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="结题时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-date-picker
-            v-decorator="[
-              'endTime',
-              {
-                rules: [
-                  {
-                    type: 'object',
-                    required: true,
-                    message: '结题时间不能为空'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入结题时间"
-            style="width:100%"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="项目质量"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'result',
-              { rules: [{ required: true, message: '项目质量不能为空' }] }
-            ]"
-            placeholder="请输入项目质量"
-          >
-            <a-radio value="通过">
-              通过
-            </a-radio>
-            <a-radio value="优秀">
-              优秀
-            </a-radio>
-          </a-radio-group>
+            <a-row>
+              <a-col :span="24">
+                <a-checkbox value="规划教材">
+                  规划教材
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="获奖教材">
+                  获奖教材
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="教指委指定教材">
+                  教指委指定教材
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="应用教材">
+                  应用教材
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="校企合作编写教材">
+                  校企合作编写教材
+                </a-checkbox>
+              </a-col>
+            </a-row>
+          </a-checkbox-group>
         </a-form-item>
 
         <a-form-item
@@ -290,8 +251,7 @@ export default {
         if (!err) {
           const fieldsValue = {
             ...values,
-            startTime: values["startTime"].format("YYYY-MM-DD"),
-            endTime: values["endTime"].format("YYYY-MM-DD")
+            publicationTime: values["publicationTime"].format("YYYY-MM-DD")
           };
           console.log(fieldsValue);
         }

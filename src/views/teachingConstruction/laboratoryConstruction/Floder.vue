@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">新建</a-button>
     <a-modal
-      title="正在新添加承担教研教改课题内容"
+      title="正在新添加实验室建设内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认添加"
@@ -13,44 +13,19 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="课题名称"
+          label="开发实验项目名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '课题名称不能为空' }] }
+              {
+                rules: [{ required: true, message: '开发实验项目名称不能为空' }]
+              }
             ]"
-            placeholder="请输入课题名称'"
+            placeholder="请输入开发实验项目名称'"
           />
-        </a-form-item>
-
-        <a-form-item
-          label="课题来源"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-select
-            v-decorator="[
-              'source',
-              { rules: [{ required: true, message: '课题来源不能为空' }] }
-            ]"
-            placeholder="请输入课题来源'"
-          >
-            <a-select-option value="国家级">
-              国家级
-            </a-select-option>
-            <a-select-option value="省部级">
-              省部级
-            </a-select-option>
-            <a-select-option value="市局级">
-              市局级
-            </a-select-option>
-            <a-select-option value="院级">
-              院级
-            </a-select-option>
-          </a-select>
         </a-form-item>
 
         <a-form-item
@@ -58,138 +33,207 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
+          <a-radio-group
             v-decorator="[
               'character',
               { rules: [{ required: true, message: '任务角色不能为空' }] }
             ]"
             placeholder="请输入任务角色'"
           >
-            <a-select-option value="负责人">
-              负责人
-            </a-select-option>
-            <a-select-option value="第二负责人">
+            <a-radio value="建设项目负责人">
+              建设项目负责人
+            </a-radio>
+            <a-radio value="第二负责人">
               第二负责人
-            </a-select-option>
-            <a-select-option value="主要参与人">
-              主要参与人
-            </a-select-option>
-            <a-select-option value="一般参与人">
-              一般参与人
-            </a-select-option>
-          </a-select>
-        </a-form-item>
-
-        <a-form-item
-          label="课题性质"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'type',
-              { rules: [{ required: true, message: '课题性质不能为空' }] }
-            ]"
-            placeholder="请输入课题性质"
-          >
-            <a-radio value="重点资助">
-              重点资助
             </a-radio>
-            <a-radio value="一般资助">
-              一般资助
+            <a-radio value="主要参与者">
+              主要参与者
             </a-radio>
-            <a-radio value="立项">
-              立项
+            <a-radio value="一般参与者">
+              一般参与者
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="项目状况"
+          label="本人贡献"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
+          <a-checkbox-group
             v-decorator="[
-              'condition',
-              { rules: [{ required: true, message: '项目状况不能为空' }] }
+              'contribution',
+              { rules: [{ required: true, message: '本人贡献不能为空' }] }
             ]"
-            placeholder="请输入项目状况"
+            placeholder="请输入本人贡献"
+            style="width: 100%;"
           >
-            <a-radio value="结题">
-              结题
-            </a-radio>
-            <a-radio value="在研">
-              在研
-            </a-radio>
-          </a-radio-group>
+            <a-row>
+              <a-col :span="24">
+                <a-checkbox value="编制建设方案">
+                  编制建设方案
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="设备论证及采购">
+                  设备论证及采购
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="安装调试设备">
+                  安装调试设备
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="开发实验项目">
+                  开发实验项目
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="自制仪器设备">
+                  自制仪器设备
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="改制仪器设备">
+                  改制仪器设备
+                </a-checkbox>
+              </a-col>
+            </a-row>
+          </a-checkbox-group>
         </a-form-item>
 
         <a-form-item
-          label="立项时间"
+          label="对应学时"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-date-picker
+          <a-input
             v-decorator="[
-              'startTime',
+              'hours',
               {
                 rules: [
                   {
-                    type: 'object',
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
                     required: true,
-                    message: '立项时间不能为空'
+                    message: '对应学时输入有误（请输入数字）'
                   }
                 ]
               }
             ]"
-            placeholder="请输入立项时间"
-            style="width:100%"
+            placeholder="请输入对应学时"
+            addonAfter="小时"
           />
         </a-form-item>
 
         <a-form-item
-          label="结题时间"
+          label="收益人数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-date-picker
+          <a-input
             v-decorator="[
-              'endTime',
+              'peopleNumber',
               {
                 rules: [
                   {
-                    type: 'object',
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
                     required: true,
-                    message: '结题时间不能为空'
+                    message: '收益人数输入有误（请输入数字）'
                   }
                 ]
               }
             ]"
-            placeholder="请输入结题时间"
-            style="width:100%"
+            placeholder="请输入收益人数"
+            addonAfter="人"
           />
         </a-form-item>
 
         <a-form-item
-          label="项目质量"
+          label="适用专业"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
+          <a-input
             v-decorator="[
-              'result',
-              { rules: [{ required: true, message: '项目质量不能为空' }] }
+              'professional',
+              {
+                rules: [{ required: true, message: '适用专业不能为空' }]
+              }
             ]"
-            placeholder="请输入项目质量"
-          >
-            <a-radio value="通过">
-              通过
-            </a-radio>
-            <a-radio value="优秀">
-              优秀
-            </a-radio>
-          </a-radio-group>
+            placeholder="请输入适用专业'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="适用年级"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'grade',
+              {
+                rules: [{ required: true, message: '适用年级不能为空' }]
+              }
+            ]"
+            placeholder="请输入适用年级'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="自制装置名称"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'controlDeviceName',
+              {
+                rules: [{ required: true, message: '自制装置名称不能为空' }]
+              }
+            ]"
+            placeholder="请输入自制装置名称'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="改制装置名称"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'reformingDeviceName',
+              {
+                rules: [{ required: true, message: '改制装置名称不能为空' }]
+              }
+            ]"
+            placeholder="请输入改制装置名称'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="节省经费数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'money',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '节省经费数输入有误（请输入数字）'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入节省经费数"
+            addonAfter="万元"
+          />
         </a-form-item>
 
         <a-form-item
@@ -277,12 +321,7 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          const fieldsValue = {
-            ...values,
-            startTime: values["startTime"].format("YYYY-MM-DD"),
-            endTime: values["endTime"].format("YYYY-MM-DD")
-          };
-          console.log(fieldsValue);
+          console.log(values);
           {
             this.axios
               .post(

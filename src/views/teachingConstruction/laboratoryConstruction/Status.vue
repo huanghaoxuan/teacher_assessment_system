@@ -1,6 +1,6 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
-    <a-card title="承担教研教改课题">
+    <a-card title="实验室建设">
       <floder slot="extra"></floder>
       <a-table
         :pagination="{ defaultPageSize: 9 }"
@@ -32,48 +32,55 @@ import floder from "./Floder.vue";
 import edit from "./Edit.vue";
 const columns = [
   {
-    title: "课题名称",
+    title: "开发实验项目名称",
     width: 200,
     dataIndex: "name",
     key: "1",
     fixed: "left"
   },
-  { title: "课题来源", dataIndex: "source", key: "2", width: 200 },
   {
     title: "任务角色",
     dataIndex: "character",
-    key: "3",
+    key: "2",
     width: 200
   },
+  { title: "本人贡献", dataIndex: "contribution", key: "3", width: 200 },
   {
-    title: "课题性质",
-    dataIndex: "type",
+    title: "对应学时",
+    dataIndex: "hours",
     key: "4",
     width: 200
   },
+  { title: "收益人数", dataIndex: "peopleNumber", key: "5", width: 200 },
+  { title: "适用专业", dataIndex: "professional", key: "6", width: 200 },
+  { title: "适用年级", dataIndex: "grade", key: "7", width: 200 },
   {
-    title: "项目状况",
-    dataIndex: "condition",
-    key: "5",
+    title: "自制装置名称",
+    dataIndex: "controlDeviceName",
+    key: "8",
     width: 200
   },
-  { title: "立项时间", dataIndex: "startTime", key: "6", width: 200 },
-  { title: "结题时间", dataIndex: "endTime", key: "7", width: 200 },
-  { title: "项目质量", dataIndex: "result", key: "8", width: 200 },
-  { title: "备注", dataIndex: "note", key: "9", width: 200 },
-  { title: "学年", dataIndex: "year", key: "10", width: 200 },
-  { title: "学期", dataIndex: "semester", key: "11", width: 200 },
+  {
+    title: "改制装置名称",
+    dataIndex: "reformingDeviceName",
+    key: "9",
+    width: 200
+  },
+  { title: "节省经费数", dataIndex: "money", key: "10", width: 200 },
+  { title: "备注", dataIndex: "note", key: "11", width: 200 },
+  { title: "学年", dataIndex: "year", key: "12", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "13", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "12",
+    key: "14",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation1",
-    key: "13",
+    key: "15",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation1" }
@@ -81,7 +88,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "14",
+    key: "16",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }

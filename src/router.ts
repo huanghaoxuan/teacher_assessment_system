@@ -89,6 +89,36 @@ export default new Router({
           name: "teachingTopicsStatus",
           component: () =>
             import("./views/teachingConstruction/teachingTopics/Status.vue")
+        },
+        {
+          path: "/teachingActivities/status",
+          name: "teachingActivitiesStatus",
+          component: () =>
+            import("./views/teachingConstruction/teachingActivities/Status.vue")
+        },
+        {
+          path: "/comprehensiveReform/status",
+          name: "comprehensiveReformStatus",
+          component: () =>
+            import("./views/teachingConstruction/comprehensiveReform/Status.vue")
+        },
+        {
+          path: "/curriculumConstruction/status",
+          name: "curriculumConstructionStatus",
+          component: () =>
+            import("./views/teachingConstruction/curriculumConstruction/Status.vue")
+        },
+        {
+          path: "/textbookConstruction/status",
+          name: "textbookConstructionStatus",
+          component: () =>
+            import("./views/teachingConstruction/textbookConstruction/Status.vue")
+        },
+        {
+          path: "/laboratoryConstruction/status",
+          name: "laboratoryConstructionStatus",
+          component: () =>
+            import("./views/teachingConstruction/laboratoryConstruction/Status.vue")
         }
       ]
     },

@@ -80,19 +80,28 @@
             @click="() => jump('/teachingTopics/status')"
             >承担教研教改课题</a-menu-item
           >
-          <a-menu-item key="teachingConstruction_teachingActivities"
+          <a-menu-item
+            key="teachingConstruction_teachingActivities"
+            @click="() => jump('/teachingActivities/status')"
             >日常教研活动</a-menu-item
           >
-          <a-menu-item key="teachingConstruction_comprehensiveReform"
+          <a-menu-item
+            key="teachingConstruction_comprehensiveReform"
+            @click="() => jump('/comprehensiveReform/status')"
             >专业建设、专业综合改革</a-menu-item
           >
-          <a-menu-item key="teachingConstruction_curriculumConstruction"
+          <a-menu-item
+            key="teachingConstruction_curriculumConstruction"
+            @click="() => jump('/curriculumConstruction/status')"
             >课程建设</a-menu-item
           >
-          <a-menu-item key="teachingConstruction_textbookConstruction"
+          <a-menu-item
+            key="teachingConstruction_textbookConstruction"
+            @click="() => jump('/textbookConstruction/status')"
             >教材建设</a-menu-item
           >
           <a-menu-item key="teachingConstruction_laboratoryConstruction"
+          @click="() => jump('/laboratoryConstruction/status')"
             >实验室建设</a-menu-item
           >
         </a-sub-menu>
