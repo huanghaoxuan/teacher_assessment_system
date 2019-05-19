@@ -100,21 +100,40 @@
             @click="() => jump('/textbookConstruction/status')"
             >教材建设</a-menu-item
           >
-          <a-menu-item key="teachingConstruction_laboratoryConstruction"
-          @click="() => jump('/laboratoryConstruction/status')"
+          <a-menu-item
+            key="teachingConstruction_laboratoryConstruction"
+            @click="() => jump('/laboratoryConstruction/status')"
             >实验室建设</a-menu-item
           >
         </a-sub-menu>
 
         <a-sub-menu key="publicAffairs">
           <span slot="title"> <a-icon type="user" /><span>公共事务</span></span>
-          <a-menu-item key="publicAffairs_admissions">招生</a-menu-item>
-          <a-menu-item key="publicAffairs_employment">就业</a-menu-item>
-          <a-menu-item key="publicAffairs_counselor">辅导员</a-menu-item>
-          <a-menu-item key="publicAffairs_secondClassroom"
+          <a-menu-item
+            key="publicAffairs_admissions"
+            @click="() => jump('/admissions/status')"
+            >招生</a-menu-item
+          >
+          <a-menu-item
+            key="publicAffairs_employment"
+            @click="() => jump('/employment/status')"
+            >就业</a-menu-item
+          >
+          <a-menu-item
+            key="publicAffairs_counselor"
+            @click="() => jump('/counselor/status')"
+            >辅导员</a-menu-item
+          >
+          <a-menu-item
+            key="publicAffairs_secondClassroom"
+            @click="() => jump('/secondClassroom/status')"
             >第二课堂</a-menu-item
           >
-          <a-menu-item key="publicAffairs_socialServices">社会服务</a-menu-item>
+          <a-menu-item
+            key="publicAffairs_socialServices"
+            @click="() => jump('/socialServices/status')"
+            >社会服务</a-menu-item
+          >
         </a-sub-menu>
 
         <a-sub-menu key="others">

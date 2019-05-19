@@ -119,6 +119,33 @@ export default new Router({
           name: "laboratoryConstructionStatus",
           component: () =>
             import("./views/teachingConstruction/laboratoryConstruction/Status.vue")
+        },
+        {
+          path: "/admissions/status",
+          name: "admissionsStatus",
+          component: () => import("./views/publicAffairs/admissions/Status.vue")
+        },
+        {
+          path: "/employment/status",
+          name: "employmentStatus",
+          component: () => import("./views/publicAffairs/employment/Status.vue")
+        },
+        {
+          path: "/counselor/status",
+          name: "counselorStatus",
+          component: () => import("./views/publicAffairs/counselor/Status.vue")
+        },
+        {
+          path: "/secondClassroom/status",
+          name: "secondClassroomStatus",
+          component: () =>
+            import("./views/publicAffairs/secondClassroom/Status.vue")
+        },
+        {
+          path: "/socialServices/status",
+          name: "socialServicesStatus",
+          component: () =>
+            import("./views/publicAffairs/socialServices/Status.vue")
         }
       ]
     },
