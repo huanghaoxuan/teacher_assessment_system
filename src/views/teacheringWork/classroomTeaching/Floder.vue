@@ -301,7 +301,8 @@ export default {
                 }.bind(this)
               );
           }
-        } this.confirmLoading = false;
+        }
+        this.confirmLoading = false;
       });
     }
   }

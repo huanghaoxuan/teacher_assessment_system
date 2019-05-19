@@ -13,201 +13,167 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="项目名称"
+          label="竞赛名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '项目名称不能为空' }] }
+              { rules: [{ required: true, message: '竞赛名称不能为空' }] }
             ]"
-            placeholder="请输入项目名称'"
+            placeholder="请输入竞赛名称'"
           />
         </a-form-item>
 
         <a-form-item
-          label="项目级别"
+          label="竞赛级别"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
+          <a-select
             v-decorator="[
               'level',
-              { rules: [{ required: true, message: '项目级别不能为空' }] }
+              { rules: [{ required: true, message: '竞赛级别不能为空' }] }
             ]"
-            placeholder="请输入项目级别"
+            placeholder="请输入竞赛级别"
           >
-            <a-radio value="省级">
+            <a-select-option value="国际">
+              国际
+            </a-select-option>
+            <a-select-option value="全国">
+              全国
+            </a-select-option>
+            <a-select-option value="大区">
+              大区
+            </a-select-option>
+            <a-select-option value="省级">
               省级
-            </a-radio>
-            <a-radio value="院级">
+            </a-select-option>
+            <a-select-option value="市级">
+              市级
+            </a-select-option>
+            <a-select-option value="院级">
               院级
-            </a-radio>
-          </a-radio-group>
+            </a-select-option>
+            <a-select-option value="系级">
+              系级
+            </a-select-option>
+          </a-select>
         </a-form-item>
 
         <a-form-item
-          label="选题来源"
+          label="特等奖人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'prizePersonsNumber',
+              { rules: [{ required: true, message: '特等奖人数不能为空' }] }
+            ]"
+            placeholder="请输入特等奖人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="一等奖人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'firstPersonsNumber',
+              { rules: [{ required: true, message: '一等奖人数不能为空' }] }
+            ]"
+            placeholder="请输入一等奖人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="二等奖人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'secondPersonsNumber',
+              { rules: [{ required: true, message: '二等奖人数不能为空' }] }
+            ]"
+            placeholder="请输入二等奖人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="三等奖人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'thirdPersonsNumber',
+              { rules: [{ required: true, message: '三等奖人数不能为空' }] }
+            ]"
+            placeholder="请输入三等奖人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="优秀奖人数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'outstandingAwardsNumber',
+              { rules: [{ required: true, message: '优秀奖人数不能为空' }] }
+            ]"
+            placeholder="请输入优秀奖人数'"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="指导形式"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
               'source',
-              { rules: [{ required: true, message: '选题来源不能为空' }] }
+              { rules: [{ required: true, message: '指导形式不能为空' }] }
             ]"
-            placeholder="请输入选题来源"
+            placeholder="请输入指导形式"
           >
-            <a-radio value="教师">
-              教师
+            <a-radio value="第一指导">
+              第一指导
             </a-radio>
-            <a-radio value="学生">
-              学生
+            <a-radio value="第二指导">
+              第二指导
+            </a-radio>
+            <a-radio value="参与指导">
+              参与指导
+            </a-radio>
+            <a-radio value="培训指导">
+              培训指导
+            </a-radio>
+            <a-radio value="组织管理">
+              组织管理
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="项目状况"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'projectStatus',
-              { rules: [{ required: true, message: '项目状况不能为空' }] }
-            ]"
-            placeholder="请输入项目状况"
-          >
-            <a-radio value="在研">
-              在研
-            </a-radio>
-            <a-radio value="结题">
-              结题
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="结题等级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'titleLevel',
-              { rules: [{ required: true, message: '结题等级不能为空' }] }
-            ]"
-            placeholder="请输入结题等级"
-          >
-            <a-radio value="在研">
-              在研
-            </a-radio>
-            <a-radio value="结题">
-              结题
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="学生年级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'studentGrade',
-              { rules: [{ required: true, message: '学生年级不能为空' }] }
-            ]"
-            placeholder="请输入学生年级"
-          >
-            <a-radio value="一年级">
-              一年级
-            </a-radio>
-            <a-radio value="二年级">
-              二年级
-            </a-radio>
-            <a-radio value="三年级">
-              三年级
-            </a-radio>
-            <a-radio value="四年级">
-              四年级
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="学生人数"
+          label="指导教师人数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'studentNumber',
-              { rules: [{ required: true, message: '学生人数不能为空' }] }
+              'instructorsNumber',
+              { rules: [{ required: true, message: '指导教师人数不能为空' }] }
             ]"
-            placeholder="请输入学生人数"
+            placeholder="请输入指导教师人数"
           />
-        </a-form-item>
-
-        <a-form-item
-          label="项目影响"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'effect',
-              { rules: [{ required: true, message: '项目影响不能为空' }] }
-            ]"
-            placeholder="请输入项目影响"
-          >
-            <a-radio value="院级">
-              院级
-            </a-radio>
-            <a-radio value="媒体">
-              媒体
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="指导人数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'mentorsNumber',
-              { rules: [{ required: true, message: '指导人数不能为空' }] }
-            ]"
-            placeholder="请输入指导人数"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="指导等级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'mentorsLevel',
-              { rules: [{ required: true, message: '指导等级不能为空' }] }
-            ]"
-            placeholder="请输入指导等级"
-          >
-            <a-radio value="项目负责人">
-              项目负责人
-            </a-radio>
-            <a-radio value="主要贡献者">
-              主要贡献者
-            </a-radio>
-            <a-radio value="参与者">
-              参与者
-            </a-radio>
-          </a-radio-group>
         </a-form-item>
 
         <a-form-item
@@ -299,7 +265,8 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
-        } this.confirmLoading = false;
+        }
+        this.confirmLoading = false;
       });
     }
   }

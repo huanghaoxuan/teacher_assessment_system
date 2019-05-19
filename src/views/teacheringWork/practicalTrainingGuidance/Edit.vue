@@ -246,7 +246,8 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
-        } this.confirmLoading = false;
+        }
+        this.confirmLoading = false;
       });
     }
   }
