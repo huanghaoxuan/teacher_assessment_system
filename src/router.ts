@@ -59,6 +59,18 @@ export default new Router({
           name: "teachingAwardsStatus",
           component: () =>
             import("./views/teacheringWork/teachingAwards/Status.vue")
+        },
+        {
+          path: "/longitudinalTopicsProject/status",
+          name: "longitudinalTopicsProjectStatus",
+          component: () =>
+            import("./views/scientificResearch/longitudinalTopicsProject/Status.vue")
+        },
+        {
+          path: "/horizontalTopicProjects/status",
+          name: "horizontalTopicProjectsStatus",
+          component: () =>
+            import("./views/scientificResearch/horizontalTopicProjects/Status.vue")
         }
       ]
     },

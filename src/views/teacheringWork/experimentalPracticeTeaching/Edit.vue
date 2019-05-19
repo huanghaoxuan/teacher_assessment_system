@@ -59,9 +59,18 @@
           <a-input
             v-decorator="[
               'allTime',
-              { rules: [{ required: true, message: '总时数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '总时数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入总时数'"
+            addonAfter="小时"
           />
         </a-form-item>
 
@@ -73,9 +82,18 @@
           <a-input
             v-decorator="[
               'weekTime',
-              { rules: [{ required: true, message: '周学时不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '周学时输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入周学时'"
+            addonAfter="小时"
           />
         </a-form-item>
 
@@ -87,9 +105,18 @@
           <a-input
             v-decorator="[
               'studentNumber',
-              { rules: [{ required: true, message: '学生人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学生人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
-            placeholder="请输入学生人数'"
+            placeholder="请输入学生人数"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -101,9 +128,18 @@
           <a-input
             v-decorator="[
               'parallelClassesNumber',
-              { rules: [{ required: true, message: '平行班个数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '平行班个数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入平行班个数'"
+            addonAfter="个"
           />
         </a-form-item>
 
@@ -115,9 +151,18 @@
           <a-input
             v-decorator="[
               'groupingPerClassNumber',
-              { rules: [{ required: true, message: '每班分组次数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '每班分组次数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入每班分组次数'"
+            addonAfter="次"
           />
         </a-form-item>
 
@@ -129,9 +174,18 @@
           <a-input
             v-decorator="[
               'instructorsNumber',
-              { rules: [{ required: true, message: '指导教师人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '指导教师人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入指导教师人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -186,9 +240,18 @@
           <a-input
             v-decorator="[
               'reportsNumber',
-              { rules: [{ required: true, message: '交试验报告次数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '交试验报告次数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入交试验报告次数"
+            addonAfter="次"
           />
         </a-form-item>
 
@@ -200,9 +263,18 @@
           <a-input
             v-decorator="[
               'correctionsNumber',
-              { rules: [{ required: true, message: '批改次数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '批改次数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入批改次数'"
+            addonAfter="次"
           />
         </a-form-item>
 
@@ -225,12 +297,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input-number
+          <a-input
             v-decorator="[
-              'input-number',
-              { rules: [{ required: true, message: '学年输入有误' }] }
+              'year',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学年输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学年'"
+            addonAfter="年"
           />
         </a-form-item>
 
@@ -286,7 +367,7 @@ export default {
           reportsNumber: this.editData.reportsNumber,
           correctionsNumber: this.editData.correctionsNumber,
           note: this.editData.note,
-          semester: this.editData.semester
+          year: this.editData.year
         });
       }, 0);
     },

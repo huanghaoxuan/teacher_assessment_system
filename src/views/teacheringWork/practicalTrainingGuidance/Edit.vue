@@ -34,9 +34,18 @@
           <a-input
             v-decorator="[
               'credits',
-              { rules: [{ required: true, message: '学分不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '学分输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学分'"
+            addonAfter="分"
           />
         </a-form-item>
 
@@ -48,9 +57,18 @@
           <a-input
             v-decorator="[
               'hours',
-              { rules: [{ required: true, message: '时长不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '时长输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入时长'"
+            addonAfter="小时"
           />
         </a-form-item>
 
@@ -62,9 +80,18 @@
           <a-input
             v-decorator="[
               'studentNumber',
-              { rules: [{ required: true, message: '学生人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学生人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学生人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -76,9 +103,18 @@
           <a-input
             v-decorator="[
               'loopsNumber',
-              { rules: [{ required: true, message: '循环次数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '循环次数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入循环次数"
+            addonAfter="次"
           />
         </a-form-item>
 
@@ -173,12 +209,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input-number
+          <a-input
             v-decorator="[
-              'input-number',
-              { rules: [{ required: true, message: '学年输入有误' }] }
+              'year',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学年输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学年'"
+            addonAfter="年"
           />
         </a-form-item>
 
@@ -230,7 +275,7 @@ export default {
           studentNumber: this.editData.studentNumber,
           loopsNumber: this.editData.loopsNumber,
           note: this.editData.note,
-          semester: this.editData.semester
+          year: this.editData.year
         });
       }, 0);
     },

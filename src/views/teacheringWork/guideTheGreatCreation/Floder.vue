@@ -145,9 +145,18 @@
           <a-input
             v-decorator="[
               'studentNumber',
-              { rules: [{ required: true, message: '学生人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学生人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学生人数"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -180,9 +189,18 @@
           <a-input
             v-decorator="[
               'mentorsNumber',
-              { rules: [{ required: true, message: '指导人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '指导人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入指导人数"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -229,12 +247,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input-number
+          <a-input
             v-decorator="[
-              'input-number',
-              { rules: [{ required: true, message: '学年输入有误' }] }
+              'year',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学年输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学年'"
+            addonAfter="年"
           />
         </a-form-item>
 

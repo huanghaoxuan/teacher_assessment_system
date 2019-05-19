@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">新建</a-button>
     <a-modal
-      title="正在新添加课堂实习指导内容"
+      title="正在新添加纵向课题项目内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认添加"
@@ -13,175 +13,202 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="实习名称"
+          label="项目名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '实习名称不能为空' }] }
+              { rules: [{ required: true, message: '项目名称不能为空' }] }
             ]"
-            placeholder="请输入实验实习名称'"
+            placeholder="请输入项目名称'"
           />
         </a-form-item>
 
         <a-form-item
-          label="学分"
+          label="项目来源"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input
+          <a-select
             v-decorator="[
-              'credits',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
-                    required: true,
-                    message: '学分输入有误（请输入数字）'
-                  }
-                ]
-              }
+              'source',
+              { rules: [{ required: true, message: '项目来源不能为空' }] }
             ]"
-            placeholder="请输入学分'"
-            addonAfter="分"
-          />
+            placeholder="请输入项目来源"
+          >
+            <a-select-option value="国家自然科学基金">
+              国家自然科学基金
+            </a-select-option>
+            <a-select-option value="国家社科基金">
+              国家社科基金
+            </a-select-option>
+            <a-select-option value="省自然科学基金">
+              省自然科学基金
+            </a-select-option>
+            <a-select-option value="省社科基金">
+              省社科基金
+            </a-select-option>
+            <a-select-option value="市厅级">
+              市厅级
+            </a-select-option>
+            <a-select-option value="专项课题（思政、党建等）">
+              专项课题（思政、党建等）
+            </a-select-option>
+            <a-select-option value="院级">
+              院级
+            </a-select-option>
+            <a-select-option value="其他">
+              其他
+            </a-select-option>
+          </a-select>
         </a-form-item>
 
         <a-form-item
-          label="时长"
+          label="任务角色"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input
+          <a-select
             v-decorator="[
-              'hours',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
-                    required: true,
-                    message: '时长输入有误（请输入数字）'
-                  }
-                ]
-              }
+              'character',
+              { rules: [{ required: true, message: '任务角色不能为空' }] }
             ]"
-            placeholder="请输入时长'"
-            addonAfter="小时"
-          />
+            placeholder="请输入任务角色"
+          >
+            <a-select-option value="负责人">
+              负责人
+            </a-select-option>
+            <a-select-option value="第二负责人">
+              第二负责人
+            </a-select-option>
+            <a-select-option value="排二">
+              排二
+            </a-select-option>
+            <a-select-option value="排三">
+              排三
+            </a-select-option>
+            <a-select-option value="排四">
+              排四
+            </a-select-option>
+            <a-select-option value="排五">
+              排五
+            </a-select-option>
+            <a-select-option value="排五以后">
+              排五以后
+            </a-select-option>
+          </a-select>
         </a-form-item>
 
         <a-form-item
-          label="学生人数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'studentNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '学生人数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入学生人数'"
-            addonAfter="人"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="循环次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'loopsNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '循环次数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入循环次数"
-            addonAfter="次"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="指导内容"
+          label="课题性质"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
-              'guidanceContent',
-              { rules: [{ required: true, message: '指导内容不能为空' }] }
+              'type',
+              { rules: [{ required: true, message: '课题性质不能为空' }] }
             ]"
-            placeholder="请输入指导内容"
+            placeholder="请输入课题性质"
           >
-            <a-radio value="参观引导">
-              参观引导
+            <a-radio value="重点资助">
+              重点资助
             </a-radio>
-            <a-radio value="穿插讲解">
-              穿插讲解
+            <a-radio value="一般资助">
+              一般资助
             </a-radio>
-            <a-radio value="现场答疑">
-              现场答疑
+            <a-radio value="二等奖">
+              二等奖
+            </a-radio>
+            <a-radio value="三等奖">
+              三等奖
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="实习报告"
+          label="项目经费"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
+          <a-input
             v-decorator="[
-              'internshipReport',
-              { rules: [{ required: true, message: '实习报告不能为空' }] }
+              'money',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '项目经费输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
-            placeholder="请输入实习报告"
-          >
-            <a-select-option value="是">
-              是
-            </a-select-option>
-            <a-select-option value="否">
-              否
-            </a-select-option>
-          </a-select>
+            placeholder="请输入项目经费"
+            addonAfter="万元"
+          />
         </a-form-item>
 
         <a-form-item
-          label="是否批改"
+          label="立项时间"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
+          <a-date-picker
             v-decorator="[
-              'hasCorrecting',
-              { rules: [{ required: true, message: '是否批改不能为空' }] }
+              'participantsNumber',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '立项时间不能为空'
+                  }
+                ]
+              }
             ]"
-            placeholder="请输入是否批改"
-          >
-            <a-select-option value="是">
-              是
-            </a-select-option>
-            <a-select-option value="否">
-              否
-            </a-select-option>
-          </a-select>
+            placeholder="请输入立项时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="预计结题时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'estimatedClosingTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '预计结题时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入预计结题时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="结题结论"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-textarea
+            v-decorator="[
+              'result',
+              { rules: [{ required: true, message: '结题结论不能为空' }] }
+            ]"
+            placeholder="请输入结题结论'"
+          />
         </a-form-item>
 
         <a-form-item
@@ -249,7 +276,6 @@
 export default {
   data() {
     return {
-      ModalText: "Content of the modal",
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this)
@@ -270,7 +296,16 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log(values);
+          const fieldsValue = {
+            ...values,
+            participantsNumber: values["participantsNumber"].format(
+              "YYYY-MM-DD"
+            ),
+            estimatedClosingTime: values["estimatedClosingTime"].format(
+              "YYYY-MM-DD"
+            )
+          };
+          console.log(fieldsValue);
           {
             this.axios
               .post(

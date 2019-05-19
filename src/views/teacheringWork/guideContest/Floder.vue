@@ -70,9 +70,18 @@
           <a-input
             v-decorator="[
               'prizePersonsNumber',
-              { rules: [{ required: true, message: '特等奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '特等奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入特等奖人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -84,9 +93,18 @@
           <a-input
             v-decorator="[
               'firstPersonsNumber',
-              { rules: [{ required: true, message: '一等奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '一等奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入一等奖人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -98,9 +116,18 @@
           <a-input
             v-decorator="[
               'secondPersonsNumber',
-              { rules: [{ required: true, message: '二等奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '二等奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入二等奖人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -112,9 +139,18 @@
           <a-input
             v-decorator="[
               'thirdPersonsNumber',
-              { rules: [{ required: true, message: '三等奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '三等奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入三等奖人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -126,9 +162,18 @@
           <a-input
             v-decorator="[
               'outstandingAwardsNumber',
-              { rules: [{ required: true, message: '优秀奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '优秀奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入优秀奖人数'"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -170,9 +215,18 @@
           <a-input
             v-decorator="[
               'instructorsNumber',
-              { rules: [{ required: true, message: '指导教师人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '指导教师人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入指导教师人数"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -195,12 +249,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input-number
+          <a-input
             v-decorator="[
-              'input-number',
-              { rules: [{ required: true, message: '学年输入有误' }] }
+              'year',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学年输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学年'"
+            addonAfter="年"
           />
         </a-form-item>
 

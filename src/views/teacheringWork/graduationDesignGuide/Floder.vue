@@ -94,9 +94,18 @@
           <a-input
             v-decorator="[
               'winnersNumber',
-              { rules: [{ required: true, message: '获奖人数不能为空' }] }
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '获奖人数输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入获奖人数"
+            addonAfter="人"
           />
         </a-form-item>
 
@@ -119,12 +128,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input-number
+          <a-input
             v-decorator="[
-              'input-number',
-              { rules: [{ required: true, message: '学年输入有误' }] }
+              'year',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '学年输入有误（请输入数字）'
+                  }
+                ]
+              }
             ]"
             placeholder="请输入学年'"
+            addonAfter="年"
           />
         </a-form-item>
 

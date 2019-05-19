@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">修改</a-button>
     <a-modal
-      title="正在修改毕业设计指导内容"
+      title="正在修改纵向课题项目内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认修改"
@@ -27,205 +27,188 @@
         </a-form-item>
 
         <a-form-item
-          label="项目级别"
+          label="项目来源"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
-            v-decorator="[
-              'level',
-              { rules: [{ required: true, message: '项目级别不能为空' }] }
-            ]"
-            placeholder="请输入项目级别"
-          >
-            <a-radio value="省级">
-              省级
-            </a-radio>
-            <a-radio value="院级">
-              院级
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="选题来源"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
+          <a-select
             v-decorator="[
               'source',
-              { rules: [{ required: true, message: '选题来源不能为空' }] }
+              { rules: [{ required: true, message: '项目来源不能为空' }] }
             ]"
-            placeholder="请输入选题来源"
+            placeholder="请输入项目来源"
           >
-            <a-radio value="教师">
-              教师
-            </a-radio>
-            <a-radio value="学生">
-              学生
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="项目状况"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'projectStatus',
-              { rules: [{ required: true, message: '项目状况不能为空' }] }
-            ]"
-            placeholder="请输入项目状况"
-          >
-            <a-radio value="在研">
-              在研
-            </a-radio>
-            <a-radio value="结题">
-              结题
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="结题等级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'titleLevel',
-              { rules: [{ required: true, message: '结题等级不能为空' }] }
-            ]"
-            placeholder="请输入结题等级"
-          >
-            <a-radio value="在研">
-              在研
-            </a-radio>
-            <a-radio value="结题">
-              结题
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="学生年级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'studentGrade',
-              { rules: [{ required: true, message: '学生年级不能为空' }] }
-            ]"
-            placeholder="请输入学生年级"
-          >
-            <a-radio value="一年级">
-              一年级
-            </a-radio>
-            <a-radio value="二年级">
-              二年级
-            </a-radio>
-            <a-radio value="三年级">
-              三年级
-            </a-radio>
-            <a-radio value="四年级">
-              四年级
-            </a-radio>
-          </a-radio-group>
-        </a-form-item>
-
-        <a-form-item
-          label="学生人数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'studentNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '学生人数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入学生人数"
-            addonAfter="人"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="项目影响"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-radio-group
-            v-decorator="[
-              'effect',
-              { rules: [{ required: true, message: '项目影响不能为空' }] }
-            ]"
-            placeholder="请输入项目影响"
-          >
-            <a-radio value="院级">
+            <a-select-option value="国家自然科学基金">
+              国家自然科学基金
+            </a-select-option>
+            <a-select-option value="国家社科基金">
+              国家社科基金
+            </a-select-option>
+            <a-select-option value="省自然科学基金">
+              省自然科学基金
+            </a-select-option>
+            <a-select-option value="省社科基金">
+              省社科基金
+            </a-select-option>
+            <a-select-option value="市厅级">
+              市厅级
+            </a-select-option>
+            <a-select-option value="专项课题（思政、党建等）">
+              专项课题（思政、党建等）
+            </a-select-option>
+            <a-select-option value="院级">
               院级
-            </a-radio>
-            <a-radio value="媒体">
-              媒体
-            </a-radio>
-          </a-radio-group>
+            </a-select-option>
+            <a-select-option value="其他">
+              其他
+            </a-select-option>
+          </a-select>
         </a-form-item>
 
         <a-form-item
-          label="指导人数"
+          label="任务角色"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input
+          <a-select
             v-decorator="[
-              'mentorsNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '指导人数输入有误（请输入数字）'
-                  }
-                ]
-              }
+              'character',
+              { rules: [{ required: true, message: '任务角色不能为空' }] }
             ]"
-            placeholder="请输入指导人数"
-            addonAfter="人"
-          />
+            placeholder="请输入任务角色"
+          >
+            <a-select-option value="负责人">
+              负责人
+            </a-select-option>
+            <a-select-option value="第二负责人">
+              第二负责人
+            </a-select-option>
+            <a-select-option value="排二">
+              排二
+            </a-select-option>
+            <a-select-option value="排三">
+              排三
+            </a-select-option>
+            <a-select-option value="排四">
+              排四
+            </a-select-option>
+            <a-select-option value="排五">
+              排五
+            </a-select-option>
+            <a-select-option value="排五以后">
+              排五以后
+            </a-select-option>
+          </a-select>
         </a-form-item>
 
         <a-form-item
-          label="指导等级"
+          label="课题性质"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
-              'mentorsLevel',
-              { rules: [{ required: true, message: '指导等级不能为空' }] }
+              'type',
+              { rules: [{ required: true, message: '课题性质不能为空' }] }
             ]"
-            placeholder="请输入指导等级"
+            placeholder="请输入课题性质"
           >
-            <a-radio value="项目负责人">
-              项目负责人
+            <a-radio value="重点资助">
+              重点资助
             </a-radio>
-            <a-radio value="主要贡献者">
-              主要贡献者
+            <a-radio value="一般资助">
+              一般资助
             </a-radio>
-            <a-radio value="参与者">
-              参与者
+            <a-radio value="二等奖">
+              二等奖
+            </a-radio>
+            <a-radio value="三等奖">
+              三等奖
             </a-radio>
           </a-radio-group>
+        </a-form-item>
+
+        <a-form-item
+          label="项目经费"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'money',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
+                    required: true,
+                    message: '项目经费输入有误（请输入数字）'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入项目经费"
+            addonAfter="万元"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="立项时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'participantsNumber',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '立项时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入立项时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="预计结题时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'estimatedClosingTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '预计结题时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入预计结题时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="结题结论"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-textarea
+            v-decorator="[
+              'result',
+              { rules: [{ required: true, message: '结题结论不能为空' }] }
+            ]"
+            placeholder="请输入结题结论'"
+          />
         </a-form-item>
 
         <a-form-item
@@ -308,9 +291,11 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue({
           name: this.editData.name,
-          winnersNumber: this.editData.winnersNumber,
+          money: this.editData.money,
+          result: this.editData.result,
           note: this.editData.note,
-          year: this.editData.year        });
+          year: this.editData.year
+        });
       }, 0);
     },
     handleOk(e) {
@@ -324,7 +309,16 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log(values);
+          const fieldsValue = {
+            ...values,
+            participantsNumber: values["participantsNumber"].format(
+              "YYYY-MM-DD"
+            ),
+            estimatedClosingTime: values["estimatedClosingTime"].format(
+              "YYYY-MM-DD"
+            )
+          };
+          console.log(fieldsValue);
         }
         this.confirmLoading = false;
       });

@@ -40,18 +40,23 @@
             @click="() => jump('/guideContest/status')"
             >指导竞赛</a-menu-item
           >
-          <a-menu-item key="teacheringWork_teachingAwards"
-          @click="() => jump('/teachingAwards/status')"
+          <a-menu-item
+            key="teacheringWork_teachingAwards"
+            @click="() => jump('/teachingAwards/status')"
             >教学获奖</a-menu-item
           >
         </a-sub-menu>
 
         <a-sub-menu key="scientificResearch">
           <span slot="title"> <a-icon type="user" /><span>科学研究</span></span>
-          <a-menu-item key="scientificResearch_longitudinalTopicsProject"
+          <a-menu-item
+            key="scientificResearch_longitudinalTopicsProject"
+            @click="() => jump('/longitudinalTopicsProject/status')"
             >纵向课题项目</a-menu-item
           >
-          <a-menu-item key="scientificResearch_horizontalTopicProjects"
+          <a-menu-item
+            key="scientificResearch_horizontalTopicProjects"
+            @click="() => jump('/horizontalTopicProjects/status')"
             >横向课题项目</a-menu-item
           >
           <a-menu-item key="scientificResearch_publishPaper"
