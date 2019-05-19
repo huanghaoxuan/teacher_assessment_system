@@ -165,8 +165,8 @@ export default new Router({
           component: () => import("./views/others/files/Status.vue")
         },
         {
-          path: "/employment/status",
-          name: "employmentStatus",
+          path: "/othersemployment/status",
+          name: "othersemploymentStatus",
           component: () => import("./views/others/employment/Status.vue")
         }
       ]

@@ -153,7 +153,7 @@
           >
           <a-menu-item
             key="others_employment"
-            @click="() => jump('/employment/status')"
+            @click="() => jump('/othersemployment/status')"
             >任职以来所带已毕业班级就业率考研率违纪率情况</a-menu-item
           >
         </a-sub-menu>
