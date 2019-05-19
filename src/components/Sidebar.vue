@@ -59,10 +59,14 @@
             @click="() => jump('/horizontalTopicProjects/status')"
             >横向课题项目</a-menu-item
           >
-          <a-menu-item key="scientificResearch_publishPaper"
+          <a-menu-item
+            key="scientificResearch_publishPaper"
+            @click="() => jump('/publishPaper/status')"
             >发表论文</a-menu-item
           >
-          <a-menu-item key="scientificResearch_patentApplication"
+          <a-menu-item
+            key="scientificResearch_patentApplication"
+            @click="() => jump('/patentApplication/status')"
             >申请专利</a-menu-item
           >
         </a-sub-menu>

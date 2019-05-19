@@ -71,6 +71,18 @@ export default new Router({
           name: "horizontalTopicProjectsStatus",
           component: () =>
             import("./views/scientificResearch/horizontalTopicProjects/Status.vue")
+        },
+        {
+          path: "/publishPaper/status",
+          name: "publishPaperStatus",
+          component: () =>
+            import("./views/scientificResearch/publishPaper/Status.vue")
+        },
+        {
+          path: "/patentApplication/status",
+          name: "patentApplicationStatus",
+          component: () =>
+            import("./views/scientificResearch/patentApplication/Status.vue")
         }
       ]
     },

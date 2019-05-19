@@ -310,7 +310,8 @@ export default {
           name: this.editData.name,
           winnersNumber: this.editData.winnersNumber,
           note: this.editData.note,
-          year: this.editData.year        });
+          year: this.editData.year
+        });
       }, 0);
     },
     handleOk(e) {
