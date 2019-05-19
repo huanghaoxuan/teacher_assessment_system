@@ -118,27 +118,6 @@
             addonAfter="年"
           />
         </a-form-item>
-
-        <a-form-item
-          label="学期"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-select
-            v-decorator="[
-              'semester',
-              { rules: [{ required: true, message: '请选择学期' }] }
-            ]"
-            placeholder="请选择学期"
-          >
-            <a-select-option value="1">
-              第一学期
-            </a-select-option>
-            <a-select-option value="2">
-              第二学期
-            </a-select-option>
-          </a-select>
-        </a-form-item>
       </a-form>
     </a-modal>
   </div>
@@ -161,14 +140,11 @@ export default {
       console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue({
-          name: this.editData.name,
-          credits: this.editData.credits,
-          hours: this.editData.hours,
-          classesNumber: this.editData.classesNumber,
-          parallelClassesNumber: this.editData.parallelClassesNumber,
-          homeworkNumber: this.editData.homeworkNumber,
-          correctingNumber: this.editData.correctingNumber,
-          answeringNumber: this.editData.answeringNumber,
+          admissionsHeader: this.editData.admissionsHeader,
+          hasAdmission: this.editData.hasAdmission,
+          performance: this.editData.performance,
+          result: this.editData.result,
+          address: this.editData.address,
           note: this.editData.note,
           year: this.editData.year
         });

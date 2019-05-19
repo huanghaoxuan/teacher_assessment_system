@@ -274,8 +274,11 @@ export default {
           hours: this.editData.hours,
           studentNumber: this.editData.studentNumber,
           loopsNumber: this.editData.loopsNumber,
+          trainingType: this.editData.trainingType,
+          results: this.editData.results,
           note: this.editData.note,
-          year: this.editData.year
+          year: this.editData.year,
+          semester: this.editData.semester
         });
       }, 0);
     },

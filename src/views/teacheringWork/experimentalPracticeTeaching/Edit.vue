@@ -358,16 +358,19 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue({
           name: this.editData.name,
+          character: this.editData.character,
           allTime: this.editData.allTime,
           weekTime: this.editData.weekTime,
           studentNumber: this.editData.studentNumber,
           parallelClassesNumber: this.editData.parallelClassesNumber,
           groupingPerClassNumber: this.editData.groupingPerClassNumber,
           instructorsNumber: this.editData.instructorsNumber,
+          experimentType: this.editData.experimentType,
           reportsNumber: this.editData.reportsNumber,
           correctionsNumber: this.editData.correctionsNumber,
           note: this.editData.note,
-          year: this.editData.year
+          year: this.editData.year,
+          semester: this.editData.semester
         });
       }, 0);
     },

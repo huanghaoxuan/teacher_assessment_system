@@ -338,6 +338,9 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue({
           name: this.editData.name,
+          character: this.editData.character,
+          type: this.editData.type,
+          yesorno: this.editData.yesorno,
           credits: this.editData.credits,
           hours: this.editData.hours,
           classesNumber: this.editData.classesNumber,
@@ -346,7 +349,8 @@ export default {
           correctingNumber: this.editData.correctingNumber,
           answeringNumber: this.editData.answeringNumber,
           note: this.editData.note,
-          year: this.editData.year
+          year: this.editData.year,
+          semester: this.editData.semester
         });
       }, 0);
     },

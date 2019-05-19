@@ -6,7 +6,7 @@
         :pagination="{ defaultPageSize: 9 }"
         :columns="columns"
         :dataSource="data"
-        :scroll="{ x: 3300, y: 610 }"
+        :scroll="{ x: 1800, y: 610 }"
       >
         <template slot="operation1" slot-scope="text, record">
           <edit :editData="data[record.key]"></edit>
@@ -58,18 +58,17 @@ const columns = [
   },
   { title: "备注", dataIndex: "note", key: "5", width: 200 },
   { title: "学年", dataIndex: "year", key: "6", width: 200 },
-  { title: "学期", dataIndex: "semester", key: "7", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "8",
+    key: "7",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation1",
-    key: "9",
+    key: "8",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation1" }
@@ -77,7 +76,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "10",
+    key: "9",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }

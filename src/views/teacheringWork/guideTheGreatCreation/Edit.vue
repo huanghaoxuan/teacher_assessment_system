@@ -308,9 +308,18 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue({
           name: this.editData.name,
-          winnersNumber: this.editData.winnersNumber,
+          level: this.editData.level,
+          source: this.editData.source,
+          projectStatus: this.editData.projectStatus,
+          titleLevel: this.editData.titleLevel,
+          studentGrade: this.editData.studentGrade,
+          studentNumber: this.editData.studentNumber,
+          effect: this.editData.effect,
+          mentorsNumber: this.editData.mentorsNumber,
+          mentorsLevel: this.editData.mentorsLevel,
           note: this.editData.note,
-          year: this.editData.year
+          year: this.editData.year,
+          semester: this.editData.semester
         });
       }, 0);
     },

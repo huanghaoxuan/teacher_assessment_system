@@ -6,7 +6,7 @@
         :pagination="{ defaultPageSize: 9 }"
         :columns="columns"
         :dataSource="data"
-        :scroll="{ x: 3300, y: 610 }"
+        :scroll="{ x: 2800, y: 610 }"
       >
         <template slot="operation1" slot-scope="text, record">
           <edit :editData="data[record.key]"></edit>

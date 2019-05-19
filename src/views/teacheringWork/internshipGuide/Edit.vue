@@ -268,8 +268,12 @@ export default {
           hours: this.editData.hours,
           studentNumber: this.editData.studentNumber,
           loopsNumber: this.editData.loopsNumber,
+          guidanceContent: this.editData.guidanceContent,
+          internshipReport: this.editData.internshipReport,
+          hasCorrecting: this.editData.hasCorrecting,
           note: this.editData.note,
-          year: this.editData.year
+          year: this.editData.year,
+          semester: this.editData.semester
         });
       }, 0);
     },
