@@ -75,7 +75,9 @@
           <span slot="title">
             <a-icon type="user" /><span>教改教研教学建设</span></span
           >
-          <a-menu-item key="teachingConstruction_teachingTopics"
+          <a-menu-item
+            key="teachingConstruction_teachingTopics"
+            @click="() => jump('/teachingTopics/status')"
             >承担教研教改课题</a-menu-item
           >
           <a-menu-item key="teachingConstruction_teachingActivities"

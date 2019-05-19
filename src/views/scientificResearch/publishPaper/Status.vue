@@ -1,6 +1,6 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
-    <a-card title="纵向课题项目">
+    <a-card title="发表论文">
       <floder slot="extra"></floder>
       <a-table
         :pagination="{ defaultPageSize: 9 }"

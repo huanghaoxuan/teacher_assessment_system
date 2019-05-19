@@ -1,11 +1,11 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">新建</a-button>
+    <a-button type="primary" @click="showModal">修改</a-button>
     <a-modal
-      title="正在新添加申请专利内容"
+      title="正在修改纵向课题项目内容"
       :visible="visible"
       @ok="handleOk"
-      okText="确认添加"
+      okText="确认修改"
       cancelText="取消"
       :maskClosable="false"
       :confirmLoading="confirmLoading"
@@ -202,6 +202,9 @@
 </template>
 <script>
 export default {
+  props: {
+    editData: {}
+  },
   data() {
     return {
       visible: false,
@@ -212,6 +215,14 @@ export default {
   methods: {
     showModal() {
       this.visible = true;
+      console.log(this.editData);
+      setTimeout(() => {
+        this.form.setFieldsValue({
+          name: this.editData.name,
+          note: this.editData.note,
+          year: this.editData.year
+        });
+      }, 0);
     },
     handleOk(e) {
       this.confirmLoading = true;
@@ -229,34 +240,6 @@ export default {
             publicationDate: values["publicationDate"].format("YYYY-MM-DD")
           };
           console.log(fieldsValue);
-          {
-            this.axios
-              .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
-                {
-                  headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                  }
-                }
-              )
-              .then(
-                function(res) {
-                  console.log(res.data);
-                  //每条数据需要一个唯一的key值
-                  this.$router.go(0);
-                }.bind(this)
-              )
-              .catch(
-                function(err) {
-                  if (err.response) {
-                    console.log(err.response);
-                    //控制台打印错误返回的内容
-                  }
-                  //bind(this)可以不用
-                }.bind(this)
-              );
-          }
         }
         this.confirmLoading = false;
       });

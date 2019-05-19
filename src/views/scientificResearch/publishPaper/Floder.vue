@@ -2,7 +2,7 @@
   <div>
     <a-button type="primary" @click="showModal">新建</a-button>
     <a-modal
-      title="正在新添加纵向课题项目内容"
+      title="正在新添加发表论文内容"
       :visible="visible"
       @ok="handleOk"
       okText="确认添加"

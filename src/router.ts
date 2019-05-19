@@ -83,6 +83,12 @@ export default new Router({
           name: "patentApplicationStatus",
           component: () =>
             import("./views/scientificResearch/patentApplication/Status.vue")
+        },
+        {
+          path: "/teachingTopics/status",
+          name: "teachingTopicsStatus",
+          component: () =>
+            import("./views/teachingConstruction/teachingTopics/Status.vue")
         }
       ]
     },
