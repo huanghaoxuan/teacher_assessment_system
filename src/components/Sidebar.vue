@@ -30,10 +30,16 @@
             @click="() => jump('/graduationDesignGuide/status')"
             >毕业设计指导</a-menu-item
           >
-          <a-menu-item key="teacheringWork_guideTheGreatCreation"
+          <a-menu-item
+            key="teacheringWork_guideTheGreatCreation"
+            @click="() => jump('/guideTheGreatCreation/status')"
             >指导大创</a-menu-item
           >
-          <a-menu-item key="teacheringWork_guideContest">指导竞赛</a-menu-item>
+          <a-menu-item
+            key="teacheringWork_guideContest"
+            @click="() => jump('/guideContest/status')"
+            >指导竞赛</a-menu-item
+          >
           <a-menu-item key="teacheringWork_teachingAwards"
             >教学获奖</a-menu-item
           >

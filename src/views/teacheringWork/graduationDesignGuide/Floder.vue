@@ -206,9 +206,7 @@ export default {
                 }.bind(this)
               );
           }
-        } else {
-          this.confirmLoading = false;
-        }
+        } this.confirmLoading = false;
       });
     }
   }

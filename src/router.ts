@@ -41,6 +41,18 @@ export default new Router({
           name: "graduationDesignGuideStatus",
           component: () =>
             import("./views/teacheringWork/graduationDesignGuide/Status.vue")
+        },
+        {
+          path: "/guideTheGreatCreation/status",
+          name: "guideTheGreatCreationStatus",
+          component: () =>
+            import("./views/teacheringWork/guideTheGreatCreation/Status.vue")
+        },
+        {
+          path: "/guideContest/status",
+          name: "guideContestStatus",
+          component: () =>
+            import("./views/teacheringWork/guideContest/Status.vue")
         }
       ]
     },

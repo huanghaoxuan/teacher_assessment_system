@@ -189,9 +189,7 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
-        } else {
-          this.confirmLoading = false;
-        }
+        } this.confirmLoading = false;
       });
     }
   }

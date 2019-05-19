@@ -1,11 +1,11 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">新建</a-button>
+    <a-button type="primary" @click="showModal">修改</a-button>
     <a-modal
-      title="正在新添加课堂教学内容"
+      title="正在修改毕业设计指导内容"
       :visible="visible"
       @ok="handleOk"
-      okText="确认添加"
+      okText="确认修改"
       cancelText="取消"
       :maskClosable="false"
       :confirmLoading="confirmLoading"
@@ -13,186 +13,201 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="课程名称"
+          label="项目名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
               'name',
-              { rules: [{ required: true, message: '课程名称不能为空' }] }
+              { rules: [{ required: true, message: '项目名称不能为空' }] }
             ]"
-            placeholder="请输入课程名称'"
+            placeholder="请输入项目名称'"
           />
         </a-form-item>
+
         <a-form-item
-          label="课程性质"
+          label="项目级别"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
-              'character',
-              { rules: [{ required: true, message: '课程性质不能为空' }] }
+              'level',
+              { rules: [{ required: true, message: '项目级别不能为空' }] }
             ]"
+            placeholder="请输入项目级别"
           >
-            <a-radio value="通识基础">
-              通识基础
+            <a-radio value="省级">
+              省级
             </a-radio>
-            <a-radio value="专业基础">
-              专业基础
-            </a-radio>
-            <a-radio value="专业主干">
-              专业主干
-            </a-radio>
-            <a-radio value="专业方向">
-              专业方向
-            </a-radio>
-            <a-radio value="素质类选修课">
-              素质类选修课
+            <a-radio value="院级">
+              院级
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="授课形式"
+          label="选题来源"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
-              'type',
-              { rules: [{ required: true, message: '授课形式不能为空' }] }
+              'source',
+              { rules: [{ required: true, message: '选题来源不能为空' }] }
             ]"
+            placeholder="请输入选题来源"
           >
-            <a-radio value="讲授为主">
-              讲授为主
+            <a-radio value="教师">
+              教师
             </a-radio>
-            <a-radio value="理论和实践对半">
-              理论和实践对半
-            </a-radio>
-            <a-radio value="实践为主">
-              实践为主
+            <a-radio value="学生">
+              学生
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="是否"
+          label="项目状况"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-radio-group
             v-decorator="[
-              'yesorno',
-              { rules: [{ required: true, message: '是否不能为空' }] }
+              'projectStatus',
+              { rules: [{ required: true, message: '项目状况不能为空' }] }
             ]"
+            placeholder="请输入项目状况"
           >
-            <a-radio value="新开课">
-              新开课
+            <a-radio value="在研">
+              在研
             </a-radio>
-            <a-radio value="整合课">
-              整合课
+            <a-radio value="结题">
+              结题
             </a-radio>
           </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="学分"
+          label="结题等级"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
+              'titleLevel',
+              { rules: [{ required: true, message: '结题等级不能为空' }] }
+            ]"
+            placeholder="请输入结题等级"
+          >
+            <a-radio value="在研">
+              在研
+            </a-radio>
+            <a-radio value="结题">
+              结题
+            </a-radio>
+          </a-radio-group>
+        </a-form-item>
+
+        <a-form-item
+          label="学生年级"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
+              'studentGrade',
+              { rules: [{ required: true, message: '学生年级不能为空' }] }
+            ]"
+            placeholder="请输入学生年级"
+          >
+            <a-radio value="一年级">
+              一年级
+            </a-radio>
+            <a-radio value="二年级">
+              二年级
+            </a-radio>
+            <a-radio value="三年级">
+              三年级
+            </a-radio>
+            <a-radio value="四年级">
+              四年级
+            </a-radio>
+          </a-radio-group>
+        </a-form-item>
+
+        <a-form-item
+          label="学生人数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'credits',
-              { rules: [{ required: true, message: '学分不能为空' }] }
+              'studentNumber',
+              { rules: [{ required: true, message: '学生人数不能为空' }] }
             ]"
-            placeholder="请输入学分'"
+            placeholder="请输入学生人数"
           />
         </a-form-item>
 
         <a-form-item
-          label="学时"
+          label="项目影响"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
+              'effect',
+              { rules: [{ required: true, message: '项目影响不能为空' }] }
+            ]"
+            placeholder="请输入项目影响"
+          >
+            <a-radio value="院级">
+              院级
+            </a-radio>
+            <a-radio value="媒体">
+              媒体
+            </a-radio>
+          </a-radio-group>
+        </a-form-item>
+
+        <a-form-item
+          label="指导人数"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'hours',
-              { rules: [{ required: true, message: '学时不能为空' }] }
+              'mentorsNumber',
+              { rules: [{ required: true, message: '指导人数不能为空' }] }
             ]"
-            placeholder="请输入学时'"
+            placeholder="请输入指导人数"
           />
         </a-form-item>
 
         <a-form-item
-          label="授课班个数"
+          label="指导等级"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-input
+          <a-radio-group
             v-decorator="[
-              'classesNumber',
-              { rules: [{ required: true, message: '授课班个数不能为空' }] }
+              'mentorsLevel',
+              { rules: [{ required: true, message: '指导等级不能为空' }] }
             ]"
-            placeholder="请输入授课班个数'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="平行班个数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'parallelClassesNumber',
-              { rules: [{ required: true, message: '平行班个数不能为空' }] }
-            ]"
-            placeholder="请输入平行班个数'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="作业次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'homeworkNumber',
-              { rules: [{ required: true, message: '作业次数不能为空' }] }
-            ]"
-            placeholder="请输入作业次数'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="批改次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'correctingNumber',
-              { rules: [{ required: true, message: '批改次数不能为空' }] }
-            ]"
-            placeholder="请输入批改次数'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="答疑次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'answeringNumber',
-              { rules: [{ required: true, message: '答疑次数不能为空' }] }
-            ]"
-            placeholder="请输入答疑次数'"
-          />
+            placeholder="请输入指导等级"
+          >
+            <a-radio value="项目负责人">
+              项目负责人
+            </a-radio>
+            <a-radio value="主要贡献者">
+              主要贡献者
+            </a-radio>
+            <a-radio value="参与者">
+              参与者
+            </a-radio>
+          </a-radio-group>
         </a-form-item>
 
         <a-form-item
@@ -249,9 +264,11 @@
 </template>
 <script>
 export default {
+  props: {
+    editData: {}
+  },
   data() {
     return {
-      ModalText: "Content of the modal",
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this)
@@ -260,6 +277,15 @@ export default {
   methods: {
     showModal() {
       this.visible = true;
+      console.log(this.editData);
+      setTimeout(() => {
+        this.form.setFieldsValue({
+          name: this.editData.name,
+          winnersNumber: this.editData.winnersNumber,
+          note: this.editData.note,
+          semester: this.editData.semester
+        });
+      }, 0);
     },
     handleOk(e) {
       this.confirmLoading = true;
@@ -273,34 +299,6 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
-          {
-            this.axios
-              .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
-                {
-                  headers: {
-                    "Content-Type": "application/x-www-form-urlencoded"
-                  }
-                }
-              )
-              .then(
-                function(res) {
-                  console.log(res.data);
-                  //每条数据需要一个唯一的key值
-                  this.$router.go(0);
-                }.bind(this)
-              )
-              .catch(
-                function(err) {
-                  if (err.response) {
-                    console.log(err.response);
-                    //控制台打印错误返回的内容
-                  }
-                  //bind(this)可以不用
-                }.bind(this)
-              );
-          }
         } this.confirmLoading = false;
       });
     }
