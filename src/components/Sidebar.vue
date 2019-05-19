@@ -41,6 +41,7 @@
             >指导竞赛</a-menu-item
           >
           <a-menu-item key="teacheringWork_teachingAwards"
+          @click="() => jump('/teachingAwards/status')"
             >教学获奖</a-menu-item
           >
         </a-sub-menu>

@@ -53,6 +53,12 @@ export default new Router({
           name: "guideContestStatus",
           component: () =>
             import("./views/teacheringWork/guideContest/Status.vue")
+        },
+        {
+          path: "/teachingAwards/status",
+          name: "teachingAwardsStatus",
+          component: () =>
+            import("./views/teacheringWork/teachingAwards/Status.vue")
         }
       ]
     },
