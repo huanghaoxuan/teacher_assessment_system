@@ -22,7 +22,9 @@ export default new Router({
           path: "/experimentalPracticeTeaching/status",
           name: "experimentalPracticeTeachingStatus",
           component: () =>
-            import("./views/teacheringWork/experimentalPracticeTeaching/Status.vue")
+            import(
+              "./views/teacheringWork/experimentalPracticeTeaching/Status.vue"
+            )
         },
         {
           path: "/internshipGuide/status",
@@ -34,7 +36,9 @@ export default new Router({
           path: "/practicalTrainingGuidance/status",
           name: "practicalTrainingGuidanceStatus",
           component: () =>
-            import("./views/teacheringWork/practicalTrainingGuidance/Status.vue")
+            import(
+              "./views/teacheringWork/practicalTrainingGuidance/Status.vue"
+            )
         },
         {
           path: "/graduationDesignGuide/status",
@@ -64,13 +68,17 @@ export default new Router({
           path: "/longitudinalTopicsProject/status",
           name: "longitudinalTopicsProjectStatus",
           component: () =>
-            import("./views/scientificResearch/longitudinalTopicsProject/Status.vue")
+            import(
+              "./views/scientificResearch/longitudinalTopicsProject/Status.vue"
+            )
         },
         {
           path: "/horizontalTopicProjects/status",
           name: "horizontalTopicProjectsStatus",
           component: () =>
-            import("./views/scientificResearch/horizontalTopicProjects/Status.vue")
+            import(
+              "./views/scientificResearch/horizontalTopicProjects/Status.vue"
+            )
         },
         {
           path: "/publishPaper/status",
@@ -100,25 +108,33 @@ export default new Router({
           path: "/comprehensiveReform/status",
           name: "comprehensiveReformStatus",
           component: () =>
-            import("./views/teachingConstruction/comprehensiveReform/Status.vue")
+            import(
+              "./views/teachingConstruction/comprehensiveReform/Status.vue"
+            )
         },
         {
           path: "/curriculumConstruction/status",
           name: "curriculumConstructionStatus",
           component: () =>
-            import("./views/teachingConstruction/curriculumConstruction/Status.vue")
+            import(
+              "./views/teachingConstruction/curriculumConstruction/Status.vue"
+            )
         },
         {
           path: "/textbookConstruction/status",
           name: "textbookConstructionStatus",
           component: () =>
-            import("./views/teachingConstruction/textbookConstruction/Status.vue")
+            import(
+              "./views/teachingConstruction/textbookConstruction/Status.vue"
+            )
         },
         {
           path: "/laboratoryConstruction/status",
           name: "laboratoryConstructionStatus",
           component: () =>
-            import("./views/teachingConstruction/laboratoryConstruction/Status.vue")
+            import(
+              "./views/teachingConstruction/laboratoryConstruction/Status.vue"
+            )
         },
         {
           path: "/admissions/status",
@@ -170,6 +186,11 @@ export default new Router({
           component: () => import("./views/others/employment/Status.vue")
         }
       ]
+    },
+    {
+      path: "/login",
+      name: "login",
+      component: () => import("./components/login/login.vue")
     },
     {
       path: "*",
