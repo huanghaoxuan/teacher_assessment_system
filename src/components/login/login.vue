@@ -85,6 +85,7 @@ export default {
       var confirm = document.getElementsByClassName("confirm")[0];
       if (this.onoff) {
         console.log("登陆");
+        this.$router.push("/sidebar");
       } else {
         let status = document
           .getElementById("status")
@@ -108,6 +109,9 @@ export default {
         console.log("注册");
       }
     }
+  },
+  mounted() {
+    console.log(this.$store.state.loginStatus);
   }
 };
 </script>

@@ -15,6 +15,16 @@ Vue.use(Antd);
 
 Vue.config.productionTip = false;
 
+router.beforeEach((to, from, next) => {
+  console.log(store.state.loginStatus);
+  if (store.state.loginStatus) {
+    next();
+  } else {
+    store.commit("isLogin", true);
+    next("/login");
+  }
+});
+
 new Vue({
   router,
   store,
