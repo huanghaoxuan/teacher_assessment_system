@@ -179,7 +179,7 @@
               <a-list itemLayout="horizontal">
                 <a-list-item>
                   <a-list-item-meta
-                    ><a slot="title" @click="() => jump('/user/center')">
+                    ><a slot="title" @click="() => jump('/user/information')">
                       <a-avatar
                         size="small"
                         slot="avatar"

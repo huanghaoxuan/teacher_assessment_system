@@ -184,6 +184,11 @@ export default new Router({
           path: "/othersemployment/status",
           name: "othersemploymentStatus",
           component: () => import("./views/others/employment/Status.vue")
+        },
+        {
+          path: "/user/information",
+          name: "userInformation",
+          component: () => import("./views/user/information.vue")
         }
       ]
     },

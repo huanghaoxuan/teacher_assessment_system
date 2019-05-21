@@ -9,6 +9,7 @@
       cancelText="取消"
       :maskClosable="false"
       :confirmLoading="confirmLoading"
+      width="50%"
       @cancel="handleCancel"
     >
       <a-form :form="form" @submit="handleSubmit">
