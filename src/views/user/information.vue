@@ -122,97 +122,97 @@ const data = [
   },
   {
     key: "16",
-    columns: "academicDegrees", //列属性
+    columns: "willDiscipline", //列属性
     title: "申报学科:",
     value: ""
   },
   {
     key: "17",
-    columns: "academicDegrees", //列属性
+    columns: "willProfessionalTitles", //列属性
     title: "拟报职称:",
     value: ""
   },
   {
     key: "18",
-    columns: "academicDegrees", //列属性
+    columns: "studyProfessional", //列属性
     title: "所学专业:",
     value: ""
   },
   {
     key: "19",
-    columns: "academicDegrees", //列属性
+    columns: "jobYear", //列属性
     title: "工作时间:",
     value: ""
   },
   {
     key: "20",
-    columns: "academicDegrees", //列属性
+    columns: "teacherQualificationCertificate", //列属性
     title: "教师资格证:",
     value: ""
   },
   {
     key: "21",
-    columns: "academicDegrees", //列属性
+    columns: "preJobTraining", //列属性
     title: "岗前培训:",
     value: ""
   },
   {
     key: "22",
-    columns: "academicDegrees", //列属性
+    columns: "putonghuaExam", //列属性
     title: "普通话考试:",
     value: ""
   },
   {
     key: "24",
-    columns: "academicDegrees", //列属性
+    columns: "academicQualificationsTime", //列属性
     title: "最高学历取得时间:",
     value: ""
   },
   {
     key: "25",
-    columns: "academicDegrees", //列属性
+    columns: "academicDegreesTime", //列属性
     title: "最高学位取得时间:",
     value: ""
   },
   {
     key: "26",
-    columns: "academicDegrees", //列属性
+    columns: "professionalTechnologyDuties", //列属性
     title: "现专业技术职务:",
     value: ""
   },
   {
     key: "27",
-    columns: "academicDegrees", //列属性
+    columns: "professionalTechnologyDutiesTime", //列属性
     title: "现专业技术职务取得时间:",
     value: ""
   },
   {
     key: "28",
-    columns: "academicDegrees", //列属性
+    columns: "professionalStudyDirection", //列属性
     title: "现从事专业研究方向:",
     value: ""
   },
   {
     key: "29",
-    columns: "academicDegrees", //列属性
+    columns: "professionalStudyDirectionYear", //列属性
     title: "现从事专业研究方向年限:",
     value: ""
   },
   {
     key: "30",
-    columns: "academicDegrees", //列属性
+    columns: "continuingEducationSituation", //列属性
     title: "继续教育情况:",
     value: ""
   },
   {
     key: "31",
-    columns: "academicDegrees", //列属性
+    columns: "engineeringPracticeExperience", //列属性
     title: "工程实践经历:",
     value: ""
   },
   {
     key: "32",
-    columns: "academicDegrees", //列属性
+    columns: "guidanceStudentPracticeNumber", //列属性
     title: "指导学生实践轮数:",
     value: ""
   }

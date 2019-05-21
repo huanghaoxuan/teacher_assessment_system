@@ -419,242 +419,363 @@
         </a-form-item>
 
         <a-form-item
-          label="是否"
+          label="申报学科"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-radio-group
-            v-decorator="[
-              'yesorno',
-              { rules: [{ required: true, message: '是否不能为空' }] }
-            ]"
-          >
-            <a-radio value="新开课">
-              新开课
-            </a-radio>
-            <a-radio value="整合课">
-              整合课
-            </a-radio>
-          </a-radio-group>
         </a-form-item>
 
         <a-form-item
-          label="学分"
+          label="拟报职称"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+        </a-form-item>
+
+        <a-form-item
+          label="所学专业"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'credits',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
-                    required: true,
-                    message: '学分输入有误（请输入数字）'
-                  }
-                ]
-              }
+              'studyProfessional',
+              { rules: [{ required: true, message: '所学专业不能为空' }] }
             ]"
-            placeholder="请输入学分"
-            addonAfter="分"
+            placeholder="请输入所学专业'"
           />
         </a-form-item>
 
         <a-form-item
-          label="学时"
+          label="工作时间"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-input
             v-decorator="[
-              'hours',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*(.[0-9]+)?)$/,
-                    required: true,
-                    message: '学时有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入学时"
-            addonAfter="小时"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="授课班个数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'classesNumber',
+              'jobYear',
               {
                 rules: [
                   {
                     pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
                     required: true,
-                    message: '授课班个数输入有误（请输入数字）'
+                    message: '工作时间有误（请输入数字）'
                   }
                 ]
               }
             ]"
-            placeholder="请输入授课班个数'"
-            addonAfter="个"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="平行班个数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'parallelClassesNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '平行班个数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入平行班个数'"
-            addonAfter="个"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="作业次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'homeworkNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '作业次数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入作业次数'"
-            addonAfter="次"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="批改次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'correctingNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '批改次数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入批改次数'"
-            addonAfter="次"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="答疑次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'answeringNumber',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '答疑次数输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入答疑次数'"
-            addonAfter="次"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="备注"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-textarea
-            v-decorator="[
-              'note',
-              { rules: [{ required: true, message: '备注不能为空' }] }
-            ]"
-            placeholder="请输入备注'"
-          />
-        </a-form-item>
-
-        <a-form-item
-          label="学年"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
-              'year',
-              {
-                rules: [
-                  {
-                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
-                    required: true,
-                    message: '学年输入有误（请输入数字）'
-                  }
-                ]
-              }
-            ]"
-            placeholder="请输入学年'"
+            placeholder="请输入工作时间"
             addonAfter="年"
           />
         </a-form-item>
 
         <a-form-item
-          label="学期"
+          label="教师资格证"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-checkbox-group
+            v-decorator="[
+              'teacherQualificationCertificate',
+              { rules: [{ required: true, message: '教师资格证不能为空' }] }
+            ]"
+            placeholder="请输入教师资格证'"
+            style="width: 100%;"
+          >
+            <a-row>
+              <a-col :span="24">
+                <a-checkbox value="幼儿园教师资格证">
+                  幼儿园教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="小学教师资格证">
+                  小学教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="初级中学教师资格证">
+                  初级中学教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="高级中学教师资格证">
+                  高级中学教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="中等职业学校教师资格证">
+                  中等职业学校教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="中等职业学校实习指导教师资格证">
+                  中等职业学校实习指导教师资格证
+                </a-checkbox>
+              </a-col>
+              <a-col :span="24">
+                <a-checkbox value="高等学校教师资格证">
+                  高等学校教师资格证
+                </a-checkbox>
+              </a-col>
+            </a-row>
+          </a-checkbox-group>
+        </a-form-item>
+
+        <a-form-item
+          label="岗前培训"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
+              'preJobTraining',
+              { rules: [{ required: true, message: '岗前培训不能为空' }] }
+            ]"
+            placeholder="请输入岗前培训'"
+          >
+            <a-radio value="通过">
+              通过
+            </a-radio>
+            <a-radio value="不通过">
+              不通过
+            </a-radio>
+          </a-radio-group>
+        </a-form-item>
+
+        <a-form-item
+          label="普通话考试"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
           <a-select
             v-decorator="[
-              'semester',
-              { rules: [{ required: true, message: '请选择学期' }] }
+              'putonghuaExam',
+              { rules: [{ required: true, message: '普通话考试不能为空' }] }
             ]"
-            placeholder="请选择学期"
+            placeholder="请输入普通话考试"
           >
-            <a-select-option value="1">
-              第一学期
+            <a-select-option value="无">
+              无
             </a-select-option>
-            <a-select-option value="2">
-              第二学期
+            <a-select-option value="一级甲等">
+              一级甲等
+            </a-select-option>
+            <a-select-option value="一级乙等">
+              一级乙等
+            </a-select-option>
+            <a-select-option value="二级甲等">
+              二级甲等
+            </a-select-option>
+            <a-select-option value="二级乙等">
+              二级乙等
+            </a-select-option>
+            <a-select-option value="三级甲等">
+              三级甲等
+            </a-select-option>
+            <a-select-option value="三级乙等">
+              三级乙等
             </a-select-option>
           </a-select>
+        </a-form-item>
+
+        <a-form-item
+          label="最高学历取得时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'academicQualificationsTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '最高学历取得时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入最高学历取得时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="最高学位取得时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'academicDegreesTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '最高学位取得时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入最高学位取得时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="现专业技术职务"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'professionalTechnologyDuties',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: '现专业技术职务不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入现专业技术职务"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="现专业技术职务取得时间"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-date-picker
+            v-decorator="[
+              'professionalTechnologyDutiesTime',
+              {
+                rules: [
+                  {
+                    type: 'object',
+                    required: true,
+                    message: '现专业技术职务取得时间不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入现专业技术职务取得时间"
+            style="width:100%"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="现从事专业研究方向"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'professionalStudyDirection',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: '现从事专业研究方向不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入现从事专业研究方向"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="现从事专业研究方向年限"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'professionalStudyDirectionYear',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '现从事专业研究方向年限输入有误（请输入数字）'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入现从事专业研究方向年限'"
+            addonAfter="年"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="继续教育情况"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'continuingEducationSituation',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: '继续教育情况不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入继续教育情况"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="工程实践经历"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'engineeringPracticeExperience',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: '工程实践经历不能为空'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入工程实践经历"
+          />
+        </a-form-item>
+
+        <a-form-item
+          label="指导学生实践轮数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'guidanceStudentPracticeNumber',
+              {
+                rules: [
+                  {
+                    pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
+                    required: true,
+                    message: '指导学生实践轮数输入有误（请输入数字）'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入指导学生实践轮数'"
+            addonAfter="轮"
+          />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -709,7 +830,16 @@ export default {
           const fieldsValue = {
             ...values,
             birthday: values["birthday"].format("YYYY-MM-DD"),
-            enterSchoolTime: values["enterSchoolTime"].format("YYYY-MM-DD")
+            enterSchoolTime: values["enterSchoolTime"].format("YYYY-MM-DD"),
+            academicQualificationsTime: values[
+              "academicQualificationsTime"
+            ].format("YYYY-MM-DD"),
+            academicDegreesTime: values["academicDegreesTime"].format(
+              "YYYY-MM-DD"
+            ),
+            professionalTechnologyDutiesTime: values[
+              "professionalTechnologyDutiesTime"
+            ].format("YYYY-MM-DD")
           };
           console.log(fieldsValue);
         }
