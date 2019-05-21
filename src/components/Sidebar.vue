@@ -1,3 +1,4 @@
+/* eslint-disable vue/no-parsing-error */
 <template>
   <a-layout
     id="components-layout-demo-custom-trigger"
@@ -165,11 +166,49 @@
     </a-layout-sider>
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
-        <a-icon
-          class="trigger"
-          :type="collapsed ? 'menu-unfold' : 'menu-fold'"
-          @click="() => (collapsed = !collapsed)"
-        />
+        <a-row>
+          <a-col :span="22">
+            <a-icon
+              class="trigger"
+              :type="collapsed ? 'menu-unfold' : 'menu-fold'"
+              @click="() => (collapsed = !collapsed)"
+            />
+          </a-col>
+          <a-popover>
+            <template slot="content">
+              <a-list itemLayout="horizontal">
+                <a-list-item>
+                  <a-list-item-meta
+                    ><a slot="title" @click="() => jump('/user/center')">
+                      <a-avatar
+                        size="small"
+                        slot="avatar"
+                        icon="user"
+                      />&nbsp;&nbsp;个人中心</a
+                    >
+                  </a-list-item-meta>
+                </a-list-item>
+                <a-list-item>
+                  <a-list-item-meta
+                    ><a slot="title" @click="() => jump('/login')">
+                      <a-avatar
+                        size="small"
+                        slot="avatar"
+                        icon="poweroff"
+                      />&nbsp;&nbsp;退出登陆</a
+                    >
+                  </a-list-item-meta>
+                </a-list-item>
+              </a-list>
+            </template>
+            <a-avatar
+              shape="square"
+              size="large"
+              :style="{ backgroundColor: color, verticalAlign: 'middle' }"
+              >{{ avatarValue }}</a-avatar
+            >
+          </a-popover>
+        </a-row>
       </a-layout-header>
       <router-view />
     </a-layout>
@@ -180,6 +219,8 @@ import router from "../router";
 export default {
   data() {
     return {
+      avatarValue: "天说",
+      color: "#f56a00",
       collapsed: false
     };
   },

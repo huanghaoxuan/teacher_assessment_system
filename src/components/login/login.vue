@@ -9,8 +9,8 @@
         <div id="login">
           <!-- 登录注册切换动画 -->
           <div id="status">
-            <i style="top: 0">登陆</i>
-            <i style="top: 35px">注册</i>
+            <i style="top: 5px">登陆</i>
+            <i style="top: 36px">注册</i>
           </div>
           <span>
             <form action="post">
@@ -85,14 +85,15 @@ export default {
       var confirm = document.getElementsByClassName("confirm")[0];
       if (this.onoff) {
         console.log("登陆");
+        this.$store.commit("isLogin", true);
         this.$router.push("/sidebar");
       } else {
         let status = document
           .getElementById("status")
           .getElementsByTagName("i");
         confirm.style.height = 0;
-        status[0].style.top = 0;
-        status[1].style.top = 35 + "px";
+        status[0].style.top = 5 + "px";
+        status[1].style.top = 36 + "px";
         this.onoff = !this.onoff;
       }
     },
@@ -102,8 +103,8 @@ export default {
       let hit = document.getElementById("hint").getElementsByTagName("p")[0];
       if (this.onoff) {
         confirm.style.height = 51 + "px";
-        status[0].style.top = 35 + "px";
-        status[1].style.top = 0;
+        status[0].style.top = 36 + "px";
+        status[1].style.top = 5 + "px";
         this.onoff = !this.onoff;
       } else {
         console.log("注册");
@@ -111,6 +112,7 @@ export default {
     }
   },
   mounted() {
+    this.$store.commit("isLogin", false);
     console.log(this.$store.state.loginStatus);
   }
 };

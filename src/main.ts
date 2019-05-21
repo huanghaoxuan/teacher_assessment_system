@@ -22,6 +22,14 @@ router.beforeEach((to, from, next) => {
   } else {
     store.commit("isLogin", true);
     next("/login");
+
+    let allowBack = true; //    给个默认值true
+    if (to.meta.allowBack !== undefined) {
+      allowBack = to.meta.allowBack;
+    }
+    if (!allowBack) {
+      history.pushState(null, "", location.href);
+    }
   }
 });
 

@@ -190,7 +190,8 @@ export default new Router({
     {
       path: "/login",
       name: "login",
-      component: () => import("./components/login/login.vue")
+      component: () => import("./components/login/login.vue"),
+      meta: { allowBack: false }
     },
     {
       path: "*",
