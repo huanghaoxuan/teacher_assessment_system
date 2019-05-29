@@ -170,14 +170,8 @@ export default {
       this.visible = true;
       console.log(this.editData);
       setTimeout(() => {
-        this.form.setFieldsValue({
-          schoolLevel: this.editData.schoolLevel,
-          provinceLevel: this.editData.provinceLevel,
-          caucusLaval: this.editData.caucusLaval,
-          note: this.editData.note,
-          year: this.editData.year
-        });
-      }, 0);
+        this.form.setFieldsValue(this.editData);
+      }, 10);
     },
     handleOk(e) {
       this.confirmLoading = true;
@@ -196,7 +190,42 @@ export default {
             endTime: values["endTime"].format("YYYY-MM-DD")
           };
           console.log(fieldsValue);
+          {
+            this.axios
+              .post(
+                "/publicaffairsCounselor/updateByPrimaryKey",
+                this.qs.stringify({
+                  id: this.editData.id,
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...fieldsValue
+                }),
+                {
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              )
+              .then(
+                function(res) {
+                  console.log(res.data);
+                  //每条数据需要一个唯一的key值
+                  this.visible = true;
+                  this.$router.go(0);
+                }.bind(this)
+              )
+              .catch(
+                function(err) {
+                  if (err.response) {
+                    console.log(err.response);
+                    //控制台打印错误返回的内容
+                  }
+                  //bind(this)可以不用
+                }.bind(this)
+              );
+          }
         }
+
         this.confirmLoading = false;
       });
     }

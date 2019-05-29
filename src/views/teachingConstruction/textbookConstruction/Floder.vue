@@ -226,8 +226,12 @@ export default {
           {
             this.axios
               .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
+                "/teachingconstructionTextbookconstruction/insert",
+                this.qs.stringify({
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...fieldsValue
+                }),
                 {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -238,6 +242,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
+                  this.visible = true;
                   this.$router.go(0);
                 }.bind(this)
               )
@@ -252,6 +257,7 @@ export default {
               );
           }
         }
+
         this.confirmLoading = false;
       });
     }

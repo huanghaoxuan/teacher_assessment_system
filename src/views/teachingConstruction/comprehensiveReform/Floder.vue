@@ -160,12 +160,22 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+          var undertakingTasksStr = "";
+          for (let index = 0; index < values.undertakingTasks.length; index++) {
+            undertakingTasksStr =
+              undertakingTasksStr + values.experimentType[index] + "、";
+          }
           console.log(values);
           {
             this.axios
               .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
+                "/teachingconstructionComprehensivereform/insert",
+                this.qs.stringify({
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...values,
+                  undertakingTasks: undertakingTasksStr
+                }),
                 {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -176,6 +186,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
+                  this.visible = true;
                   this.$router.go(0);
                 }.bind(this)
               )
@@ -190,6 +201,7 @@ export default {
               );
           }
         }
+
         this.confirmLoading = false;
       });
     }

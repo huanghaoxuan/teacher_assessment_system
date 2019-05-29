@@ -256,7 +256,6 @@
 export default {
   data() {
     return {
-      ModalText: "Content of the modal",
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this)
@@ -281,8 +280,12 @@ export default {
           {
             this.axios
               .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
+                "/teacheringworkPracticaltrainingguidance/insert",
+                this.qs.stringify({
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...values
+                }),
                 {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -293,6 +296,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
+                  this.visible = true;
                   this.$router.go(0);
                 }.bind(this)
               )
@@ -307,6 +311,7 @@ export default {
               );
           }
         }
+
         this.confirmLoading = false;
       });
     }

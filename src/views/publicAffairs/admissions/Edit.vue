@@ -140,16 +140,8 @@ export default {
       this.visible = true;
       console.log(this.editData);
       setTimeout(() => {
-        this.form.setFieldsValue({
-          admissionsHeader: this.editData.admissionsHeader,
-          hasAdmission: this.editData.hasAdmission,
-          performance: this.editData.performance,
-          result: this.editData.result,
-          address: this.editData.address,
-          note: this.editData.note,
-          year: this.editData.year
-        });
-      }, 0);
+        this.form.setFieldsValue(this.editData);
+      }, 10);
     },
     handleOk(e) {
       this.confirmLoading = true;
@@ -163,7 +155,42 @@ export default {
       this.form.validateFields((err, values) => {
         if (!err) {
           console.log(values);
+          {
+            this.axios
+              .post(
+                "/publicaffairsAdmissions/updateByPrimaryKey",
+                this.qs.stringify({
+                  id: this.editData.id,
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...values
+                }),
+                {
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              )
+              .then(
+                function(res) {
+                  console.log(res.data);
+                  //每条数据需要一个唯一的key值
+                  this.visible = true;
+                  this.$router.go(0);
+                }.bind(this)
+              )
+              .catch(
+                function(err) {
+                  if (err.response) {
+                    console.log(err.response);
+                    //控制台打印错误返回的内容
+                  }
+                  //bind(this)可以不用
+                }.bind(this)
+              );
+          }
         }
+
         this.confirmLoading = false;
       });
     }

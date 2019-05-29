@@ -340,11 +340,11 @@
     </a-modal>
   </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      ModalText: "Content of the modal",
       visible: false,
       confirmLoading: false,
       form: this.$form.createForm(this)
@@ -365,12 +365,23 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+          var experimentTypeStr = "";
+          for (let index = 0; index < values.experimentType.length; index++) {
+            experimentTypeStr =
+              experimentTypeStr + values.experimentType[index] + "、";
+          }
           console.log(values);
+          console.log(experimentTypeStr);
           {
             this.axios
               .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
+                "/teacheringworkExperimentalpracticeteaching/insert",
+                this.qs.stringify({
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...values,
+                  experimentType: experimentTypeStr
+                }),
                 {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -381,6 +392,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
+                  this.visible = true;
                   this.$router.go(0);
                 }.bind(this)
               )
@@ -395,6 +407,7 @@ export default {
               );
           }
         }
+
         this.confirmLoading = false;
       });
     }

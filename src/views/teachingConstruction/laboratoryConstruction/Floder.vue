@@ -301,12 +301,22 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+          var contributioneStr = "";
+          for (let index = 0; index < values.contribution.length; index++) {
+            contributionStr =
+              contributionStr + values.contribution[index] + "、";
+          }
           console.log(values);
           {
             this.axios
               .post(
-                "/fruitClassTeaching/commitClassTeaching",
-                this.qs.stringify({}),
+                "/teachingconstructionLaboratoryconstruction/insert",
+                this.qs.stringify({
+                  classTeacher: this.$store.state.teacherid,
+                  status: "未审核",
+                  ...values,
+                  contribution: contributionStr
+                }),
                 {
                   headers: {
                     "Content-Type": "application/x-www-form-urlencoded"
@@ -317,6 +327,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
+                  this.visible = true;
                   this.$router.go(0);
                 }.bind(this)
               )
@@ -331,6 +342,7 @@ export default {
               );
           }
         }
+
         this.confirmLoading = false;
       });
     }
