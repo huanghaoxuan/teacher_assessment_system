@@ -34,7 +34,7 @@
         >
           <a-input
             v-decorator="[
-              'admissionsHeader',
+              'hasAdmission',
               { rules: [{ required: true, message: '参与招生不能为空' }] }
             ]"
             placeholder="请输入参与招生'"
