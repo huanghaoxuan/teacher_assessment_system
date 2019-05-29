@@ -154,6 +154,7 @@ export default {
       console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
+        this.form.setFieldsValue({ undertakingTasks: [] });
       }, 10);
     },
     handleOk(e) {
@@ -170,7 +171,7 @@ export default {
           var undertakingTasksStr = "";
           for (let index = 0; index < values.undertakingTasks.length; index++) {
             undertakingTasksStr =
-              undertakingTasksStr + values.experimentType[index] + "、";
+              undertakingTasksStr + values.undertakingTasks[index] + "、";
           }
           console.log(values);
           {

@@ -301,7 +301,7 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          var contributioneStr = "";
+          var contributionStr = "";
           for (let index = 0; index < values.contribution.length; index++) {
             contributionStr =
               contributionStr + values.contribution[index] + "、";

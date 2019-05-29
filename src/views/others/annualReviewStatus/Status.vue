@@ -36,8 +36,7 @@ const columns = [
     title: "考核情况",
     width: 200,
     dataIndex: "assessmentStatus",
-    key: "1",
-    fixed: ""
+    key: "1"
   },
   { title: "备注", dataIndex: "note", key: "2", width: 200 },
   { title: "学年", dataIndex: "year", key: "3", width: 200 },
@@ -53,7 +52,6 @@ const columns = [
     dataIndex: "operation1",
     key: "5",
     width: 100,
-    fixed: "right",
     scopedSlots: { customRender: "operation1" }
   },
   {
@@ -61,7 +59,6 @@ const columns = [
     dataIndex: "operation2",
     key: "6",
     width: 100,
-    fixed: "right",
     scopedSlots: { customRender: "operation2" }
   }
 ];

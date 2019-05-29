@@ -6,7 +6,7 @@
         :pagination="pagination"
         :columns="columns"
         :dataSource="data"
-        :scroll="{ x: 3200, y: 610 }"
+        :scroll="{ x: 2800, y: 610 }"
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">

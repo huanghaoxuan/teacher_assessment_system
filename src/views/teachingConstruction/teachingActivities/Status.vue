@@ -45,15 +45,13 @@ const columns = [
     title: "审核情况",
     dataIndex: "status",
     key: "5",
-    width: 200,
-    fixed: "right"
+    width: 200
   },
   {
     title: "操作",
     dataIndex: "operation1",
     key: "6",
     width: 100,
-    fixed: "right",
     scopedSlots: { customRender: "operation1" }
   },
   {
@@ -61,7 +59,6 @@ const columns = [
     dataIndex: "operation2",
     key: "7",
     width: 100,
-    fixed: "right",
     scopedSlots: { customRender: "operation2" }
   }
 ];

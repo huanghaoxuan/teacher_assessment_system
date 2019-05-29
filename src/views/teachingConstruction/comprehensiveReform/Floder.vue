@@ -163,7 +163,7 @@ export default {
           var undertakingTasksStr = "";
           for (let index = 0; index < values.undertakingTasks.length; index++) {
             undertakingTasksStr =
-              undertakingTasksStr + values.experimentType[index] + "、";
+              undertakingTasksStr + values.undertakingTasks[index] + "、";
           }
           console.log(values);
           {

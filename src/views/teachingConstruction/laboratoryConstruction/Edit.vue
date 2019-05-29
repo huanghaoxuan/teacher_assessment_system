@@ -295,6 +295,7 @@ export default {
       console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
+        this.form.setFieldsValue({ contribution: [] });
       }, 10);
     },
     handleOk(e) {
@@ -308,7 +309,7 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          var contributioneStr = "";
+          var contributionStr = "";
           for (let index = 0; index < values.contribution.length; index++) {
             contributionStr =
               contributionStr + values.contribution[index] + "、";
@@ -323,7 +324,7 @@ export default {
                   classTeacher: this.$store.state.teacherid,
                   status: "未审核",
                   ...values,
-                  contributione: contributioneStr
+                  contribution: contributionStr
                 }),
                 {
                   headers: {
