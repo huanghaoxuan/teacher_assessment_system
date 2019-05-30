@@ -181,9 +181,8 @@ export default {
           {
             this.axios
               .post(
-                "/othersFiles/updateByPrimaryKey",
+                "/othersFiles/insert",
                 this.qs.stringify({
-                  id: this.editData.id,
                   classTeacher: this.$store.state.teacherid,
                   status: "未审核",
                   ...fieldsValue

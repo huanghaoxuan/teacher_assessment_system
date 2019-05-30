@@ -251,6 +251,7 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
+        this.form.setFieldsValue({ startTime: null, endTime: null });
       }, 10);
     },
     handleOk(e) {

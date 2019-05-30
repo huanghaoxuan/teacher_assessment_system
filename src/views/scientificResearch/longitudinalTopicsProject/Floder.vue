@@ -159,7 +159,7 @@
         >
           <a-date-picker
             v-decorator="[
-              'participantsNumber',
+              'startTime',
               {
                 rules: [
                   {
@@ -278,9 +278,7 @@ export default {
         if (!err) {
           const fieldsValue = {
             ...values,
-            participantsNumber: values["participantsNumber"].format(
-              "YYYY-MM-DD"
-            ),
+            startTime: values["startTime"].format("YYYY-MM-DD"),
             estimatedClosingTime: values["estimatedClosingTime"].format(
               "YYYY-MM-DD"
             )

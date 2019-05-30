@@ -220,17 +220,9 @@ export default {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
-        this.form.setFieldsValue({
-          name: this.editData.name,
-          journals: this.editData.journals,
-          level: this.editData.level,
-          collectionInformation: this.editData.collectionInformation,
-          character: this.editData.character,
-          type: this.editData.type,
-          note: this.editData.note,
-          year: this.editData.year
-        });
-      }, 0);
+        this.form.setFieldsValue(this.editData);
+        this.form.setFieldsValue({ publicationDate: null });
+      }, 10);
     },
     handleOk(e) {
       this.confirmLoading = true;

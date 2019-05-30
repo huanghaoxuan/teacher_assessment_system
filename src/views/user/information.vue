@@ -1,7 +1,8 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="基本信息">
-      <edit slot="extra" :editData="list"></edit>
+      <edit slot="extra"
+            :editData="list"></edit>
       <a-list itemLayout="horizontal">
         <a-list-item slot="">
           <a-list-item-meta :description="list.name">
@@ -53,7 +54,7 @@
 
         <a-list-item slot="">
           <a-list-item-meta :description="list.departmentDept">
-            <h3 slot="title">所在系部:</h3>
+            <h3 slot="title">所在学院:</h3>
           </a-list-item-meta>
         </a-list-item>
 
@@ -82,8 +83,20 @@
         </a-list-item>
 
         <a-list-item slot="">
+          <a-list-item-meta :description="list.academicQualificationsTime">
+            <h3 slot="title">最高学历取得时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
           <a-list-item-meta :description="list.academicDegreesSchool">
             <h3 slot="title">获得最高学位的院校或机构:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicDegreesTime">
+            <h3 slot="title">最高学位取得时间:</h3>
           </a-list-item-meta>
         </a-list-item>
 
@@ -94,26 +107,8 @@
         </a-list-item>
 
         <a-list-item slot="">
-          <a-list-item-meta :description="list.willDiscipline">
-            <h3 slot="title">申报学科:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
-          <a-list-item-meta :description="list.willProfessionalTitles">
-            <h3 slot="title">拟报职称:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
           <a-list-item-meta :description="list.studyProfessional">
             <h3 slot="title">所学专业:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
-          <a-list-item-meta :description="list.jobYear">
-            <h3 slot="title">工作时间:</h3>
           </a-list-item-meta>
         </a-list-item>
 
@@ -136,27 +131,13 @@
         </a-list-item>
 
         <a-list-item slot="">
-          <a-list-item-meta :description="list.academicQualificationsTime">
-            <h3 slot="title">最高学历取得时间:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
-          <a-list-item-meta :description="list.academicDegreesTime">
-            <h3 slot="title">最高学位取得时间:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
           <a-list-item-meta :description="list.professionalTechnologyDuties">
             <h3 slot="title">现专业技术职务:</h3>
           </a-list-item-meta>
         </a-list-item>
 
         <a-list-item slot="">
-          <a-list-item-meta
-            :description="list.professionalTechnologyDutiesTime"
-          >
+          <a-list-item-meta :description="list.professionalTechnologyDutiesTime">
             <h3 slot="title">现专业技术职务取得时间:</h3>
           </a-list-item-meta>
         </a-list-item>
@@ -199,12 +180,12 @@
 import edit from "./Edit.vue";
 export default {
   components: { edit },
-  data() {
+  data () {
     return {
       list: {}
     };
   },
-  mounted() {
+  mounted () {
     this.axios
       .get(
         "/userinformation/selectUserinformation",
@@ -220,13 +201,13 @@ export default {
         }
       )
       .then(
-        function(res) {
+        function (res) {
           //console.log(res.data);
           this.list = res.data;
         }.bind(this)
       )
       .catch(
-        function(err) {
+        function (err) {
           if (err.response) {
             //console.log(err.response);
             //控制台打印错误返回的内容

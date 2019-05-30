@@ -212,6 +212,7 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
+        this.form.setFieldsValue({ publicationTime: null, yesorno: [] });
       }, 10);
     },
     handleOk(e) {
@@ -225,6 +226,10 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+          var yesornoStr = "";
+          for (let index = 0; index < values.yesorno.length; index++) {
+            yesornoStr = yesornoStr + values.yesorno[index] + "、";
+          }
           const fieldsValue = {
             ...values,
             publicationTime: values["publicationTime"].format("YYYY-MM-DD")
@@ -238,7 +243,8 @@ export default {
                   id: this.editData.id,
                   classTeacher: this.$store.state.teacherid,
                   status: "未审核",
-                  ...fieldsValue
+                  ...fieldsValue,
+                  yesorno: yesornoStr
                 }),
                 {
                   headers: {
