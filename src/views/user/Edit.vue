@@ -217,7 +217,7 @@
         >
           <a-input
             v-decorator="[
-              'techerid',
+              'classTeacher',
               { rules: [{ required: true, message: '工号不能为空' }] }
             ]"
             placeholder="请输入工号'"
@@ -3051,21 +3051,11 @@ export default {
       this.visible = true;
       console.log(this.editData);
       setTimeout(() => {
+        this.form.setFieldsValue(this.editData);
         this.form.setFieldsValue({
-          name: this.editData.name,
-          character: this.editData.character,
-          type: this.editData.type,
-          yesorno: this.editData.yesorno,
-          credits: this.editData.credits,
-          hours: this.editData.hours,
-          classesNumber: this.editData.classesNumber,
-          parallelClassesNumber: this.editData.parallelClassesNumber,
-          homeworkNumber: this.editData.homeworkNumber,
-          correctingNumber: this.editData.correctingNumber,
-          answeringNumber: this.editData.answeringNumber,
-          note: this.editData.note,
-          year: this.editData.year,
-          semester: this.editData.semester
+          teacherQualificationCertificate: [],
+          willDiscipline: [],
+          willProfessionalTitles: []
         });
       }, 0);
     },
@@ -3080,6 +3070,17 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
+          var teacherQualificationCertificateStr = "";
+          for (
+            let index = 0;
+            index < values.teacherQualificationCertificate.length;
+            index++
+          ) {
+            teacherQualificationCertificateStr =
+              teacherQualificationCertificateStr +
+              values.teacherQualificationCertificate[index] +
+              "、";
+          }
           const fieldsValue = {
             ...values,
             birthday: values["birthday"].format("YYYY-MM-DD"),
@@ -3092,10 +3093,46 @@ export default {
             ),
             professionalTechnologyDutiesTime: values[
               "professionalTechnologyDutiesTime"
-            ].format("YYYY-MM-DD")
+            ].format("YYYY-MM-DD"),
+            teacherQualificationCertificate: teacherQualificationCertificateStr,
+            willDiscipline: willDiscipline[willDiscipline.length - 1],
+            willProfessionalTitles: [willProfessionalTitles.length - 1]
           };
           console.log(fieldsValue);
+          {
+            this.axios
+              .post(
+                "/userinformation/updateByPrimaryKey",
+                this.qs.stringify({
+                  id: this.editData.id,
+                  ...fieldsValue
+                }),
+                {
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              )
+              .then(
+                function(res) {
+                  console.log(res.data);
+                  //每条数据需要一个唯一的key值
+                  this.visible = true;
+                  this.$router.go(0);
+                }.bind(this)
+              )
+              .catch(
+                function(err) {
+                  if (err.response) {
+                    console.log(err.response);
+                    //控制台打印错误返回的内容
+                  }
+                  //bind(this)可以不用
+                }.bind(this)
+              );
+          }
         }
+
         this.confirmLoading = false;
       });
     }

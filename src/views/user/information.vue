@@ -1,230 +1,239 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="基本信息">
-      <edit slot="extra" :editData="data"></edit>
-      <a-table
-        :columns="columns"
-        :dataSource="data"
-        :showHeader="false"
-        :pagination="false"
-      >
-      </a-table>
+      <edit slot="extra" :editData="list"></edit>
+      <a-list itemLayout="horizontal">
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.name">
+            <h3 slot="title">姓名:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.sex">
+            <h3 slot="title">性别:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.birthday">
+            <h3 slot="title">出生年月:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicQualifications">
+            <h3 slot="title">学历:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicDegrees">
+            <h3 slot="title">学位:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.duties">
+            <h3 slot="title">职务:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.politicalLandscape">
+            <h3 slot="title">政治面貌:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.classTeacher">
+            <h3 slot="title">工号:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.departmentDept">
+            <h3 slot="title">所在系部:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.enterSchoolTime">
+            <h3 slot="title">进校时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.universityYear">
+            <h3 slot="title">高校工龄:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.undergraduateGraduationSchool">
+            <h3 slot="title">本科毕业学校:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicQualificationsSchool">
+            <h3 slot="title">获得最高学历的院校或机构:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicDegreesSchool">
+            <h3 slot="title">获得最高学位的院校或机构:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.idcard">
+            <h3 slot="title">身份证号码:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.willDiscipline">
+            <h3 slot="title">申报学科:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.willProfessionalTitles">
+            <h3 slot="title">拟报职称:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.studyProfessional">
+            <h3 slot="title">所学专业:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.jobYear">
+            <h3 slot="title">工作时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.teacherQualificationCertificate">
+            <h3 slot="title">教师资格证:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.preJobTraining">
+            <h3 slot="title">岗前培训:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.putonghuaExam">
+            <h3 slot="title">普通话考试:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicQualificationsTime">
+            <h3 slot="title">最高学历取得时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.academicDegreesTime">
+            <h3 slot="title">最高学位取得时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.professionalTechnologyDuties">
+            <h3 slot="title">现专业技术职务:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta
+            :description="list.professionalTechnologyDutiesTime"
+          >
+            <h3 slot="title">现专业技术职务取得时间:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.professionalStudyDirection">
+            <h3 slot="title">现从事专业研究方向:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.professionalStudyDirectionYear">
+            <h3 slot="title">现从事专业研究方向年限:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.continuingEducationSituation">
+            <h3 slot="title">继续教育情况:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.engineeringPracticeExperience">
+            <h3 slot="title">工程实践经历:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.guidanceStudentPracticeNumber">
+            <h3 slot="title">指导学生实践轮数:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+      </a-list>
     </a-card>
   </div>
 </template>
 
 <script>
 import edit from "./Edit.vue";
-const columns = [
-  {
-    title: "",
-    dataIndex: "title",
-    width: "20%",
-    align: "right"
-  },
-  {
-    title: "",
-    dataIndex: "value",
-    width: "80%",
-    align: "left"
-  }
-];
-const data = [
-  {
-    key: "1",
-    columns: "name", //列属性
-    title: "姓名:", //列含义
-    value: "" //属性值
-  },
-  {
-    key: "2",
-    columns: "sex", //列属性
-    title: "性别:",
-    value: ""
-  },
-  {
-    key: "3",
-    columns: "birthday", //列属性
-    title: "出生年月:",
-    value: ""
-  },
-  {
-    key: "4",
-    columns: "academicQualifications", //列属性
-    title: "学历:",
-    value: ""
-  },
-  {
-    key: "5",
-    columns: "academicDegrees", //列属性
-    title: "学位:",
-    value: ""
-  },
-  {
-    key: "6",
-    columns: "duties", //列属性
-    title: "职务:",
-    value: ""
-  },
-  {
-    key: "7",
-    columns: "politicalLandscape", //列属性
-    title: "政治面貌:",
-    value: ""
-  },
-  {
-    key: "8",
-    columns: "techerid", //列属性
-    title: "工号:",
-    value: ""
-  },
-  {
-    key: "9",
-    columns: "departmentDept.", //列属性
-    title: "所在系部:",
-    value: ""
-  },
-  {
-    key: "10",
-    columns: "enterSchoolTime", //列属性
-    title: "进校时间:",
-    value: ""
-  },
-  {
-    key: "11",
-    columns: "universityYear", //列属性
-    title: "高校工龄:",
-    value: ""
-  },
-  {
-    key: "12",
-    columns: "undergraduateGraduationSchool", //列属性
-    title: "本科毕业学校:",
-    value: ""
-  },
-  {
-    key: "13",
-    columns: "academicQualificationsSchool", //列属性
-    title: "获得最高学历的院校或机构:",
-    value: ""
-  },
-  {
-    key: "14",
-    columns: "academicDegreesSchool", //列属性
-    title: "获得最高学位的院校或机构:",
-    value: ""
-  },
-  {
-    key: "15",
-    columns: "idcard", //列属性
-    title: "身份证号码:",
-    value: ""
-  },
-  {
-    key: "16",
-    columns: "willDiscipline", //列属性
-    title: "申报学科:",
-    value: ""
-  },
-  {
-    key: "17",
-    columns: "willProfessionalTitles", //列属性
-    title: "拟报职称:",
-    value: ""
-  },
-  {
-    key: "18",
-    columns: "studyProfessional", //列属性
-    title: "所学专业:",
-    value: ""
-  },
-  {
-    key: "19",
-    columns: "jobYear", //列属性
-    title: "工作时间:",
-    value: ""
-  },
-  {
-    key: "20",
-    columns: "teacherQualificationCertificate", //列属性
-    title: "教师资格证:",
-    value: ""
-  },
-  {
-    key: "21",
-    columns: "preJobTraining", //列属性
-    title: "岗前培训:",
-    value: ""
-  },
-  {
-    key: "22",
-    columns: "putonghuaExam", //列属性
-    title: "普通话考试:",
-    value: ""
-  },
-  {
-    key: "24",
-    columns: "academicQualificationsTime", //列属性
-    title: "最高学历取得时间:",
-    value: ""
-  },
-  {
-    key: "25",
-    columns: "academicDegreesTime", //列属性
-    title: "最高学位取得时间:",
-    value: ""
-  },
-  {
-    key: "26",
-    columns: "professionalTechnologyDuties", //列属性
-    title: "现专业技术职务:",
-    value: ""
-  },
-  {
-    key: "27",
-    columns: "professionalTechnologyDutiesTime", //列属性
-    title: "现专业技术职务取得时间:",
-    value: ""
-  },
-  {
-    key: "28",
-    columns: "professionalStudyDirection", //列属性
-    title: "现从事专业研究方向:",
-    value: ""
-  },
-  {
-    key: "29",
-    columns: "professionalStudyDirectionYear", //列属性
-    title: "现从事专业研究方向年限:",
-    value: ""
-  },
-  {
-    key: "30",
-    columns: "continuingEducationSituation", //列属性
-    title: "继续教育情况:",
-    value: ""
-  },
-  {
-    key: "31",
-    columns: "engineeringPracticeExperience", //列属性
-    title: "工程实践经历:",
-    value: ""
-  },
-  {
-    key: "32",
-    columns: "guidanceStudentPracticeNumber", //列属性
-    title: "指导学生实践轮数:",
-    value: ""
-  }
-];
-
 export default {
   components: { edit },
   data() {
     return {
-      data,
-      columns
+      list: {}
     };
+  },
+  mounted() {
+    this.axios
+      .get(
+        "/userinformation/selectUserinformation",
+        {
+          params: {
+            classTeacher: this.$store.state.teacherid
+          }
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          }
+        }
+      )
+      .then(
+        function(res) {
+          console.log(res.data);
+          this.list = res.data;
+        }.bind(this)
+      )
+      .catch(
+        function(err) {
+          if (err.response) {
+            console.log(err.response);
+            //控制台打印错误返回的内容
+          }
+          //bind(this)可以不用
+        }.bind(this)
+      );
   }
 };
 </script>

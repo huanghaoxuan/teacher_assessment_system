@@ -15,16 +15,27 @@
           <span>
             <form action="post">
               <p class="form">
-                <input type="text" id="user" placeholder="用户名" />
+                <input
+                  type="text"
+                  id="user"
+                  placeholder="用户名"
+                  v-model="username"
+                />
               </p>
               <p class="form">
-                <input type="password" id="passwd" placeholder="密码" />
+                <input
+                  type="password"
+                  id="passwd"
+                  placeholder="密码"
+                  v-model="password"
+                />
               </p>
               <p class="form confirm">
                 <input
                   type="password"
                   id="confirm-passwd"
                   placeholder="请确认密码"
+                  v-model="confirmPassword"
                 />
               </p>
               <input
@@ -77,16 +88,65 @@
 export default {
   data() {
     return {
-      onoff: true
+      onoff: true,
+      username: null,
+      password: null,
+      confirmPassword: null
     };
   },
   methods: {
     login() {
       var confirm = document.getElementsByClassName("confirm")[0];
       if (this.onoff) {
-        console.log("登陆");
-        this.$store.commit("isLogin", true);
-        this.$router.push("/sidebar");
+        if (this.username == null || this.username == "") {
+          this.$notification.error({
+            message: "账号未输入"
+          });
+        } else if (this.password == null || this.password == "") {
+          this.$notification.error({
+            message: "密码未输入"
+          });
+        } else {
+          this.axios
+            .get(
+              "/userAccess/selectByNamePassword",
+              {
+                params: {
+                  access_name: this.username,
+                  access_pass: this.password
+                }
+              },
+              {
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                }
+              }
+            )
+            .then(
+              function(res) {
+                console.log(res);
+                if (res.data == 0) {
+                  this.$notification.error({
+                    message: "账号密码错误，请重新登陆！"
+                  });
+                } else {
+                  this.$store.commit("isLogin", true);
+                  this.$store.commit("changeIdentity", res.data);
+                  this.$store.commit("changeTeacherid", this.username);
+                  this.$router.push("/sidebar");
+                }
+              }.bind(this)
+            )
+            .catch(
+              function(err) {
+                if (err.response) {
+                  console.log(err.response);
+                  //控制台打印错误返回的内容
+                }
+                //bind(this)可以不用
+              }.bind(this)
+            );
+        }
       } else {
         let status = document
           .getElementById("status")
@@ -107,7 +167,56 @@ export default {
         status[1].style.top = 5 + "px";
         this.onoff = !this.onoff;
       } else {
-        console.log("注册");
+        if (this.username == null || this.username == "") {
+          this.$notification.error({
+            message: "账号未输入"
+          });
+        } else if (this.password == null || this.password == "") {
+          this.$notification.error({
+            message: "密码未输入"
+          });
+        } else if (this.confirmPassword == null || this.confirmPassword == "") {
+          this.$notification.error({
+            message: "确认密码未输入"
+          });
+        } else if (this.confirmPassword != this.password) {
+          this.$notification.error({
+            message: "密码与确认密码不同"
+          });
+        } else {
+          this.axios
+            .post(
+              "/userAccess/insert",
+              this.qs.stringify({
+                access_name: this.username,
+                access_pass: this.password
+              }),
+              {
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded"
+                }
+              }
+            )
+            .then(
+              function(res) {
+                console.log(res.data);
+                //每条数据需要一个唯一的key值
+                this.$store.commit("isLogin", true);
+                this.$store.commit("changeIdentity", 0);
+                this.$store.commit("changeTeacherid", this.username);
+                this.$router.push("/sidebar");
+              }.bind(this)
+            )
+            .catch(
+              function(err) {
+                if (err.response) {
+                  console.log(err.response);
+                  //控制台打印错误返回的内容
+                }
+                //bind(this)可以不用
+              }.bind(this)
+            );
+        }
       }
     }
   },

@@ -219,7 +219,7 @@ import router from "../router";
 export default {
   data() {
     return {
-      avatarValue: "天说",
+      avatarValue: "您",
       color: "#f56a00",
       collapsed: false
     };
