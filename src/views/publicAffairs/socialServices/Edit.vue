@@ -100,7 +100,7 @@ export default {
   methods: {
     showModal() {
       this.visible = true;
-      console.log(this.editData);
+      //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
       }, 10);
@@ -116,7 +116,7 @@ export default {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log(values);
+          //console.log(values);
           {
             this.axios
               .post(
@@ -135,7 +135,7 @@ export default {
               )
               .then(
                 function(res) {
-                  console.log(res.data);
+                  //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = true;
                   this.$router.go(0);
@@ -144,7 +144,7 @@ export default {
               .catch(
                 function(err) {
                   if (err.response) {
-                    console.log(err.response);
+                    //console.log(err.response);
                     //控制台打印错误返回的内容
                   }
                   //bind(this)可以不用

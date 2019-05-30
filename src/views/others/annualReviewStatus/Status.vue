@@ -76,7 +76,7 @@ export default {
     onDelete(key) {
       const data = [...this.data];
       this.data = data.filter(item => item.key !== key);
-      console.log(data[key].id);
+      //console.log(data[key].id);
       this.axios
         .get(
           "/othersAnnualreviewstatus/deleteByPrimaryKey",
@@ -95,7 +95,7 @@ export default {
         .catch(
           function(err) {
             if (err.response) {
-              console.log(err.response);
+              //console.log(err.response);
               //控制台打印错误返回的内容
             }
             //bind(this)可以不用
@@ -124,7 +124,7 @@ export default {
         )
         .then(
           function(res) {
-            console.log(res.data);
+            //console.log(res.data);
             //每条数据需要一个唯一的key值
             for (let index = 0; index < res.data.list.length; index++) {
               var str = JSON.stringify(res.data.list[index]);
@@ -141,7 +141,7 @@ export default {
         .catch(
           function(err) {
             if (err.response) {
-              console.log(err.response);
+              //console.log(err.response);
               //控制台打印错误返回的内容
             }
             //bind(this)可以不用
@@ -150,7 +150,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$store.state.teacherid);
+    //console.log(this.$store.state.teacherid);
     this.showListData(1);
   }
 };

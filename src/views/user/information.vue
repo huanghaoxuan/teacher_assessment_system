@@ -221,14 +221,14 @@ export default {
       )
       .then(
         function(res) {
-          console.log(res.data);
+          //console.log(res.data);
           this.list = res.data;
         }.bind(this)
       )
       .catch(
         function(err) {
           if (err.response) {
-            console.log(err.response);
+            //console.log(err.response);
             //控制台打印错误返回的内容
           }
           //bind(this)可以不用
