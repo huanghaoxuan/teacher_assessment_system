@@ -7,6 +7,7 @@ import Antd from "ant-design-vue";
 import "ant-design-vue/dist/antd.css";
 import axios from "axios";
 import Qs from "qs";
+import "@babel/polyfill";
 
 Vue.prototype.axios = axios;
 Vue.prototype.qs = Qs;
