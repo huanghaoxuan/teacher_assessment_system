@@ -1,7 +1,7 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="日常教研活动">
-      <floder slot="extra"></floder>
+      <floder slot="extra" v-if="!$store.state.identity == 1"></floder>
       <a-table
         :pagination="pagination"
         :columns="columns"
@@ -10,11 +10,20 @@
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">
-          <edit :editData="data[record.key]"></edit>
+          <a-button type="primary" disabled v-if="$store.state.identity == 1"
+            >修改</a-button
+          >
+          <edit
+            :editData="data[record.key]"
+            v-if="!$store.state.identity == 1"
+          ></edit>
         </template>
         <template slot="operation2" slot-scope="text, record">
+          <a-button type="danger" disabled v-if="$store.state.identity == 1"
+            >删除</a-button
+          >
           <a-popconfirm
-            v-if="data.length"
+            v-if="data.length && !$store.state.identity == 1"
             title="点击确认以删除?"
             cancelText="取消"
             okText="确认"
@@ -46,6 +55,7 @@ const columns = [
     title: "审核情况",
     dataIndex: "status",
     key: "6",
+    fixed: "right",
     width: 200
   },
   {
@@ -53,6 +63,7 @@ const columns = [
     dataIndex: "operation1",
     key: "7",
     width: 100,
+    fixed: "right",
     scopedSlots: { customRender: "operation1" }
   },
   {
@@ -60,6 +71,7 @@ const columns = [
     dataIndex: "operation2",
     key: "8",
     width: 100,
+    fixed: "right",
     scopedSlots: { customRender: "operation2" }
   }
 ];

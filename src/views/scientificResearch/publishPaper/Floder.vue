@@ -14,7 +14,7 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
-          label="项目名称"
+          label="论文名称"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
@@ -168,13 +168,7 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-textarea
-            v-decorator="[
-              'note',
-              { rules: [{ required: true, message: '备注不能为空' }] }
-            ]"
-            placeholder="请输入备注'"
-          />
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
@@ -205,12 +199,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select v-decorator="['semester']" placeholder="请选择学期">
+          <a-select
+            v-decorator="[
+              'semester',
+              { rules: [{ required: true, message: '学期不能为空' }] }
+            ]"
+            placeholder="请选择学期"
+          >
             <a-select-option value="第一学期">
               第一学期
             </a-select-option>
-            <a-select-option value="第一学期">
+            <a-select-option value="第二学期">
               第二学期
+            </a-select-option>
+            <a-select-option value="暂无">
+              暂无
             </a-select-option>
           </a-select>
         </a-form-item>

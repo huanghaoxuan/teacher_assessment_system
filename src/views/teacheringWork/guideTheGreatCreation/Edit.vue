@@ -80,6 +80,7 @@
               { rules: [{ required: true, message: '项目状况不能为空' }] }
             ]"
             placeholder="请输入项目状况"
+            @change="titleLevelDisabledChange"
           >
             <a-radio value="在研">
               在研
@@ -101,12 +102,19 @@
               { rules: [{ required: true, message: '结题等级不能为空' }] }
             ]"
             placeholder="请输入结题等级"
+            :disabled="titleLevelDisabled"
           >
-            <a-radio value="在研">
-              在研
+            <a-radio value="优秀">
+              优秀
             </a-radio>
-            <a-radio value="结题">
-              结题
+            <a-radio value="良好">
+              良好
+            </a-radio>
+            <a-radio value="通过">
+              通过
+            </a-radio>
+            <a-radio value="不通过">
+              不通过
             </a-radio>
           </a-radio-group>
         </a-form-item>
@@ -234,13 +242,7 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-textarea
-            v-decorator="[
-              'note',
-              { rules: [{ required: true, message: '备注不能为空' }] }
-            ]"
-            placeholder="请输入备注'"
-          />
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
@@ -271,12 +273,21 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select v-decorator="['semester']" placeholder="请选择学期">
+          <a-select
+            v-decorator="[
+              'semester',
+              { rules: [{ required: true, message: '学期不能为空' }] }
+            ]"
+            placeholder="请选择学期"
+          >
             <a-select-option value="第一学期">
               第一学期
             </a-select-option>
-            <a-select-option value="第一学期">
+            <a-select-option value="第二学期">
               第二学期
+            </a-select-option>
+            <a-select-option value="暂无">
+              暂无
             </a-select-option>
           </a-select>
         </a-form-item>
@@ -293,10 +304,19 @@ export default {
     return {
       visible: false,
       confirmLoading: false,
-      form: this.$form.createForm(this)
+      form: this.$form.createForm(this),
+      titleLevelDisabled: true
     };
   },
   methods: {
+    titleLevelDisabledChange(e) {
+      if (e.target.value == "在研") {
+        this.form.setFieldsValue({ titleLevel: null });
+        this.titleLevelDisabled = true;
+      } else if (e.target.value == "结题") {
+        this.titleLevelDisabled = false;
+      }
+    },
     showModal() {
       this.visible = true;
       //console.log(this.editData);

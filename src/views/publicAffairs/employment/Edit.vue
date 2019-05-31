@@ -156,13 +156,7 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-textarea
-            v-decorator="[
-              'note',
-              { rules: [{ required: true, message: '备注不能为空' }] }
-            ]"
-            placeholder="请输入备注'"
-          />
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
