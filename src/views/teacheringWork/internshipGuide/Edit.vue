@@ -292,7 +292,7 @@ export default {
                 function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
-                  this.visible = true;
+                  this.visible = false;
                   this.$router.go(0);
                 }.bind(this)
               )

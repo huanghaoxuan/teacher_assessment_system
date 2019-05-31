@@ -1,8 +1,7 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="基本信息">
-      <edit slot="extra"
-            :editData="list"></edit>
+      <edit slot="extra" :editData="list"></edit>
       <a-list itemLayout="horizontal">
         <a-list-item slot="">
           <a-list-item-meta :description="list.name">
@@ -49,6 +48,12 @@
         <a-list-item slot="">
           <a-list-item-meta :description="list.classTeacher">
             <h3 slot="title">工号:</h3>
+          </a-list-item-meta>
+        </a-list-item>
+
+        <a-list-item slot="">
+          <a-list-item-meta :description="list.idcard">
+            <h3 slot="title">身份证号码:</h3>
           </a-list-item-meta>
         </a-list-item>
 
@@ -101,12 +106,6 @@
         </a-list-item>
 
         <a-list-item slot="">
-          <a-list-item-meta :description="list.idcard">
-            <h3 slot="title">身份证号码:</h3>
-          </a-list-item-meta>
-        </a-list-item>
-
-        <a-list-item slot="">
           <a-list-item-meta :description="list.studyProfessional">
             <h3 slot="title">所学专业:</h3>
           </a-list-item-meta>
@@ -137,7 +136,9 @@
         </a-list-item>
 
         <a-list-item slot="">
-          <a-list-item-meta :description="list.professionalTechnologyDutiesTime">
+          <a-list-item-meta
+            :description="list.professionalTechnologyDutiesTime"
+          >
             <h3 slot="title">现专业技术职务取得时间:</h3>
           </a-list-item-meta>
         </a-list-item>
@@ -180,12 +181,12 @@
 import edit from "./Edit.vue";
 export default {
   components: { edit },
-  data () {
+  data() {
     return {
       list: {}
     };
   },
-  mounted () {
+  mounted() {
     this.axios
       .get(
         "/userinformation/selectUserinformation",
@@ -201,13 +202,13 @@ export default {
         }
       )
       .then(
-        function (res) {
+        function(res) {
           //console.log(res.data);
           this.list = res.data;
         }.bind(this)
       )
       .catch(
-        function (err) {
+        function(err) {
           if (err.response) {
             //console.log(err.response);
             //控制台打印错误返回的内容
