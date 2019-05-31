@@ -1,28 +1,32 @@
 <template>
   <div>
-    <a-button type="primary"
-              @click="showModal">修改</a-button>
-    <a-modal title="正在修改年度考核情况内容"
-             :visible="visible"
-             @ok="handleOk"
-             okText="确认修改"
-             cancelText="取消"
-             :maskClosable="false"
-             :confirmLoading="confirmLoading"
-             width="50%"
-             @cancel="handleCancel">
-      <a-form :form="form"
-              @submit="handleSubmit">
-        <a-form-item label="考核情况"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-radio-group v-decorator="[
+    <a-button type="primary" @click="showModal">修改</a-button>
+    <a-modal
+      title="正在修改年度考核情况内容"
+      :visible="visible"
+      @ok="handleOk"
+      okText="确认修改"
+      cancelText="取消"
+      :maskClosable="false"
+      :confirmLoading="confirmLoading"
+      width="50%"
+      @cancel="handleCancel"
+    >
+      <a-form :form="form" @submit="handleSubmit">
+        <a-form-item
+          label="考核情况"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
               'assessmentStatus',
               {
                 rules: [{ required: true, message: '考核情况不能为空' }]
               }
             ]"
-                         placeholder="请输入考核情况">
+            placeholder="请输入考核情况"
+          >
             <a-radio value="优秀">优秀</a-radio>
             <a-radio value="合格">合格</a-radio>
             <a-radio value="基本合格">基本合格</a-radio>
@@ -31,20 +35,27 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item label="备注"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-textarea v-decorator="[
+        <a-form-item
+          label="备注"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-textarea
+            v-decorator="[
               'note',
               { rules: [{ required: true, message: '备注不能为空' }] }
             ]"
-                      placeholder="请输入备注'" />
+            placeholder="请输入备注'"
+          />
         </a-form-item>
 
-        <a-form-item label="学年"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="学年"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'year',
               {
                 rules: [
@@ -56,15 +67,17 @@
                 ]
               }
             ]"
-                   placeholder="请输入学年'"
-                   addonAfter="年" />
+            placeholder="请输入学年'"
+            addonAfter="年"
+          />
         </a-form-item>
 
-        <a-form-item label="学期"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-select v-decorator="['semester']"
-                    placeholder="请选择学期">
+        <a-form-item
+          label="学期"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-select v-decorator="['semester']" placeholder="请选择学期">
             <a-select-option value="第一学期">
               第一学期
             </a-select-option>
@@ -82,7 +95,7 @@ export default {
   props: {
     editData: {}
   },
-  data () {
+  data() {
     return {
       visible: false,
       confirmLoading: false,
@@ -90,21 +103,21 @@ export default {
     };
   },
   methods: {
-    showModal () {
+    showModal() {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
       }, 10);
     },
-    handleOk (e) {
+    handleOk(e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel (e) {
+    handleCancel(e) {
       this.visible = false;
     },
-    handleSubmit (e) {
+    handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -126,7 +139,7 @@ export default {
                 }
               )
               .then(
-                function (res) {
+                function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = true;
@@ -134,7 +147,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function (err) {
+                function(err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容

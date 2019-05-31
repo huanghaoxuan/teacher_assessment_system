@@ -1,34 +1,42 @@
 <template>
   <div>
-    <a-button type="primary"
-              @click="showModal">新建</a-button>
-    <a-modal title="正在新添加课堂教学内容"
-             :visible="visible"
-             @ok="handleOk"
-             okText="确认添加"
-             cancelText="取消"
-             :maskClosable="false"
-             :confirmLoading="confirmLoading"
-             width="50%"
-             @cancel="handleCancel">
-      <a-form :form="form"
-              @submit="handleSubmit">
-        <a-form-item label="课程名称"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+    <a-button type="primary" @click="showModal">新建</a-button>
+    <a-modal
+      title="正在新添加课堂教学内容"
+      :visible="visible"
+      @ok="handleOk"
+      okText="确认添加"
+      cancelText="取消"
+      :maskClosable="false"
+      :confirmLoading="confirmLoading"
+      width="50%"
+      @cancel="handleCancel"
+    >
+      <a-form :form="form" @submit="handleSubmit">
+        <a-form-item
+          label="课程名称"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'name',
               { rules: [{ required: true, message: '课程名称不能为空' }] }
             ]"
-                   placeholder="请输入课程名称'" />
+            placeholder="请输入课程名称'"
+          />
         </a-form-item>
-        <a-form-item label="课程性质"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-radio-group v-decorator="[
+        <a-form-item
+          label="课程性质"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
               'character',
               { rules: [{ required: true, message: '课程性质不能为空' }] }
-            ]">
+            ]"
+          >
             <a-radio value="通识基础">
               通识基础
             </a-radio>
@@ -47,13 +55,17 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item label="授课形式"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-radio-group v-decorator="[
+        <a-form-item
+          label="授课形式"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
               'type',
               { rules: [{ required: true, message: '授课形式不能为空' }] }
-            ]">
+            ]"
+          >
             <a-radio value="讲授为主">
               讲授为主
             </a-radio>
@@ -66,13 +78,17 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item label="是否"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-radio-group v-decorator="[
+        <a-form-item
+          label="是否"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-radio-group
+            v-decorator="[
               'yesorno',
               { rules: [{ required: true, message: '是否不能为空' }] }
-            ]">
+            ]"
+          >
             <a-radio value="新开课">
               新开课
             </a-radio>
@@ -85,10 +101,13 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item label="学分"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="学分"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'credits',
               {
                 rules: [
@@ -100,14 +119,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入学分"
-                   addonAfter="分" />
+            placeholder="请输入学分"
+            addonAfter="分"
+          />
         </a-form-item>
 
-        <a-form-item label="学时"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="学时"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'hours',
               {
                 rules: [
@@ -119,14 +142,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入学时"
-                   addonAfter="小时" />
+            placeholder="请输入学时"
+            addonAfter="小时"
+          />
         </a-form-item>
 
-        <a-form-item label="授课班个数"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="授课班个数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'classesNumber',
               {
                 rules: [
@@ -138,14 +165,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入授课班个数'"
-                   addonAfter="个" />
+            placeholder="请输入授课班个数'"
+            addonAfter="个"
+          />
         </a-form-item>
 
-        <a-form-item label="平行班个数"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="平行班个数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'parallelClassesNumber',
               {
                 rules: [
@@ -157,14 +188,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入平行班个数'"
-                   addonAfter="个" />
+            placeholder="请输入平行班个数'"
+            addonAfter="个"
+          />
         </a-form-item>
 
-        <a-form-item label="作业次数"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="作业次数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'homeworkNumber',
               {
                 rules: [
@@ -176,14 +211,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入作业次数'"
-                   addonAfter="次" />
+            placeholder="请输入作业次数'"
+            addonAfter="次"
+          />
         </a-form-item>
 
-        <a-form-item label="批改次数"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="批改次数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'correctingNumber',
               {
                 rules: [
@@ -195,14 +234,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入批改次数'"
-                   addonAfter="次" />
+            placeholder="请输入批改次数'"
+            addonAfter="次"
+          />
         </a-form-item>
 
-        <a-form-item label="答疑次数"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="答疑次数"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'answeringNumber',
               {
                 rules: [
@@ -214,21 +257,26 @@
                 ]
               }
             ]"
-                   placeholder="请输入答疑次数'"
-                   addonAfter="次" />
+            placeholder="请输入答疑次数'"
+            addonAfter="次"
+          />
         </a-form-item>
 
-        <a-form-item label="备注"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-textarea v-decorator="['note']"
-                      placeholder="请输入备注'" />
+        <a-form-item
+          label="备注"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
-        <a-form-item label="学年"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="学年"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
               'year',
               {
                 rules: [
@@ -240,15 +288,17 @@
                 ]
               }
             ]"
-                   placeholder="请输入学年'"
-                   addonAfter="年" />
+            placeholder="请输入学年'"
+            addonAfter="年"
+          />
         </a-form-item>
 
-        <a-form-item label="学期"
-                     :label-col="{ span: 5 }"
-                     :wrapper-col="{ span: 16 }">
-          <a-select v-decorator="['semester']"
-                    placeholder="请选择学期">
+        <a-form-item
+          label="学期"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-select v-decorator="['semester']" placeholder="请选择学期">
             <a-select-option value="第一学期">
               第一学期
             </a-select-option>
@@ -264,7 +314,7 @@
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       visible: false,
       confirmLoading: false,
@@ -272,17 +322,17 @@ export default {
     };
   },
   methods: {
-    showModal () {
+    showModal() {
       this.visible = true;
     },
-    handleOk (e) {
+    handleOk(e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel (e) {
+    handleCancel(e) {
       this.visible = false;
     },
-    handleSubmit (e) {
+    handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -303,7 +353,7 @@ export default {
                 }
               )
               .then(
-                function (res) {
+                function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = true;
@@ -311,7 +361,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function (err) {
+                function(err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容

@@ -70,17 +70,18 @@ const columns = [
   { title: "节省经费数", dataIndex: "money", key: "10", width: 200 },
   { title: "备注", dataIndex: "note", key: "11", width: 200 },
   { title: "学年", dataIndex: "year", key: "12", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "13", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "13",
+    key: "14",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation1",
-    key: "14",
+    key: "15",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation1" }
@@ -88,7 +89,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "15",
+    key: "16",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }

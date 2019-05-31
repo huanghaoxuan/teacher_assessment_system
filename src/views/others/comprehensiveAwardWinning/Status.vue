@@ -6,7 +6,7 @@
         :pagination="pagination"
         :columns="columns"
         :dataSource="data"
-        :scroll="{ x: 2000, y: 610 }"
+        :scroll="{ x: 2200, y: 610 }"
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">
@@ -71,17 +71,18 @@ const columns = [
   },
   { title: "备注", dataIndex: "note", key: "7", width: 200 },
   { title: "学年", dataIndex: "year", key: "8", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "9", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "9",
+    key: "10",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation1",
-    key: "10",
+    key: "11",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation1" }
@@ -89,7 +90,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "11",
+    key: "12",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }
