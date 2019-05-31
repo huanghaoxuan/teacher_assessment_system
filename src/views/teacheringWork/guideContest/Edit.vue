@@ -273,17 +273,11 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-select
-            v-decorator="[
-              'semester',
-              { rules: [{ required: true, message: '请选择学期' }] }
-            ]"
-            placeholder="请选择学期"
-          >
-            <a-select-option value="1">
+          <a-select v-decorator="['semester']" placeholder="请选择学期">
+            <a-select-option value="第一学期">
               第一学期
             </a-select-option>
-            <a-select-option value="2">
+            <a-select-option value="第一学期">
               第二学期
             </a-select-option>
           </a-select>
