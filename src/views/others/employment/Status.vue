@@ -58,7 +58,7 @@ const columns = [
     key: "4"
   },
   { title: "备注", dataIndex: "note", key: "5", width: 200 },
-  { title: "学年", dataIndex: "year", key: "6", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "6", width: 200 },
   { title: "学期", dataIndex: "semester", key: "7", width: 200 },
   {
     title: "审核情况",
@@ -149,10 +149,10 @@ export default {
             //console.log(res.data);
             //每条数据需要一个唯一的key值
             for (let index = 0; index < res.data.list.length; index++) {
-              var str = JSON.stringify(res.data.list[index]);
-              str = str.split("}")[0];
-              str = str + ',"key":' + index + "}";
-              res.data.list[index] = JSON.parse(str);
+              res.data.list[index].key = index;
+              var year = res.data.list[index].year + 1;
+              var yearStr = res.data.list[index].year + " — " + year + " 学年";
+              res.data.list[index].showYear = yearStr;
             }
             this.data = res.data.list;
             this.pagination.total = res.data.total;

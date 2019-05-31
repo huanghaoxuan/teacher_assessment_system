@@ -212,12 +212,13 @@
                   {
                     pattern: /(^[\-0-9][0-9]*([0-9]+)?)$/,
                     required: true,
-                    message: '学年输入有误（请输入数字）'
+                    message:
+                      '学年输入有误（请输入数字）（若为  2018 — 2019 学年 请输入 2018）'
                   }
                 ]
               }
             ]"
-            placeholder="请输入学年'"
+            placeholder="若为 ' 2018 — 2019 学年 '请输入 2018"
             addonAfter="年"
           />
         </a-form-item>
