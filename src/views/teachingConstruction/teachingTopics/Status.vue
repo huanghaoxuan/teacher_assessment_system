@@ -1,7 +1,7 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="承担教研教改课题">
-      <floder slot="extra"></floder>
+      <floder slot="extra" v-if="$store.state.identity == 1"></floder>
       <a-table
         :pagination="pagination"
         :columns="columns"

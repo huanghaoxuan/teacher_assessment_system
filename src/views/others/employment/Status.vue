@@ -1,7 +1,7 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="任职以来所带已毕业班级就业率考研率违纪率情况">
-      <floder slot="extra"></floder>
+      <floder slot="extra" v-if="$store.state.identity == 1"></floder>
       <a-table
         :pagination="pagination"
         :columns="columns"
