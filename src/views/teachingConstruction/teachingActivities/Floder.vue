@@ -14,6 +14,27 @@
     >
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
+          label="工号"
+          :label-col="{ span: 5 }"
+          :wrapper-col="{ span: 16 }"
+        >
+          <a-input
+            v-decorator="[
+              'classTeacher',
+              {
+                rules: [
+                  {
+                    required: true,
+                    message: '请输入扣分教师工号'
+                  }
+                ]
+              }
+            ]"
+            placeholder="请输入扣分教师工号'"
+          />
+        </a-form-item>
+
+        <a-form-item
           label="缺席扣分"
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
@@ -148,9 +169,8 @@ export default {
               .post(
                 "/teachingconstructionTeachingactivities/insert",
                 this.qs.stringify({
-                  classTeacher: this.$store.state.teacherid,
                   ...values,
-                  status: "未审核"
+                  status: "已通过"
                 }),
                 {
                   headers: {

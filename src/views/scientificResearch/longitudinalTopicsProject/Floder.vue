@@ -120,11 +120,8 @@
             <a-radio value="一般资助">
               一般资助
             </a-radio>
-            <a-radio value="二等奖">
-              二等奖
-            </a-radio>
-            <a-radio value="三等奖">
-              三等奖
+            <a-radio value="立项">
+              立项
             </a-radio>
           </a-radio-group>
         </a-form-item>
