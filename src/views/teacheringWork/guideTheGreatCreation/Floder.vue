@@ -97,10 +97,7 @@
           :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
-            v-decorator="[
-              'titleLevel',
-              { rules: [{ required: true, message: '结题等级不能为空' }] }
-            ]"
+            v-decorator="['titleLevel']"
             placeholder="请输入结题等级"
             :disabled="titleLevelDisabled"
           >
@@ -264,7 +261,7 @@
                 ]
               }
             ]"
-            placeholder="若为 ' 2018 — 2019 学年 '请输入 2018"
+            placeholder="若为2018—2019学年请输入2018"
             addonAfter="年"
           />
         </a-form-item>

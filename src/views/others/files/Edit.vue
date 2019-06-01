@@ -1,34 +1,41 @@
 <template>
   <div>
-    <a-button type="primary"
-              @click="showModal">修改</a-button>
-    <a-modal title="正在修改任职以来起草、制定的重要文件、报告内容"
-             :visible="visible"
-             @ok="handleOk"
-             okText="确认修改"
-             cancelText="取消"
-             :maskClosable="false"
-             :confirmLoading="confirmLoading"
-             width="50%"
-             @cancel="handleCancel">
-      <a-form :form="form"
-              @submit="handleSubmit">
-        <a-form-item label="文件、报告题目"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-input v-decorator="[
+    <a-button type="primary" @click="showModal">修改</a-button>
+    <a-modal
+      title="正在修改任职以来起草、制定的重要文件、报告内容"
+      :visible="visible"
+      @ok="handleOk"
+      okText="确认修改"
+      cancelText="取消"
+      :maskClosable="false"
+      :confirmLoading="confirmLoading"
+      width="50%"
+      @cancel="handleCancel"
+    >
+      <a-form :form="form" @submit="handleSubmit">
+        <a-form-item
+          label="文件、报告题目"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-input
+            v-decorator="[
               'name',
               {
                 rules: [{ required: true, message: '文件、报告题目不能为空' }]
               }
             ]"
-                   placeholder="请输入文件、报告题目" />
+            placeholder="请输入文件、报告题目"
+          />
         </a-form-item>
 
-        <a-form-item label="时间"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-date-picker v-decorator="[
+        <a-form-item
+          label="时间"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-date-picker
+            v-decorator="[
               'time',
               {
                 rules: [
@@ -40,26 +47,34 @@
                 ]
               }
             ]"
-                         placeholder="请输入时间"
-                         style="width:100%" />
+            placeholder="请输入时间"
+            style="width:100%"
+          />
         </a-form-item>
 
-        <a-form-item label="本人排名"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="本人排名"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-input
+            v-decorator="[
               'rank',
               {
                 rules: [{ required: true, message: '本人排名不能为空' }]
               }
             ]"
-                   placeholder="请输入本人排名" />
+            placeholder="请输入本人排名"
+          />
         </a-form-item>
 
-        <a-form-item label="总人数"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="总人数"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-input
+            v-decorator="[
               'peopleNumber',
               {
                 rules: [
@@ -71,14 +86,18 @@
                 ]
               }
             ]"
-                   placeholder="请输入总人数'"
-                   addonAfter="人" />
+            placeholder="请输入总人数'"
+            addonAfter="人"
+          />
         </a-form-item>
 
-        <a-form-item label="使用范围及产生效益"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="使用范围及产生效益"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-input
+            v-decorator="[
               'useScope',
               {
                 rules: [
@@ -86,20 +105,25 @@
                 ]
               }
             ]"
-                   placeholder="请输入使用范围及产生效益" />
+            placeholder="请输入使用范围及产生效益"
+          />
         </a-form-item>
 
-        <a-form-item label="备注"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-textarea v-decorator="['note']"
-                      placeholder="请输入备注'" />
+        <a-form-item
+          label="备注"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
-        <a-form-item label="学年"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-input v-decorator="[
+        <a-form-item
+          label="学年"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-input
+            v-decorator="[
               'year',
               {
                 rules: [
@@ -112,18 +136,23 @@
                 ]
               }
             ]"
-                   placeholder="若为 ' 2018 — 2019 学年 '请输入 2018"
-                   addonAfter="年" />
+            placeholder="若为2018—2019学年请输入2018"
+            addonAfter="年"
+          />
         </a-form-item>
 
-        <a-form-item label="学期"
-                     :label-col="{ span: 9 }"
-                     :wrapper-col="{ span: 10 }">
-          <a-select v-decorator="[
+        <a-form-item
+          label="学期"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
+        >
+          <a-select
+            v-decorator="[
               'semester',
               { rules: [{ required: true, message: '学期不能为空' }] }
             ]"
-                    placeholder="请选择学期">
+            placeholder="请选择学期"
+          >
             <a-select-option value="第一学期">
               第一学期
             </a-select-option>
@@ -144,7 +173,7 @@ export default {
   props: {
     editData: {}
   },
-  data () {
+  data() {
     return {
       visible: false,
       confirmLoading: false,
@@ -152,7 +181,7 @@ export default {
     };
   },
   methods: {
-    showModal () {
+    showModal() {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
@@ -160,14 +189,14 @@ export default {
         this.form.setFieldsValue({ time: null });
       }, 10);
     },
-    handleOk (e) {
+    handleOk(e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel (e) {
+    handleCancel(e) {
       this.visible = false;
     },
-    handleSubmit (e) {
+    handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -193,7 +222,7 @@ export default {
                 }
               )
               .then(
-                function (res) {
+                function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = false;
@@ -201,7 +230,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function (err) {
+                function(err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容

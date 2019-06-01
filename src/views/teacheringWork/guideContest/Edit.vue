@@ -185,7 +185,7 @@
         >
           <a-radio-group
             v-decorator="[
-              'source',
+              'guidanceType',
               { rules: [{ required: true, message: '指导形式不能为空' }] }
             ]"
             placeholder="请输入指导形式"
@@ -258,7 +258,7 @@
                 ]
               }
             ]"
-            placeholder="若为 ' 2018 — 2019 学年 '请输入 2018"
+            placeholder="若为2018—2019学年请输入2018"
             addonAfter="年"
           />
         </a-form-item>
