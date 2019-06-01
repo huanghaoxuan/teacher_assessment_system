@@ -341,8 +341,8 @@ export default {
                 this.qs.stringify({
                   id: this.editData.id,
                   classTeacher: this.$store.state.teacherid,
-                  status: "未审核",
                   ...values,
+                  status: "未审核",
                   contribution: contributionStr
                 }),
                 {

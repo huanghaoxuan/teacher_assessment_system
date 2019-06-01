@@ -196,13 +196,7 @@
           :label-col="{ span: 5 }"
           :wrapper-col="{ span: 16 }"
         >
-          <a-textarea
-            v-decorator="[
-              'note',
-              
-            ]"
-            placeholder="请输入备注'"
-          />
+          <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
@@ -295,8 +289,8 @@ export default {
                 this.qs.stringify({
                   id: this.editData.id,
                   classTeacher: this.$store.state.teacherid,
-                  status: "未审核",
-                  ...values
+                  ...values,
+                  status: "未审核"
                 }),
                 {
                   headers: {

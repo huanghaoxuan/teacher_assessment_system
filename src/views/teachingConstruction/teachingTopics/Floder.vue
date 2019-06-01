@@ -288,8 +288,8 @@ export default {
                 "/teachingconstructionTeachingtopics/insert",
                 this.qs.stringify({
                   classTeacher: this.$store.state.teacherid,
-                  status: "未审核",
-                  ...fieldsValue
+                  ...fieldsValue,
+                  status: "未审核"
                 }),
                 {
                   headers: {

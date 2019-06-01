@@ -252,8 +252,8 @@ export default {
                 "/teachingconstructionTextbookconstruction/insert",
                 this.qs.stringify({
                   classTeacher: this.$store.state.teacherid,
-                  status: "未审核",
                   ...fieldsValue,
+                  status: "未审核",
                   yesorno: yesornoStr
                 }),
                 {

@@ -241,8 +241,8 @@ export default {
                 "/publicaffairsEmployment/insert",
                 this.qs.stringify({
                   classTeacher: this.$store.state.teacherid,
-                  status: "未审核",
-                  ...values
+                  ...values,
+                  status: "未审核"
                 }),
                 {
                   headers: {
