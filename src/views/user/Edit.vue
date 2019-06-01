@@ -15,8 +15,8 @@
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
           label="姓名"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -29,8 +29,8 @@
 
         <a-form-item
           label="性别"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
             v-decorator="[
@@ -49,8 +49,8 @@
 
         <a-form-item
           label="出生年月"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-date-picker
             v-decorator="[
@@ -72,8 +72,8 @@
 
         <a-form-item
           label="学历"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -114,8 +114,8 @@
 
         <a-form-item
           label="学位"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -144,8 +144,8 @@
 
         <a-form-item
           label="职务"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -158,8 +158,8 @@
 
         <a-form-item
           label="政治面貌"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -212,8 +212,8 @@
 
         <a-form-item
           label="工号"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -227,8 +227,8 @@
 
         <a-form-item
           label="所在学院"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -296,8 +296,8 @@
 
         <a-form-item
           label="进校时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-date-picker
             v-decorator="[
@@ -319,8 +319,8 @@
 
         <a-form-item
           label="高校工龄"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -342,8 +342,8 @@
 
         <a-form-item
           label="本科毕业学校"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -356,8 +356,8 @@
 
         <a-form-item
           label="获得最高学历的院校或机构"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -377,8 +377,8 @@
 
         <a-form-item
           label="最高学历取得时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-date-picker
             v-decorator="[
@@ -400,8 +400,8 @@
 
         <a-form-item
           label="获得最高学位的院校或机构"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -421,8 +421,8 @@
 
         <a-form-item
           label="最高学位取得时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-date-picker
             v-decorator="[
@@ -444,8 +444,8 @@
 
         <a-form-item
           label="身份证号码"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -466,8 +466,8 @@
 
         <a-form-item
           label="所学专业"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -480,8 +480,8 @@
 
         <a-form-item
           label="教师资格证"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-checkbox-group
             v-decorator="[
@@ -533,8 +533,8 @@
 
         <a-form-item
           label="岗前培训"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
             v-decorator="[
@@ -554,8 +554,8 @@
 
         <a-form-item
           label="普通话考试"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -590,8 +590,8 @@
 
         <a-form-item
           label="现专业技术职务"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -611,8 +611,8 @@
 
         <a-form-item
           label="现专业技术职务取得时间"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-date-picker
             v-decorator="[
@@ -634,8 +634,8 @@
 
         <a-form-item
           label="现从事专业研究方向"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -655,8 +655,8 @@
 
         <a-form-item
           label="现从事专业研究方向年限"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -678,8 +678,8 @@
 
         <a-form-item
           label="继续教育情况"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -699,8 +699,8 @@
 
         <a-form-item
           label="工程实践经历"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -720,8 +720,8 @@
 
         <a-form-item
           label="指导学生实践轮数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[

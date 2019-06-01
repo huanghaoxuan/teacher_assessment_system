@@ -15,8 +15,8 @@
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
           label="实训名称"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -29,8 +29,8 @@
 
         <a-form-item
           label="学分"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -52,8 +52,8 @@
 
         <a-form-item
           label="时长"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -75,8 +75,8 @@
 
         <a-form-item
           label="学生人数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -98,8 +98,8 @@
 
         <a-form-item
           label="循环次数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -121,8 +121,8 @@
 
         <a-form-item
           label="实训类型"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
             v-decorator="[
@@ -145,8 +145,8 @@
 
         <a-form-item
           label="成果形式"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
             v-decorator="[
@@ -172,8 +172,8 @@
 
         <a-form-item
           label="是否批改"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[
@@ -193,16 +193,16 @@
 
         <a-form-item
           label="备注"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
           label="学年"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -225,8 +225,8 @@
 
         <a-form-item
           label="学期"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[

@@ -2,7 +2,7 @@
   <div style="background:#ECECEC; padding:30px">
     <a-card title="纵向课题项目">
       <edit
-        :editData="data[record.key]"
+        :editData="data"
         v-if="$store.state.identity == 3"
         slot="extra"
       ></edit>

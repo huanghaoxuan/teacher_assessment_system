@@ -15,8 +15,8 @@
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
           label="国家级  重点资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -37,8 +37,8 @@
         </a-form-item>
         <a-form-item
           label="国家级  一般资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -59,8 +59,8 @@
         </a-form-item>
         <a-form-item
           label="国家级  立项"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -81,8 +81,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  重点资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -103,8 +103,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  一般资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -125,8 +125,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  立项"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -147,8 +147,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  重点资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -169,8 +169,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  一般资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -191,8 +191,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  立项"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -213,8 +213,8 @@
         </a-form-item>
         <a-form-item
           label="校级  重点资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -235,8 +235,8 @@
         </a-form-item>
         <a-form-item
           label="校级  一般资助"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -257,8 +257,8 @@
         </a-form-item>
         <a-form-item
           label="校级  立项"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[

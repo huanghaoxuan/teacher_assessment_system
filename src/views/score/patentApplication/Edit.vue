@@ -1,25 +1,22 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">修改</a-button>
-    <a-modal
-      title="专利和发明"
-      :visible="visible"
-      @ok="handleOk"
-      okText="确认修改"
-      cancelText="取消"
-      :maskClosable="false"
-      :confirmLoading="confirmLoading"
-      width="50%"
-      @cancel="handleCancel"
-    >
-      <a-form :form="form" @submit="handleSubmit">
-        <a-form-item
-          label="发明专利授权"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+    <a-button type="primary"
+              @click="showModal">修改</a-button>
+    <a-modal title="专利和发明"
+             :visible="visible"
+             @ok="handleOk"
+             okText="确认修改"
+             cancelText="取消"
+             :maskClosable="false"
+             :confirmLoading="confirmLoading"
+             width="50%"
+             @cancel="handleCancel">
+      <a-form :form="form"
+              @submit="handleSubmit">
+        <a-form-item label="发明专利授权"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'invention',
               {
                 rules: [
@@ -31,17 +28,13 @@
                 ]
               }
             ]"
-            placeholder="请输入发明专利授权"
-            addonAfter="分"
-          />
+                   placeholder="请输入发明专利授权"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="国家已受理发明专利"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="国家已受理发明专利"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'countryAccept',
               {
                 rules: [
@@ -53,17 +46,13 @@
                 ]
               }
             ]"
-            placeholder="请输入国家已受理发明专利"
-            addonAfter="分"
-          />
+                   placeholder="请输入国家已受理发明专利"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="实用新型专利授权"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="实用新型专利授权"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'practical',
               {
                 rules: [
@@ -75,17 +64,13 @@
                 ]
               }
             ]"
-            placeholder="请输入实用新型专利授权"
-            addonAfter="分"
-          />
+                   placeholder="请输入实用新型专利授权"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="外观设计专利授权"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="外观设计专利授权"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'exteriorDesign',
               {
                 rules: [
@@ -97,9 +82,8 @@
                 ]
               }
             ]"
-            placeholder="请输入外观设计专利授权"
-            addonAfter="分"
-          />
+                   placeholder="请输入外观设计专利授权"
+                   addonAfter="分" />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -110,7 +94,7 @@ export default {
   props: {
     editData: {}
   },
-  data() {
+  data () {
     return {
       visible: false,
       confirmLoading: false,
@@ -118,21 +102,21 @@ export default {
     };
   },
   methods: {
-    showModal() {
+    showModal () {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
       }, 10);
     },
-    handleOk(e) {
+    handleOk (e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel(e) {
+    handleCancel (e) {
       this.visible = false;
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -151,7 +135,7 @@ export default {
                 }
               )
               .then(
-                function(res) {
+                function (res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = false;
@@ -159,7 +143,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function(err) {
+                function (err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容

@@ -15,8 +15,8 @@
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
           label="国际级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -37,8 +37,8 @@
         </a-form-item>
         <a-form-item
           label="国际级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -59,8 +59,8 @@
         </a-form-item>
         <a-form-item
           label="国际级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -81,8 +81,8 @@
         </a-form-item>
         <a-form-item
           label="国家级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -103,8 +103,8 @@
         </a-form-item>
         <a-form-item
           label="国家级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -125,8 +125,8 @@
         </a-form-item>
         <a-form-item
           label="国家级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -147,8 +147,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -169,8 +169,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -191,8 +191,8 @@
         </a-form-item>
         <a-form-item
           label="省部级（大区）  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -213,8 +213,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -235,8 +235,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -257,8 +257,8 @@
         </a-form-item>
         <a-form-item
           label="市局级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -279,8 +279,8 @@
         </a-form-item>
         <a-form-item
           label="校级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -301,8 +301,8 @@
         </a-form-item>
         <a-form-item
           label="校级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -323,8 +323,8 @@
         </a-form-item>
         <a-form-item
           label="校级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[

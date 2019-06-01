@@ -15,8 +15,8 @@
       <a-form :form="form" @submit="handleSubmit">
         <a-form-item
           label="开发实验项目名称"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -31,8 +31,8 @@
 
         <a-form-item
           label="任务角色"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-radio-group
             v-decorator="[
@@ -58,8 +58,8 @@
 
         <a-form-item
           label="本人贡献"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-checkbox-group
             v-decorator="[
@@ -106,8 +106,8 @@
 
         <a-form-item
           label="对应学时"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -129,8 +129,8 @@
 
         <a-form-item
           label="收益人数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -152,8 +152,8 @@
 
         <a-form-item
           label="适用专业"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -168,8 +168,8 @@
 
         <a-form-item
           label="适用年级"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -184,8 +184,8 @@
 
         <a-form-item
           label="自制装置名称"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -200,8 +200,8 @@
 
         <a-form-item
           label="改制装置名称"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -216,8 +216,8 @@
 
         <a-form-item
           label="节省经费数"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -239,16 +239,16 @@
 
         <a-form-item
           label="备注"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-textarea v-decorator="['note']" placeholder="请输入备注'" />
         </a-form-item>
 
         <a-form-item
           label="学年"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-input
             v-decorator="[
@@ -271,8 +271,8 @@
 
         <a-form-item
           label="学期"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
+          :label-col="{ span: 9 }"
+          :wrapper-col="{ span: 10 }"
         >
           <a-select
             v-decorator="[

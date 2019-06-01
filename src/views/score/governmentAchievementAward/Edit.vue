@@ -1,25 +1,22 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">修改</a-button>
-    <a-modal
-      title="政府部门设立的教学（科研）成果奖"
-      :visible="visible"
-      @ok="handleOk"
-      okText="确认修改"
-      cancelText="取消"
-      :maskClosable="false"
-      :confirmLoading="confirmLoading"
-      width="50%"
-      @cancel="handleCancel"
-    >
-      <a-form :form="form" @submit="handleSubmit">
-        <a-form-item
-          label="国家级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+    <a-button type="primary"
+              @click="showModal">修改</a-button>
+    <a-modal title="政府部门设立的教学（科研）成果奖"
+             :visible="visible"
+             @ok="handleOk"
+             okText="确认修改"
+             cancelText="取消"
+             :maskClosable="false"
+             :confirmLoading="confirmLoading"
+             width="50%"
+             @cancel="handleCancel">
+      <a-form :form="form"
+              @submit="handleSubmit">
+        <a-form-item label="国家级  一等（特等）奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'countryFirstDigit',
               {
                 rules: [
@@ -31,17 +28,13 @@
                 ]
               }
             ]"
-            placeholder="请输入国家级  一等（特等）奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入国家级  一等（特等）奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="国家级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="国家级  二等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'countrySecondDigit',
               {
                 rules: [
@@ -53,17 +46,13 @@
                 ]
               }
             ]"
-            placeholder="请输入国家级  二等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入国家级  二等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="国家级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="国家级  三等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'countryThirdDigit',
               {
                 rules: [
@@ -75,17 +64,13 @@
                 ]
               }
             ]"
-            placeholder="请输入国家级  三等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入国家级  三等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="省部级（大区）  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="省部级（大区）  一等（特等）奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'provincialFirstDigit',
               {
                 rules: [
@@ -97,17 +82,13 @@
                 ]
               }
             ]"
-            placeholder="请输入省部级（大区）  一等（特等）奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入省部级（大区）  一等（特等）奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="省部级（大区）  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="省部级（大区）  二等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'provincialSecondDigit',
               {
                 rules: [
@@ -119,17 +100,13 @@
                 ]
               }
             ]"
-            placeholder="请输入省部级（大区）  二等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入省部级（大区）  二等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="省部级（大区）  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="省部级（大区）  三等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'provincialThirdDigit',
               {
                 rules: [
@@ -141,17 +118,13 @@
                 ]
               }
             ]"
-            placeholder="请输入省部级（大区）  三等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入省部级（大区）  三等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="市局级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="市局级  一等（特等）奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'cityFirstDigit',
               {
                 rules: [
@@ -163,17 +136,13 @@
                 ]
               }
             ]"
-            placeholder="请输入市局级  一等（特等）奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入市局级  一等（特等）奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="市局级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="市局级  二等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'citySecondDigit',
               {
                 rules: [
@@ -185,17 +154,13 @@
                 ]
               }
             ]"
-            placeholder="请输入市局级  二等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入市局级  二等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="市局级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="市局级  三等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'cityThirdDigit',
               {
                 rules: [
@@ -207,17 +172,13 @@
                 ]
               }
             ]"
-            placeholder="请输入市局级  三等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入市局级  三等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="校级  一等（特等）奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="校级  一等（特等）奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'schoolFirstDigit',
               {
                 rules: [
@@ -229,17 +190,13 @@
                 ]
               }
             ]"
-            placeholder="请输入校级  一等（特等）奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入校级  一等（特等）奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="校级  二等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="校级  二等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'schoolSecondDigit',
               {
                 rules: [
@@ -251,17 +208,13 @@
                 ]
               }
             ]"
-            placeholder="请输入校级  二等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入校级  二等奖"
+                   addonAfter="分" />
         </a-form-item>
-        <a-form-item
-          label="校级  三等奖"
-          :label-col="{ span: 5 }"
-          :wrapper-col="{ span: 16 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="校级  三等奖"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'schoolThirdDigit',
               {
                 rules: [
@@ -273,9 +226,8 @@
                 ]
               }
             ]"
-            placeholder="请输入校级  三等奖"
-            addonAfter="分"
-          />
+                   placeholder="请输入校级  三等奖"
+                   addonAfter="分" />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -286,7 +238,7 @@ export default {
   props: {
     editData: {}
   },
-  data() {
+  data () {
     return {
       visible: false,
       confirmLoading: false,
@@ -294,21 +246,21 @@ export default {
     };
   },
   methods: {
-    showModal() {
+    showModal () {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
       }, 10);
     },
-    handleOk(e) {
+    handleOk (e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel(e) {
+    handleCancel (e) {
       this.visible = false;
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -327,7 +279,7 @@ export default {
                 }
               )
               .then(
-                function(res) {
+                function (res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = false;
@@ -335,7 +287,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function(err) {
+                function (err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容

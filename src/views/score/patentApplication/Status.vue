@@ -2,7 +2,7 @@
   <div style="background:#ECECEC; padding:30px">
     <a-card title="专利和发明">
       <edit
-        :editData="data[record.key]"
+        :editData="data"
         v-if="$store.state.identity == 3"
         slot="extra"
       ></edit>

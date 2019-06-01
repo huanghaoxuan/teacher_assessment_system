@@ -2,7 +2,7 @@
   <div style="background:#ECECEC; padding:30px">
     <a-card title="非政府部门组织的教学（科研）成果奖">
       <edit
-        :editData="data[record.key]"
+        :editData="data"
         v-if="$store.state.identity == 3"
         slot="extra"
       ></edit>
