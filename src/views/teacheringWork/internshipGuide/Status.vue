@@ -174,7 +174,11 @@ export default {
         );
     },
     handleTableChange(pagination, filters, sorter) {
-      this.showListData(pagination.current);
+      if (this.$store.state.identity == 1) {
+        this.showListData(pagination.current);
+      } else {
+        this.showAllListData(pagination.current);
+      }
     },
     showListData(pageNum) {
       this.axios
@@ -218,11 +222,57 @@ export default {
             //bind(this)可以不用
           }.bind(this)
         );
+    },
+    showAllListData(pageNum) {
+      this.axios
+        .get(
+          "/teacheringworkInternshipguide/selectAll",
+          {
+            params: {
+              pageNum: pageNum,
+              pageSize: 9
+            }
+          },
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          }
+        )
+        .then(
+          function(res) {
+            //console.log(res.data);
+            //每条数据需要一个唯一的key值
+            for (let index = 0; index < res.data.list.length; index++) {
+              res.data.list[index].key = index;
+              var year = res.data.list[index].year + 1;
+              var yearStr = res.data.list[index].year + " — " + year + " 学年";
+              res.data.list[index].showYear = yearStr;
+            }
+            this.data = res.data.list;
+            this.pagination.total = res.data.total;
+            //控制台打印请求成功时返回的数据
+            //bind(this)可以不用
+          }.bind(this)
+        )
+        .catch(
+          function(err) {
+            if (err.response) {
+              //console.log(err.response);
+              //控制台打印错误返回的内容
+            }
+            //bind(this)可以不用
+          }.bind(this)
+        );
     }
   },
   mounted() {
     //console.log(this.$store.state.teacherid);
-    this.showListData(1);
+    if (this.$store.state.identity == 1) {
+      this.showListData(1);
+    } else {
+      this.showAllListData(1);
+    }
   }
 };
 </script>

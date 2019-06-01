@@ -13,6 +13,7 @@
           <a-button type="primary" disabled v-if="$store.state.identity == 1"
             >修改</a-button
           >
+          <!-- 用于教师登陆时显示，无具体操作 -->
           <edit
             :editData="data[record.key]"
             v-if="!$store.state.identity == 1"
@@ -22,6 +23,7 @@
           <a-button type="danger" disabled v-if="$store.state.identity == 1"
             >删除</a-button
           >
+          <!-- 用于教师登陆时显示，无具体操作 -->
           <a-popconfirm
             v-if="data.length && !$store.state.identity == 1"
             title="点击确认以删除?"
@@ -116,15 +118,14 @@ export default {
         );
     },
     handleTableChange(pagination, filters, sorter) {
-      this.showListData(pagination.current);
+      this.showAllListData(pagination.current);
     },
-    showListData(pageNum) {
+    showAllListData(pageNum) {
       this.axios
         .get(
-          "/teachingconstructionTeachingactivities/selectByClassTeacher",
+          "/teachingconstructionTeachingactivities/selectAll",
           {
             params: {
-              classTeacher: this.$store.state.teacherid,
               pageNum: pageNum,
               pageSize: 9
             }
@@ -164,7 +165,7 @@ export default {
   },
   mounted() {
     //console.log(this.$store.state.teacherid);
-    this.showListData(1);
+    this.showAllListData(1);
   }
 };
 </script>
