@@ -208,6 +208,16 @@
             >发表论文</a-menu-item
           >
         </a-sub-menu>
+
+        <a-sub-menu key="user" v-if="$store.state.identity == 3">
+          <span slot="title"> <a-icon type="user" /><span>用户管理</span></span>
+          <a-menu-item
+            key="user_editIdentity"
+            @click="() => jump('/user/editIdentity')"
+          >
+            <a-icon type="user" />账号权限管理</a-menu-item
+          >
+        </a-sub-menu>
       </a-menu>
     </a-layout-sider>
     <a-layout>

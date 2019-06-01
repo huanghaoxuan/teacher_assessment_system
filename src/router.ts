@@ -233,6 +233,11 @@ export default new Router({
           path: "/score/publishPaper/status",
           name: "scorepublishPaperStatus",
           component: () => import("./views/score/publishPaper/Status.vue")
+        },
+        {
+          path: "/user/editIdentity",
+          name: "scoreEditIdentityStatus",
+          component: () => import("./views/user/EditIdentity.vue")
         }
       ]
     },

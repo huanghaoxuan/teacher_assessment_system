@@ -201,10 +201,16 @@ export default {
               function(res) {
                 //console.log(res.data);
                 //每条数据需要一个唯一的key值
-                this.$store.commit("isLogin", true);
-                this.$store.commit("changeIdentity", 0);
-                this.$store.commit("changeTeacherid", this.username);
-                this.$router.push("/sidebar");
+                if (res.data == 1) {
+                  this.$store.commit("isLogin", true);
+                  this.$store.commit("changeIdentity", 0);
+                  this.$store.commit("changeTeacherid", this.username);
+                  this.$router.push("/sidebar");
+                } else {
+                  this.$notification.error({
+                    message: "该账号已经存在"
+                  });
+                }
               }.bind(this)
             )
             .catch(
