@@ -10,11 +10,20 @@
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">
-          <edit :editData="data[record.key]"></edit>
+          <edit
+            :editData="data[record.key]"
+            v-if="$store.state.identity == 1"
+          ></edit>
+          <a-button
+            type="primary"
+            v-if="$store.state.identity == 2"
+            @click="auditChange(data[record.key], '通过')"
+            >通过</a-button
+          >
         </template>
         <template slot="operation2" slot-scope="text, record">
           <a-popconfirm
-            v-if="data.length"
+            v-if="data.length && $store.state.identity == 1"
             title="点击确认以删除?"
             cancelText="取消"
             okText="确认"
@@ -22,6 +31,11 @@
           >
             <a-button type="danger" @click="() => {}">删除</a-button>
           </a-popconfirm>
+          <a-button
+            v-if="$store.state.identity == 2"
+            @click="auditChange(data[record.key], '不通过')"
+            >不通过</a-button
+          >
         </template>
       </a-table>
     </a-card>
@@ -74,6 +88,37 @@ export default {
     };
   },
   methods: {
+    auditChange(data, statusStr) {
+      data = { ...data, status: statusStr };
+      this.axios
+        .post(
+          "/othersAnnualreviewstatus/updateByPrimaryKey",
+          this.qs.stringify({
+            ...data
+          }),
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          }
+        )
+        .then(
+          function(res) {
+            //console.log(res.data);
+            //每条数据需要一个唯一的key值
+            this.$router.go(0);
+          }.bind(this)
+        )
+        .catch(
+          function(err) {
+            if (err.response) {
+              //console.log(err.response);
+              //控制台打印错误返回的内容
+            }
+            //bind(this)可以不用
+          }.bind(this)
+        );
+    },
     onDelete(key) {
       const data = [...this.data];
       this.data = data.filter(item => item.key !== key);
