@@ -188,14 +188,58 @@ export default new Router({
         {
           path: "/user/information",
           name: "userInformation",
-          component: () => import("./views/user/information.vue")
+          component: () => import("./views/user/Information.vue")
+        },
+        {
+          path: "/score/contestAward/status",
+          name: "scorecontestAwardStatus",
+          component: () => import("./views/score/contestAward/Status.vue")
+        },
+        {
+          path: "/score/governmentAchievementAward/status",
+          name: "scoregovernmentAchievementAwardStatus",
+          component: () =>
+            import("./views/score/governmentAchievementAward/Status.vue")
+        },
+        {
+          path: "/score/guideContest/status",
+          name: "scoreGuideContestStatus",
+          component: () => import("./views/score/guideContest/Status.vue")
+        },
+        {
+          path: "/score/horizontalTopicProjects/status",
+          name: "scorehorizontalTopicProjectsStatus",
+          component: () =>
+            import("./views/score/horizontalTopicProjects/Status.vue")
+        },
+        {
+          path: "/score/longitudinalTopicsProject/status",
+          name: "scorelongitudinalTopicsProjectStatus",
+          component: () =>
+            import("./views/score/longitudinalTopicsProject/Status.vue")
+        },
+        {
+          path: "/score/notGovernmentAchievementAward/status",
+          name: "scorenotGovernmentAchievementAwardStatus",
+          component: () =>
+            import("./views/score/notGovernmentAchievementAward/Status.vue")
+        },
+        {
+          path: "/score/patentApplication/status",
+          name: "scorepatentApplicationStatus",
+          component: () => import("./views/score/patentApplication/Status.vue")
+        },
+        {
+          path: "/score/publishPaper/status",
+          name: "scorepublishPaperStatus",
+          component: () => import("./views/score/publishPaper/Status.vue")
         }
       ]
     },
     {
       path: "/login",
       name: "login",
-      component: () => import("./components/login/login.vue"),
+      component: () => import("./components/login/Login.vue"),
       meta: { allowBack: false }
     },
     {

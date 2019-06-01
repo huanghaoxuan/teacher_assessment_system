@@ -162,6 +162,52 @@
             >任职以来所带已毕业班级就业率考研率违纪率情况</a-menu-item
           >
         </a-sub-menu>
+
+        <a-sub-menu key="score">
+          <span slot="title">
+            <a-icon type="user" /><span>得分信息查询</span></span
+          >
+          <a-menu-item
+            key="score_contestAward"
+            @click="() => jump('/score/contestAward/status')"
+            >竞赛奖</a-menu-item
+          >
+          <a-menu-item
+            key="score_governmentAchievementAward"
+            @click="() => jump('/score/governmentAchievementAward/status')"
+            >政府部门设立的教学（科研）成果奖</a-menu-item
+          >
+          <a-menu-item
+            key="scores_guideContest"
+            @click="() => jump('/score/guideContest/status')"
+            >指导学生比赛（毕业设计）获奖</a-menu-item
+          >
+          <a-menu-item
+            key="score_horizontalTopicProjects"
+            @click="() => jump('/score/horizontalTopicProjects/status')"
+            >横向研究课题项目</a-menu-item
+          >
+          <a-menu-item
+            key="score_longitudinalTopicsProject"
+            @click="() => jump('/score/longitudinalTopicsProject/status')"
+            >纵向课题项目</a-menu-item
+          >
+          <a-menu-item
+            key="score_notGovernmentAchievementAward"
+            @click="() => jump('/score/notGovernmentAchievementAward/status')"
+            >非政府部门组织的教学（科研）成果奖</a-menu-item
+          >
+          <a-menu-item
+            key="score_patentApplication"
+            @click="() => jump('/score/patentApplication/status')"
+            >专利和发明</a-menu-item
+          >
+          <a-menu-item
+            key="score_publishPaper"
+            @click="() => jump('/score/publishPaper/status')"
+            >发表论文</a-menu-item
+          >
+        </a-sub-menu>
       </a-menu>
     </a-layout-sider>
     <a-layout>
