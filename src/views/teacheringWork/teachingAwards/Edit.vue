@@ -249,7 +249,7 @@ export default {
           {
             this.axios
               .post(
-                "/teacheringworkInternshipguide/updateByPrimaryKey",
+                "/teacheringworkTeachingawards/updateByPrimaryKey",
                 this.qs.stringify({
                   id: this.editData.id,
                   classTeacher: this.$store.state.teacherid,

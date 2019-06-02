@@ -77,7 +77,7 @@
             <span></span>
             <span></span>
           </span>
-          <p id="title">东南大学成贤学院<br /><br />教师考核</p>
+          <p id="title">东南大学成贤学院<br /><br />数据采集系统</p>
         </div>
       </div>
     </div>

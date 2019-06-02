@@ -1,6 +1,6 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
-    <a-card title="年度考核情况" style="width:50%">
+    <a-card title="年度考核情况">
       <floder slot="extra" v-if="$store.state.identity == 1"></floder>
       <a-table
         :pagination="pagination"

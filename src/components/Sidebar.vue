@@ -223,7 +223,18 @@
     <a-layout>
       <a-layout-header style="background: #fff; padding: 0">
         <a-row>
-          <a-col :span="22">
+          当前权限选择:&nbsp;&nbsp;
+          <a-select style="width: 10%" @change="handleChange">
+            <a-select-option value="1">教师填写权限</a-select-option>
+            <a-select-option value="2" v-if="dataIdentity >= 2"
+              >系级管理员</a-select-option
+            >
+            <a-select-option value="3" v-if="dataIdentity >= 3"
+              >院级管理员</a-select-option
+            >
+          </a-select>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <a-col :span="17">
             <a-icon
               class="trigger"
               :type="collapsed ? 'menu-unfold' : 'menu-fold'"
@@ -241,6 +252,20 @@
                         slot="avatar"
                         icon="user"
                       />&nbsp;&nbsp;个人中心</a
+                    >
+                  </a-list-item-meta>
+                </a-list-item>
+                <a-list-item>
+                  <a-list-item-meta
+                    ><a
+                      slot="title"
+                      @click="() => jump('/user/updatePassword')"
+                    >
+                      <a-avatar
+                        size="small"
+                        slot="avatar"
+                        icon="user"
+                      />&nbsp;&nbsp;修改密码</a
                     >
                   </a-list-item-meta>
                 </a-list-item>
@@ -275,6 +300,7 @@ import router from "../router";
 export default {
   data() {
     return {
+      dataIdentity: this.$store.state.dataIdentity,
       avatarValue: "您",
       color: "#f56a00",
       collapsed: false
@@ -283,6 +309,10 @@ export default {
   methods: {
     jump(address) {
       this.$router.push(address);
+    },
+    handleChange(value) {
+      this.$store.commit("changeShowIdentity", value);
+      this.$router.go(0);
     }
   }
 };

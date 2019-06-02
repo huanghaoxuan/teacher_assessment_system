@@ -238,6 +238,11 @@ export default new Router({
           path: "/user/editIdentity",
           name: "scoreEditIdentityStatus",
           component: () => import("./views/user/EditIdentity.vue")
+        },
+        {
+          path: "/user/updatePassword",
+          name: "scoreUpdatePassword",
+          component: () => import("./views/user/UpdatePassword.vue")
         }
       ]
     },

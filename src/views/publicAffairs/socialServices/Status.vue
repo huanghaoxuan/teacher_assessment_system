@@ -50,6 +50,7 @@ const columns = [
     title: "活动名称",
     width: 200,
     dataIndex: "name",
+    fixed: "left",
     key: "1"
   },
   {
@@ -59,8 +60,8 @@ const columns = [
     width: 200
   },
   { title: "备注", dataIndex: "note", key: "3", width: 200 },
-  { title: "学年", dataIndex: "showYear", key: "4", width: 200 },
-  { title: "学期", dataIndex: "semester", key: "5", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "4", width: 270 },
+  { title: "学期", dataIndex: "semester", key: "5", width: 270 },
   {
     title: "审核情况",
     dataIndex: "status",

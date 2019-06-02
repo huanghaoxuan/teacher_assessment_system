@@ -113,7 +113,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "15",
+    key: "16",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }
