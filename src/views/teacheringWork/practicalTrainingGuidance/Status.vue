@@ -69,20 +69,26 @@ const columns = [
     key: "7",
     width: 200
   },
-  { title: "备注", dataIndex: "note", key: "8", width: 200 },
-  { title: "学年", dataIndex: "showYear", key: "9", width: 200 },
-  { title: "学期", dataIndex: "semester", key: "10", width: 200 },
+  {
+    title: "是否批改",
+    dataIndex: "hasCorrecting",
+    key: "8",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "9", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "10", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "11", width: 200 },
   {
     title: "审核情况",
     dataIndex: "status",
-    key: "11",
+    key: "12",
     width: 200,
     fixed: "right"
   },
   {
     title: "操作",
     dataIndex: "operation1",
-    key: "12",
+    key: "13",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation1" }
@@ -90,7 +96,7 @@ const columns = [
   {
     title: "",
     dataIndex: "operation2",
-    key: "13",
+    key: "14",
     width: 100,
     fixed: "right",
     scopedSlots: { customRender: "operation2" }

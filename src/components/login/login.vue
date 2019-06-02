@@ -40,7 +40,7 @@
               </p>
               <input
                 type="button"
-                value="登陆"
+                value="登录"
                 class="btn"
                 @click="login()"
                 style="margin-right: 20px;"
@@ -53,7 +53,7 @@
                 id="btn"
               />
             </form>
-            <a href="#">忘记密码？</a>
+            <!-- <a href="#">忘记密码？</a> -->
           </span>
         </div>
 

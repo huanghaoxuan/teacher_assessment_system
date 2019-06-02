@@ -745,6 +745,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     editData: {}
@@ -763,12 +764,18 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
         this.form.setFieldsValue({
-          teacherQualificationCertificate: [],
-          birthday: null,
-          enterSchoolTime: null,
-          academicQualificationsTime: null,
-          academicDegreesTime: null,
-          professionalTechnologyDutiesTime: null
+          teacherQualificationCertificate: this.editData.teacherQualificationCertificate.split(
+            "、"
+          ),
+          birthday: (this.editData.birthday, "YYYY-MM-DD"),
+          enterSchoolTime: (this.editData.enterSchoolTime, "YYYY-MM-DD"),
+          academicQualificationsTime: (this.editData.academicQualificationsTime,
+          "YYYY-MM-DD"),
+          academicDegreesTime: (this.editData.academicDegreesTime,
+          "YYYY-MM-DD"),
+          professionalTechnologyDutiesTime: (this.editData
+            .professionalTechnologyDutiesTime,
+          "YYYY-MM-DD")
         });
       }, 0);
     },

@@ -233,7 +233,7 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
         this.form.setFieldsValue({
-          publicationTime:  moment(this.editData.publicationTime, "YYYY-MM-DD"),
+          publicationTime: moment(this.editData.publicationTime, "YYYY-MM-DD"),
           yesorno: this.editData.yesorno.split("、")
         });
       }, 10);

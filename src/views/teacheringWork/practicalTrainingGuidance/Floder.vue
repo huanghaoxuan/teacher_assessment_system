@@ -150,7 +150,7 @@
         >
           <a-radio-group
             v-decorator="[
-              'internshipReport',
+              'results',
               { rules: [{ required: true, message: '成果形式不能为空' }] }
             ]"
             placeholder="请输入成果形式"

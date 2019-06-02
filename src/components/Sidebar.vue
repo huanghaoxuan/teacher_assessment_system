@@ -163,7 +163,7 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu key="score">
+        <a-sub-menu key="score" v-if="$store.state.identity != 1">
           <span slot="title">
             <a-icon type="user" /><span>得分信息查询</span></span
           >
