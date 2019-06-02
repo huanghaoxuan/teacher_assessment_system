@@ -314,7 +314,9 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
-        this.form.setFieldsValue({ contribution: [] });
+        this.form.setFieldsValue({
+          contribution: this.editData.contribution.split("、")
+        });
       }, 10);
     },
     handleOk(e) {

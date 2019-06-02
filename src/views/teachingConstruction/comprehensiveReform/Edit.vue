@@ -173,7 +173,9 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
-        this.form.setFieldsValue({ undertakingTasks: [] });
+        this.form.setFieldsValue({
+          undertakingTasks: this.editData.undertakingTasks.split("、")
+        });
       }, 10);
     },
     handleOk(e) {

@@ -356,7 +356,9 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
-        this.form.setFieldsValue({ experimentType: [] });
+        this.form.setFieldsValue({
+          experimentType: this.editData.experimentType.split("、")
+        });
       }, 10);
     },
     handleOk(e) {
