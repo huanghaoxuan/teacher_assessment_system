@@ -247,6 +247,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     editData: {}
@@ -264,7 +265,10 @@ export default {
       //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
-        this.form.setFieldsValue({ startTime: null, endTime: null });
+        this.form.setFieldsValue({
+          startTime: moment(this.editData.startTime, "YYYY-MM-DD"),
+          endTime: moment(this.editData.endTime, "YYYY-MM-DD")
+        });
       }, 10);
     },
     handleOk(e) {

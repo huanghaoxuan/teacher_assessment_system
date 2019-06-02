@@ -214,6 +214,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     editData: {}
@@ -232,7 +233,7 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
         this.form.setFieldsValue({
-          publicationTime: null,
+          publicationTime:  moment(this.editData.publicationTime, "YYYY-MM-DD"),
           yesorno: this.editData.yesorno.split("、")
         });
       }, 10);

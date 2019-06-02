@@ -263,6 +263,7 @@
   </div>
 </template>
 <script>
+import moment from "moment";
 export default {
   props: {
     editData: {}
@@ -281,8 +282,11 @@ export default {
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
         this.form.setFieldsValue({
-          startTime: null,
-          estimatedClosingTime: null
+          startTime: moment(this.editData.startTime, "YYYY-MM-DD"),
+          estimatedClosingTime: moment(
+            this.editData.estimatedClosingTime,
+            "YYYY-MM-DD"
+          )
         });
       }, 10);
     },
