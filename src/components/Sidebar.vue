@@ -276,7 +276,7 @@
                         size="small"
                         slot="avatar"
                         icon="poweroff"
-                      />&nbsp;&nbsp;退出登陆</a
+                      />&nbsp;&nbsp;退出登录</a
                     >
                   </a-list-item-meta>
                 </a-list-item>

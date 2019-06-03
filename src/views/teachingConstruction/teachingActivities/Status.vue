@@ -13,7 +13,7 @@
           <a-button type="primary" disabled v-if="$store.state.identity == 1"
             >修改</a-button
           >
-          <!-- 用于教师登陆时显示，无具体操作 -->
+          <!-- 用于教师登录时显示，无具体操作 -->
           <edit
             :editData="data[record.key]"
             v-if="!$store.state.identity == 1"
@@ -23,7 +23,7 @@
           <a-button type="danger" disabled v-if="$store.state.identity == 1"
             >删除</a-button
           >
-          <!-- 用于教师登陆时显示，无具体操作 -->
+          <!-- 用于教师登录时显示，无具体操作 -->
           <a-popconfirm
             v-if="data.length && !$store.state.identity == 1"
             title="点击确认以删除?"

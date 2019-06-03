@@ -9,7 +9,7 @@
         <div id="login">
           <!-- 登录注册切换动画 -->
           <div id="status">
-            <i style="top: 5px">登陆</i>
+            <i style="top: 5px">登录</i>
             <i style="top: 36px">注册</i>
           </div>
           <span>
@@ -127,7 +127,7 @@ export default {
                 //console.log(res);
                 if (res.data == 0) {
                   this.$notification.error({
-                    message: "账号密码错误，请重新登陆！"
+                    message: "账号密码错误，请重新登录！"
                   });
                 } else {
                   this.$store.commit("isLogin", true);
@@ -203,7 +203,7 @@ export default {
                 //每条数据需要一个唯一的key值
                 if (res.data == 1) {
                   this.$store.commit("isLogin", true);
-                  this.$store.commit("changeIdentity", 0);
+                  this.$store.commit("changeIdentity", 1);
                   this.$store.commit("changeTeacherid", this.username);
                   this.$router.push("/sidebar");
                 } else {

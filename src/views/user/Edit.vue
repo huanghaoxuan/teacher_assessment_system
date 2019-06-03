@@ -1,43 +1,35 @@
 <template>
   <div>
-    <a-button type="primary" @click="showModal">修改</a-button>
-    <a-modal
-      title="正在修改个人信息"
-      :visible="visible"
-      @ok="handleOk"
-      okText="确认修改"
-      cancelText="取消"
-      :maskClosable="false"
-      :confirmLoading="confirmLoading"
-      width="60%"
-      @cancel="handleCancel"
-    >
-      <a-form :form="form" @submit="handleSubmit">
-        <a-form-item
-          label="姓名"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+    <a-button type="primary"
+              @click="showModal">修改</a-button>
+    <a-modal title="正在修改个人信息"
+             :visible="visible"
+             @ok="handleOk"
+             okText="确认修改"
+             cancelText="取消"
+             :maskClosable="false"
+             :confirmLoading="confirmLoading"
+             width="60%"
+             @cancel="handleCancel">
+      <a-form :form="form"
+              @submit="handleSubmit">
+        <a-form-item label="姓名"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'name',
               { rules: [{ required: true, message: '姓名不能为空' }] }
             ]"
-            placeholder="请输入姓名'"
-          />
+                   placeholder="请输入姓名'" />
         </a-form-item>
 
-        <a-form-item
-          label="性别"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-radio-group
-            v-decorator="[
+        <a-form-item label="性别"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-radio-group v-decorator="[
               'sex',
               { rules: [{ required: true, message: '性别不能为空' }] }
-            ]"
-          >
+            ]">
             <a-radio value="男">
               男
             </a-radio>
@@ -47,13 +39,10 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item
-          label="出生年月"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-date-picker
-            v-decorator="[
+        <a-form-item label="出生年月"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-date-picker v-decorator="[
               'birthday',
               {
                 rules: [
@@ -65,23 +54,18 @@
                 ]
               }
             ]"
-            placeholder="请输入出生年月"
-            style="width:100%"
-          />
+                         placeholder="请输入出生年月"
+                         style="width:100%" />
         </a-form-item>
 
-        <a-form-item
-          label="学历"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-select
-            v-decorator="[
+        <a-form-item label="学历"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-select v-decorator="[
               'academicQualifications',
               { rules: [{ required: true, message: '学历不能为空' }] }
             ]"
-            placeholder="请输入学历"
-          >
+                    placeholder="请输入学历">
             <a-select-option value="无">
               其他
             </a-select-option>
@@ -112,18 +96,14 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          label="学位"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-select
-            v-decorator="[
+        <a-form-item label="学位"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-select v-decorator="[
               'academicDegrees',
               { rules: [{ required: true, message: '学位不能为空' }] }
             ]"
-            placeholder="请输入学位"
-          >
+                    placeholder="请输入学位">
             <a-select-option value="无">
               无
             </a-select-option>
@@ -142,32 +122,24 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          label="职务"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="职务"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'duties',
               { rules: [{ required: true, message: '职务不能为空' }] }
             ]"
-            placeholder="请输入职务'"
-          />
+                   placeholder="请输入职务'" />
         </a-form-item>
 
-        <a-form-item
-          label="政治面貌"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-select
-            v-decorator="[
+        <a-form-item label="政治面貌"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-select v-decorator="[
               'politicalLandscape',
               { rules: [{ required: true, message: '政治面貌不能为空' }] }
             ]"
-            placeholder="请输入政治面貌"
-          >
+                    placeholder="请输入政治面貌">
             <a-select-option value="中共党员">
               中共党员
             </a-select-option>
@@ -210,33 +182,25 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          label="工号"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="工号"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'classTeacher',
               { rules: [{ required: true, message: '工号不能为空' }] }
             ]"
-            placeholder="请输入工号'"
-            :disabled="true"
-          />
+                   placeholder="请输入工号'"
+                   :disabled="true" />
         </a-form-item>
 
-        <a-form-item
-          label="所在学院"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-select
-            v-decorator="[
+        <a-form-item label="所在学院"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-select v-decorator="[
               'departmentDept',
               { rules: [{ required: true, message: '所在学院不能为空' }] }
             ]"
-            placeholder="请输入所在学院"
-          >
+                    placeholder="请输入所在学院">
             <a-select-option value="电子与计算机工程学院">
               电子与计算机工程学院
             </a-select-option>
@@ -294,13 +258,10 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          label="进校时间"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-date-picker
-            v-decorator="[
+        <a-form-item label="进校时间"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-date-picker v-decorator="[
               'enterSchoolTime',
               {
                 rules: [
@@ -312,18 +273,14 @@
                 ]
               }
             ]"
-            placeholder="请输入进校时间"
-            style="width:100%"
-          />
+                         placeholder="请输入进校时间"
+                         style="width:100%" />
         </a-form-item>
 
-        <a-form-item
-          label="高校工龄"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="高校工龄"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'universityYear',
               {
                 rules: [
@@ -335,32 +292,24 @@
                 ]
               }
             ]"
-            placeholder="请输入高校工龄"
-            addonAfter="年"
-          />
+                   placeholder="请输入高校工龄"
+                   addonAfter="年" />
         </a-form-item>
 
-        <a-form-item
-          label="本科毕业学校"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="本科毕业学校"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'undergraduateGraduationSchool',
               { rules: [{ required: true, message: '本科毕业学校不能为空' }] }
             ]"
-            placeholder="请输入本科毕业学校'"
-          />
+                   placeholder="请输入本科毕业学校'" />
         </a-form-item>
 
-        <a-form-item
-          label="获得最高学历的院校或机构"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="获得最高学历的院校或机构"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'academicQualificationsSchool',
               {
                 rules: [
@@ -371,17 +320,13 @@
                 ]
               }
             ]"
-            placeholder="请输入获得最高学\r\n历的院校或机构'"
-          />
+                   placeholder="请输入获得最高学\r\n历的院校或机构'" />
         </a-form-item>
 
-        <a-form-item
-          label="最高学历取得时间"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-date-picker
-            v-decorator="[
+        <a-form-item label="最高学历取得时间"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-date-picker v-decorator="[
               'academicQualificationsTime',
               {
                 rules: [
@@ -393,18 +338,14 @@
                 ]
               }
             ]"
-            placeholder="请输入最高学历取得时间"
-            style="width:100%"
-          />
+                         placeholder="请输入最高学历取得时间"
+                         style="width:100%" />
         </a-form-item>
 
-        <a-form-item
-          label="获得最高学位的院校或机构"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="获得最高学位的院校或机构"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'academicDegreesSchool',
               {
                 rules: [
@@ -415,17 +356,13 @@
                 ]
               }
             ]"
-            placeholder="请输入获得最高学位的院校或机构'"
-          />
+                   placeholder="请输入获得最高学位的院校或机构'" />
         </a-form-item>
 
-        <a-form-item
-          label="最高学位取得时间"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-date-picker
-            v-decorator="[
+        <a-form-item label="最高学位取得时间"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-date-picker v-decorator="[
               'academicDegreesTime',
               {
                 rules: [
@@ -437,18 +374,14 @@
                 ]
               }
             ]"
-            placeholder="请输入最高学位取得时间"
-            style="width:100%"
-          />
+                         placeholder="请输入最高学位取得时间"
+                         style="width:100%" />
         </a-form-item>
 
-        <a-form-item
-          label="身份证号码"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="身份证号码"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'idcard',
               {
                 rules: [
@@ -460,37 +393,28 @@
                 ]
               }
             ]"
-            placeholder="请输入身份证号码"
-          />
+                   placeholder="请输入身份证号码" />
         </a-form-item>
 
-        <a-form-item
-          label="所学专业"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="所学专业"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'studyProfessional',
               { rules: [{ required: true, message: '所学专业不能为空' }] }
             ]"
-            placeholder="请输入所学专业'"
-          />
+                   placeholder="请输入所学专业'" />
         </a-form-item>
 
-        <a-form-item
-          label="教师资格证"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-checkbox-group
-            v-decorator="[
+        <a-form-item label="教师资格证"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-checkbox-group v-decorator="[
               'teacherQualificationCertificate',
               { rules: [{ required: true, message: '教师资格证不能为空' }] }
             ]"
-            placeholder="请输入教师资格证'"
-            style="width: 100%;"
-          >
+                            placeholder="请输入教师资格证'"
+                            style="width: 100%;">
             <a-row>
               <a-col :span="24">
                 <a-checkbox value="幼儿园教师资格证">
@@ -531,18 +455,14 @@
           </a-checkbox-group>
         </a-form-item>
 
-        <a-form-item
-          label="岗前培训"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-radio-group
-            v-decorator="[
+        <a-form-item label="岗前培训"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-radio-group v-decorator="[
               'preJobTraining',
               { rules: [{ required: true, message: '岗前培训不能为空' }] }
             ]"
-            placeholder="请输入岗前培训'"
-          >
+                         placeholder="请输入岗前培训'">
             <a-radio value="通过">
               通过
             </a-radio>
@@ -552,18 +472,14 @@
           </a-radio-group>
         </a-form-item>
 
-        <a-form-item
-          label="普通话考试"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-select
-            v-decorator="[
+        <a-form-item label="普通话考试"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-select v-decorator="[
               'putonghuaExam',
               { rules: [{ required: true, message: '普通话考试不能为空' }] }
             ]"
-            placeholder="请输入普通话考试"
-          >
+                    placeholder="请输入普通话考试">
             <a-select-option value="无">
               无
             </a-select-option>
@@ -588,13 +504,10 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          label="现专业技术职务"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="现专业技术职务"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'professionalTechnologyDuties',
               {
                 rules: [
@@ -605,17 +518,13 @@
                 ]
               }
             ]"
-            placeholder="请输入现专业技术职务"
-          />
+                   placeholder="请输入现专业技术职务" />
         </a-form-item>
 
-        <a-form-item
-          label="现专业技术职务取得时间"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-date-picker
-            v-decorator="[
+        <a-form-item label="现专业技术职务取得时间"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-date-picker v-decorator="[
               'professionalTechnologyDutiesTime',
               {
                 rules: [
@@ -627,18 +536,14 @@
                 ]
               }
             ]"
-            placeholder="请输入现专业技术职务取得时间"
-            style="width:100%"
-          />
+                         placeholder="请输入现专业技术职务取得时间"
+                         style="width:100%" />
         </a-form-item>
 
-        <a-form-item
-          label="现从事专业研究方向"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="现从事专业研究方向"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'professionalStudyDirection',
               {
                 rules: [
@@ -649,17 +554,13 @@
                 ]
               }
             ]"
-            placeholder="请输入现从事专业研究方向"
-          />
+                   placeholder="请输入现从事专业研究方向" />
         </a-form-item>
 
-        <a-form-item
-          label="现从事专业研究方向年限"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="现从事专业研究方向年限"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'professionalStudyDirectionYear',
               {
                 rules: [
@@ -671,18 +572,14 @@
                 ]
               }
             ]"
-            placeholder="请输入现从事专业研究方向年限'"
-            addonAfter="年"
-          />
+                   placeholder="请输入现从事专业研究方向年限'"
+                   addonAfter="年" />
         </a-form-item>
 
-        <a-form-item
-          label="继续教育情况"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="继续教育情况"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'continuingEducationSituation',
               {
                 rules: [
@@ -693,17 +590,13 @@
                 ]
               }
             ]"
-            placeholder="请输入继续教育情况"
-          />
+                   placeholder="请输入继续教育情况" />
         </a-form-item>
 
-        <a-form-item
-          label="工程实践经历"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="工程实践经历"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'engineeringPracticeExperience',
               {
                 rules: [
@@ -714,17 +607,13 @@
                 ]
               }
             ]"
-            placeholder="请输入工程实践经历"
-          />
+                   placeholder="请输入工程实践经历" />
         </a-form-item>
 
-        <a-form-item
-          label="指导学生实践轮数"
-          :label-col="{ span: 9 }"
-          :wrapper-col="{ span: 10 }"
-        >
-          <a-input
-            v-decorator="[
+        <a-form-item label="指导学生实践轮数"
+                     :label-col="{ span: 9 }"
+                     :wrapper-col="{ span: 10 }">
+          <a-input v-decorator="[
               'guidanceStudentPracticeNumber',
               {
                 rules: [
@@ -736,9 +625,8 @@
                 ]
               }
             ]"
-            placeholder="请输入指导学生实践轮数'"
-            addonAfter="轮"
-          />
+                   placeholder="请输入指导学生实践轮数'"
+                   addonAfter="轮" />
         </a-form-item>
       </a-form>
     </a-modal>
@@ -750,7 +638,7 @@ export default {
   props: {
     editData: {}
   },
-  data() {
+  data () {
     return {
       visible: false,
       confirmLoading: false,
@@ -758,35 +646,52 @@ export default {
     };
   },
   methods: {
-    showModal() {
+    showModal () {
       this.visible = true;
       //console.log(this.editData);
       setTimeout(() => {
-        this.form.setFieldsValue(this.editData);
-        this.form.setFieldsValue({
-          teacherQualificationCertificate: this.editData.teacherQualificationCertificate.split(
-            "、"
-          ),
-          birthday: (this.editData.birthday, "YYYY-MM-DD"),
-          enterSchoolTime: (this.editData.enterSchoolTime, "YYYY-MM-DD"),
-          academicQualificationsTime: (this.editData.academicQualificationsTime,
-          "YYYY-MM-DD"),
-          academicDegreesTime: (this.editData.academicDegreesTime,
-          "YYYY-MM-DD"),
-          professionalTechnologyDutiesTime: (this.editData
-            .professionalTechnologyDutiesTime,
-          "YYYY-MM-DD")
-        });
-      }, 0);
+        if (
+          this.editData.teacherQualificationCertificate != null &&
+          this.editData.teacherQualificationCertificate != "null"
+        ) {
+          this.form.setFieldsValue(this.editData);
+          this.form.setFieldsValue({
+            teacherQualificationCertificate: this.editData.teacherQualificationCertificate.split(
+              "、"
+            ),
+            birthday: moment(this.editData.birthday, "YYYY-MM-DD"),
+            enterSchoolTime: moment(
+              this.editData.enterSchoolTime,
+              "YYYY-MM-DD"
+            ),
+            academicQualificationsTime: moment(
+              this.editData.academicQualificationsTime,
+              "YYYY-MM-DD"
+            ),
+            academicDegreesTime: moment(
+              this.editData.academicDegreesTime,
+              "YYYY-MM-DD"
+            ),
+            professionalTechnologyDutiesTime: moment(
+              this.editData.professionalTechnologyDutiesTime,
+              "YYYY-MM-DD"
+            )
+          });
+        } else {
+          this.form.setFieldsValue({
+            classTeacher: this.editData.classTeacher
+          });
+        }
+      }, 10);
     },
-    handleOk(e) {
+    handleOk (e) {
       this.confirmLoading = true;
       this.handleSubmit(e);
     },
-    handleCancel(e) {
+    handleCancel (e) {
       this.visible = false;
     },
-    handleSubmit(e) {
+    handleSubmit (e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
@@ -832,7 +737,7 @@ export default {
                 }
               )
               .then(
-                function(res) {
+                function (res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = false;
@@ -840,7 +745,7 @@ export default {
                 }.bind(this)
               )
               .catch(
-                function(err) {
+                function (err) {
                   if (err.response) {
                     //console.log(err.response);
                     //控制台打印错误返回的内容
