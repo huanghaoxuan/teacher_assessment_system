@@ -133,7 +133,7 @@ export default {
                   this.$store.commit("isLogin", true);
                   this.$store.commit("changeIdentity", res.data);
                   this.$store.commit("changeTeacherid", this.username);
-                  this.$router.push("/sidebar");
+                  this.$router.push("/setting");
                 }
               }.bind(this)
             )
@@ -205,7 +205,7 @@ export default {
                   this.$store.commit("isLogin", true);
                   this.$store.commit("changeIdentity", 1);
                   this.$store.commit("changeTeacherid", this.username);
-                  this.$router.push("/sidebar");
+                  this.$router.push("/setting");
                 } else {
                   this.$notification.error({
                     message: "该账号已经存在"

@@ -156,6 +156,7 @@ export default {
                 "/teachingconstructionTeachingactivities/updateByPrimaryKey",
                 this.qs.stringify({
                   id: this.editData.id,
+                  classTeacher: this.editData.classTeacher,
                   ...values,
                   status: "已通过"
                 }),

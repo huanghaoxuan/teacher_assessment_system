@@ -1,7 +1,7 @@
 <template>
   <div style="background:#ECECEC; padding:30px">
     <a-card title="日常教研活动">
-      <floder slot="extra" v-if="!$store.state.identity == 1"></floder>
+      <floder slot="extra" v-if="$store.state.identity == 2"></floder>
       <a-table
         :pagination="pagination"
         :columns="columns"
@@ -10,22 +10,22 @@
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">
+          <!-- 用于教师登录时显示，无具体操作 -->
           <a-button type="primary" disabled v-if="$store.state.identity == 1"
             >修改</a-button
           >
-          <!-- 用于教师登录时显示，无具体操作 -->
           <edit
             :editData="data[record.key]"
-            v-if="!$store.state.identity == 1"
+            v-if="$store.state.identity == 2"
           ></edit>
         </template>
         <template slot="operation2" slot-scope="text, record">
+          <!-- 用于教师登录时显示，无具体操作 -->
           <a-button type="danger" disabled v-if="$store.state.identity == 1"
             >删除</a-button
           >
-          <!-- 用于教师登录时显示，无具体操作 -->
           <a-popconfirm
-            v-if="data.length && !$store.state.identity == 1"
+            v-if="data.length && $store.state.identity == 2"
             title="点击确认以删除?"
             cancelText="取消"
             okText="确认"
