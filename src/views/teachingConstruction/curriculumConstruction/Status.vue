@@ -3,8 +3,9 @@
     <a-card title="课程建设">
       <floder slot="extra" v-if="$store.state.identity == 1"></floder>
       <a-table
+        v-if="$store.state.identity == 1"
         :pagination="pagination"
-        :columns="columns"
+        :columns="columns1"
         :dataSource="data"
         :scroll="{ x: 1400, y: 610 }"
         @change="handleTableChange"
@@ -45,7 +46,7 @@
 <script>
 import floder from "./Floder.vue";
 import edit from "./Edit.vue";
-const columns = [
+const columns1 = [
   {
     title: "任务角色",
     width: 200,
@@ -87,7 +88,7 @@ export default {
   data() {
     return {
       data: [],
-      columns,
+      columns1,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

@@ -201,6 +201,7 @@ export default {
                   //每条数据需要一个唯一的key值
                   //this.$router.go(0);
                   if (res.data == 1) {
+                    this.$store.commit("changeTeachername", values.name);
                     this.current++;
                   } else {
                     this.$notification.error({
@@ -358,6 +359,7 @@ export default {
         function(res) {
           //console.log(res.data);
           if (res.data.email != null && res.data.email != "null") {
+            this.$store.commit("changeTeachername", res.data.name);
             this.$router.push("/sidebar");
           }
         }.bind(this)

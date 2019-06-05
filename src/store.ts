@@ -7,6 +7,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     teacherid: null,
+    teachername: null,
     loginStatus: false,
     dataIdentity: 0, //此为数据库储存的权限信息，仅在登录时修改
     identity: 0 //0为未登录，1为老师，2为系管理员，3为学院管理员//此为当前展示的权限信息
@@ -26,6 +27,10 @@ export default new Vuex.Store({
     },
     changeTeacherid(state, teacherid) {
       state.teacherid = teacherid;
+    },
+    changeTeachername(state, teachername) {
+      //更改教师姓名
+      state.teachername = teachername;
     }
   },
   actions: {},
