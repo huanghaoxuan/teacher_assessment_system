@@ -11,20 +11,11 @@
         @change="handleTableChange"
       >
         <template slot="operation1" slot-scope="text, record">
-          <edit
-            :editData="data[record.key]"
-            v-if="$store.state.identity == 1"
-          ></edit>
-          <a-button
-            type="primary"
-            v-if="$store.state.identity == 2"
-            @click="auditChange(data[record.key], '通过')"
-            >通过</a-button
-          >
+          <edit :editData="data[record.key]"></edit>
         </template>
         <template slot="operation2" slot-scope="text, record">
           <a-popconfirm
-            v-if="data.length && $store.state.identity == 1"
+            v-if="data.length"
             title="点击确认以删除?"
             cancelText="取消"
             okText="确认"
@@ -32,9 +23,26 @@
           >
             <a-button type="danger" @click="() => {}">删除</a-button>
           </a-popconfirm>
+        </template>
+      </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 2"
+        :pagination="pagination"
+        :columns="columns2"
+        :dataSource="data"
+        :scroll="{ x: 2400, y: 610 }"
+        @change="handleTableChange"
+      >
+        <template slot="operation1" slot-scope="text, record">
           <a-button
-            v-if="$store.state.identity == 2"
-            @click="auditChange(data[record.key], '不通过')"
+            type="primary"
+            @click="auditChange(data[record.key], '通过')"
+            >通过</a-button
+          >
+        </template>
+        <template slot="operation2" slot-scope="text, record">
+          <a-button @click="auditChange(data[record.key], '不通过')"
             >不通过</a-button
           >
         </template>
@@ -111,6 +119,77 @@ const columns1 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns2 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "荣誉称号、表彰奖励名称",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  {
+    title: "时间",
+    width: 200,
+    dataIndex: "time",
+    key: "2"
+  },
+  {
+    title: "授奖部门",
+    width: 200,
+    dataIndex: "department",
+    key: "3"
+  },
+  {
+    title: "获奖级别",
+    width: 200,
+    dataIndex: "level",
+    key: "4"
+  },
+  {
+    title: "排名",
+    width: 200,
+    dataIndex: "ranking",
+    key: "5"
+  },
+  {
+    title: "总人数",
+    dataIndex: "peopleNumber",
+    key: "6",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "7", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "8", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "9", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "10",
+    width: 200,
+    fixed: "right"
+  },
+  {
+    title: "操作",
+    dataIndex: "operation1",
+    key: "11",
+    width: 100,
+    fixed: "right",
+    scopedSlots: { customRender: "operation1" }
+  },
+  {
+    title: "",
+    dataIndex: "operation2",
+    key: "12",
+    width: 100,
+    fixed: "right",
+    scopedSlots: { customRender: "operation2" }
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -118,6 +197,7 @@ export default {
     return {
       data: [],
       columns1,
+      columns2,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },
