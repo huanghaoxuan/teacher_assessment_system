@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 2000, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -177,6 +187,55 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "所带班级评为校级先进",
+    width: 200,
+    dataIndex: "schoolLevel",
+    key: "1"
+  },
+  {
+    title: "所带班级评为省级先进",
+    dataIndex: "provinceLevel",
+    key: "2",
+    width: 200
+  },
+  {
+    title: "所带班级/党团组织",
+    dataIndex: "caucusLaval",
+    key: "3",
+    width: 200
+  },
+  {
+    title: "开始时间",
+    dataIndex: "startTime",
+    key: "4",
+    width: 200
+  },
+  {
+    title: "结束时间",
+    dataIndex: "endTime",
+    key: "5",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "6", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "7", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "8", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "9",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -185,6 +244,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

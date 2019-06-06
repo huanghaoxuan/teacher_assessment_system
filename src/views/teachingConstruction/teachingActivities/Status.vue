@@ -36,6 +36,16 @@
           </a-popconfirm>
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 1400, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -85,6 +95,31 @@ const columns1 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "工号",
+    width: 200,
+    dataIndex: "classTeacher",
+    key: "1",
+    fixed: "left"
+  },
+  {
+    title: "缺席扣分",
+    width: 200,
+    dataIndex: "absent",
+    key: "2"
+  },
+  { title: "迟到早退扣分", dataIndex: "lateDeparture", key: "3", width: 200 },
+  { title: "备注", dataIndex: "note", key: "4", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "5", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "6", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "7",
+    width: 200
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -92,6 +127,7 @@ export default {
     return {
       data: [],
       columns1,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 2000, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -178,6 +188,55 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "文件、报告题目",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  {
+    title: "时间",
+    width: 200,
+    dataIndex: "time",
+    key: "2"
+  },
+  {
+    title: "本人排名",
+    width: 200,
+    dataIndex: "rank",
+    key: "3"
+  },
+  {
+    title: "总人数",
+    dataIndex: "peopleNumber",
+    key: "4",
+    width: 200
+  },
+  {
+    title: "使用范围及产生效益",
+    dataIndex: "useScope",
+    key: "5",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "6", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "7", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "8", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "9",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -186,6 +245,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

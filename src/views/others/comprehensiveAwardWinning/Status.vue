@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 2200, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -190,6 +200,61 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "荣誉称号、表彰奖励名称",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  {
+    title: "时间",
+    width: 200,
+    dataIndex: "time",
+    key: "2"
+  },
+  {
+    title: "授奖部门",
+    width: 200,
+    dataIndex: "department",
+    key: "3"
+  },
+  {
+    title: "获奖级别",
+    width: 200,
+    dataIndex: "level",
+    key: "4"
+  },
+  {
+    title: "排名",
+    width: 200,
+    dataIndex: "ranking",
+    key: "5"
+  },
+  {
+    title: "总人数",
+    dataIndex: "peopleNumber",
+    key: "6",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "7", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "8", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "9", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "10",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -198,6 +263,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

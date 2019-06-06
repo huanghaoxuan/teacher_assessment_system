@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 3000, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -208,6 +218,70 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "竞赛名称",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  { title: "竞赛级别", dataIndex: "level", key: "2", width: 200 },
+  {
+    title: "特等奖人数",
+    dataIndex: "prizePersonsNumber",
+    key: "3",
+    width: 200
+  },
+  {
+    title: "一等奖人数",
+    dataIndex: "firstPersonsNumber",
+    key: "4",
+    width: 200
+  },
+  {
+    title: "二等奖人数",
+    dataIndex: "secondPersonsNumber",
+    key: "5",
+    width: 200
+  },
+  {
+    title: "三等奖人数",
+    dataIndex: "thirdPersonsNumber",
+    key: "6",
+    width: 200
+  },
+  {
+    title: "优秀奖人数",
+    dataIndex: "outstandingAwardsNumber",
+    key: "7",
+    width: 200
+  },
+  { title: "指导形式", dataIndex: "guidanceType", key: "8", width: 200 },
+  {
+    title: "指导教师人数",
+    dataIndex: "instructorsNumber",
+    key: "9",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "10", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "11", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "12", width: 200 },
+  { title: "得分", dataIndex: "score", key: "13", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "14",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -216,6 +290,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

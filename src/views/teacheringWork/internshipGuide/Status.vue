@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 2600, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -174,6 +184,53 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "实习名称",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  { title: "学分", dataIndex: "credits", key: "2", width: 200 },
+  { title: "时长", dataIndex: "hours", key: "3", width: 200 },
+  { title: "学生人数", dataIndex: "studentNumber", key: "4", width: 200 },
+  { title: "循环次数", dataIndex: "loopsNumber", key: "5", width: 200 },
+  {
+    title: "指导内容",
+    dataIndex: "guidanceContent",
+    key: "6",
+    width: 200
+  },
+  {
+    title: "实习报告",
+    dataIndex: "internshipReport",
+    key: "7",
+    width: 200
+  },
+  {
+    title: "是否批改",
+    dataIndex: "hasCorrecting",
+    key: "8",
+    width: 200
+  },
+  { title: "备注", dataIndex: "note", key: "9", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "10", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "11", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "12",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -182,6 +239,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },

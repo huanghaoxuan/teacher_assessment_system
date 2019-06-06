@@ -47,6 +47,16 @@
           >
         </template>
       </a-table>
+
+      <a-table
+        v-if="$store.state.identity == 3"
+        :pagination="pagination"
+        :columns="columns3"
+        :dataSource="data"
+        :scroll="{ x: 2800, y: 610 }"
+        @change="handleTableChange"
+      >
+      </a-table>
     </a-card>
   </div>
 </template>
@@ -188,6 +198,60 @@ const columns2 = [
     scopedSlots: { customRender: "operation2" }
   }
 ];
+const columns3 = [
+  {
+    title: "教师姓名",
+    width: 200,
+    dataIndex: "classTeacherName",
+    key: "0",
+    fixed: "left"
+  },
+  {
+    title: "开发实验项目名称",
+    width: 200,
+    dataIndex: "name",
+    key: "1"
+  },
+  {
+    title: "任务角色",
+    dataIndex: "character",
+    key: "2",
+    width: 200
+  },
+  { title: "本人贡献", dataIndex: "contribution", key: "3", width: 200 },
+  {
+    title: "对应学时",
+    dataIndex: "hours",
+    key: "4",
+    width: 200
+  },
+  { title: "收益人数", dataIndex: "peopleNumber", key: "5", width: 200 },
+  { title: "适用专业", dataIndex: "professional", key: "6", width: 200 },
+  { title: "适用年级", dataIndex: "grade", key: "7", width: 200 },
+  {
+    title: "自制装置名称",
+    dataIndex: "controlDeviceName",
+    key: "8",
+    width: 200
+  },
+  {
+    title: "改制装置名称",
+    dataIndex: "reformingDeviceName",
+    key: "9",
+    width: 200
+  },
+  { title: "节省经费数", dataIndex: "money", key: "10", width: 200 },
+  { title: "备注", dataIndex: "note", key: "11", width: 200 },
+  { title: "学年", dataIndex: "showYear", key: "12", width: 200 },
+  { title: "学期", dataIndex: "semester", key: "13", width: 200 },
+  {
+    title: "审核情况",
+    dataIndex: "status",
+    key: "14",
+    width: 200,
+    fixed: "right"
+  }
+];
 
 export default {
   components: { floder, edit },
@@ -196,6 +260,7 @@ export default {
       data: [],
       columns1,
       columns2,
+      columns3,
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },
