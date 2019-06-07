@@ -122,6 +122,7 @@ const columns3 = [
 ];
 
 export default {
+  inject: ["reload"],
   components: { floder, edit },
   data() {
     return {

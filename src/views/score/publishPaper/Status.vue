@@ -23,6 +23,7 @@
 <script>
 import edit from "./Edit";
 export default {
+  inject: ["reload"],
   components: { edit },
   data() {
     return { data: {} };

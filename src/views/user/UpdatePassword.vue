@@ -59,6 +59,7 @@
 </template>
 <script>
 export default {
+  inject: ["reload"],
   data() {
     return {
       form: this.$form.createForm(this)
@@ -93,7 +94,7 @@ export default {
                   function(res) {
                     //console.log(res.data);
                     //每条数据需要一个唯一的key值
-                    //this.$router.go(0);
+                    //this.reload();
                     if (res.data == 1) {
                       this.$notification.success({
                         message: "该账号密码已成功变更"

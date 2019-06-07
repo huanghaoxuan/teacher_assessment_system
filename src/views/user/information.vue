@@ -180,6 +180,7 @@
 <script>
 import edit from "./Edit.vue";
 export default {
+  inject: ["reload"],
   components: { edit },
   data() {
     return {

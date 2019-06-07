@@ -169,6 +169,7 @@ const columns3 = [
 ];
 
 export default {
+  inject: ["reload"],
   components: { floder, edit },
   data() {
     return {
@@ -198,7 +199,7 @@ export default {
           function(res) {
             //console.log(res.data);
             //每条数据需要一个唯一的key值
-            this.$router.go(0);
+            this.reload();
           }.bind(this)
         )
         .catch(

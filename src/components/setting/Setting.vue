@@ -151,6 +151,7 @@
 </template>
 <script>
 export default {
+  inject: ["reload"],
   data() {
     return {
       current: 0,
@@ -199,7 +200,7 @@ export default {
                 function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
-                  //this.$router.go(0);
+                  //this.reload();
                   if (res.data == 1) {
                     this.$store.commit("changeTeachername", values.name);
                     this.current++;
@@ -249,7 +250,7 @@ export default {
                 function(res) {
                   console.log(res.data);
                   //每条数据需要一个唯一的key值
-                  //this.$router.go(0);
+                  //this.reload();
                   if (res.data == 1) {
                     this.current++;
                   } else {
@@ -298,7 +299,7 @@ export default {
                 function(res) {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
-                  //this.$router.go(0);
+                  //this.reload();
                   this.$notification.success({
                     message: "邮件以成功发送，请在填写的邮箱中查收"
                   });

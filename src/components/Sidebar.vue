@@ -291,15 +291,21 @@
           </a-popover>
         </a-row>
       </a-layout-header>
-      <router-view />
+      <router-view v-if="alive" />
     </a-layout>
   </a-layout>
 </template>
 <script>
 import router from "../router";
 export default {
+  provide() {
+    return {
+      reload: this.reload
+    };
+  },
   data() {
     return {
+      alive: true,
       dataIdentity: this.$store.state.dataIdentity,
       avatarValue: "您",
       color: "#f56a00",
@@ -312,7 +318,13 @@ export default {
     },
     handleChange(value) {
       this.$store.commit("changeShowIdentity", value);
-      this.$router.go(0);
+      this.reload();
+    },
+    reload() {
+      this.alive = false;
+      this.$nextTick(() => {
+        this.alive = true;
+      });
     }
   }
 };

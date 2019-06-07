@@ -246,6 +246,7 @@
 </template>
 <script>
 export default {
+  inject: ["reload"],
   data() {
     return {
       visible: false,
@@ -289,7 +290,7 @@ export default {
                   //console.log(res.data);
                   //每条数据需要一个唯一的key值
                   this.visible = false;
-                  this.$router.go(0);
+                  this.reload();
                 }.bind(this)
               )
               .catch(
