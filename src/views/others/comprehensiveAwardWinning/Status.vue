@@ -385,6 +385,7 @@ export default {
           "/othersComprehensiveawardwinning/selectAll",
           {
             params: {
+              departmentDept: this.$store.state.teachedepartmentDept,
               pageNum: pageNum,
               pageSize: 9
             }

@@ -9,7 +9,7 @@
         <a-form :form="form0">
           <a-form-item
             label="姓名"
-            :label-col="{ span: 9 }"
+            :label-col="{ span: 7 }"
             :wrapper-col="{ span: 10 }"
           >
             <a-input
@@ -33,7 +33,7 @@
         <a-form :form="form1">
           <a-form-item
             label="邮箱"
-            :label-col="{ span: 9 }"
+            :label-col="{ span: 7 }"
             :wrapper-col="{ span: 10 }"
           >
             <a-input
@@ -53,7 +53,7 @@
           </a-form-item>
           <a-form-item
             label="验证码"
-            :label-col="{ span: 9 }"
+            :label-col="{ span: 7 }"
             :wrapper-col="{ span: 10 }"
           >
             <a-input
@@ -73,7 +73,7 @@
           </a-form-item>
           <a-form-item
             label=":"
-            :label-col="{ span: 9 }"
+            :label-col="{ span: 7 }"
             :wrapper-col="{ span: 10 }"
           >
             <a-button
@@ -86,7 +86,80 @@
           </a-form-item>
         </a-form>
       </div>
+
       <div style=" padding:100px" v-if="current == 2">
+        <a-form :form="form2">
+          <a-form-item
+            label="所在学院"
+            :label-col="{ span: 7 }"
+            :wrapper-col="{ span: 10 }"
+          >
+            <a-select
+              v-decorator="[
+                'departmentDept',
+                { rules: [{ required: true, message: '所在学院不能为空' }] }
+              ]"
+              placeholder="请输入所在学院"
+            >
+              <a-select-option value="电子与计算机工程学院">
+                电子与计算机工程学院
+              </a-select-option>
+              <a-select-option value="建筑与艺术设计学院">
+                建筑与艺术设计学院
+              </a-select-option>
+              <a-select-option value="土木与交通工程学院">
+                土木与交通工程学院
+              </a-select-option>
+              <a-select-option value="机械与电气工程学院">
+                机械与电气工程学院
+              </a-select-option>
+              <a-select-option value="制药与化学工程学院">
+                制药与化学工程学院
+              </a-select-option>
+              <a-select-option value="经济管理学院">
+                经济管理学院
+              </a-select-option>
+              <a-select-option value="基础部">
+                基础部
+              </a-select-option>
+              <a-select-option value="党政办">
+                党政办
+              </a-select-option>
+              <a-select-option value="保卫处">
+                保卫处
+              </a-select-option>
+              <a-select-option value="组织人事部">
+                组织人事部
+              </a-select-option>
+              <a-select-option value="教务处">
+                教务处
+              </a-select-option>
+              <a-select-option value="学生处">
+                学生处
+              </a-select-option>
+              <a-select-option value="团委">
+                团委
+              </a-select-option>
+              <a-select-option value="财务与资产管理处">
+                财务与资产管理处
+              </a-select-option>
+              <a-select-option value="后勤管理处">
+                后勤管理处
+              </a-select-option>
+              <a-select-option value="质量保证部">
+                质量保证部
+              </a-select-option>
+              <a-select-option value="发展合作处">
+                发展合作处
+              </a-select-option>
+              <a-select-option value="图档信息中心">
+                图档信息中心
+              </a-select-option>
+            </a-select>
+          </a-form-item>
+        </a-form>
+      </div>
+      <div style=" padding:100px" v-if="current == 3">
         <h1 style="text-align:center">
           欢迎使用东南大学成贤学院数据采集系统
         </h1>
@@ -119,6 +192,7 @@
           上一步
         </a-button>
 
+        <!-- 设置姓名的按钮 -->
         <a-button
           style="margin-left: 8px"
           v-if="current == 0"
@@ -128,11 +202,22 @@
           下一步
         </a-button>
 
+        <!-- 设置邮箱的按钮 -->
         <a-button
           style="margin-left: 8px"
           v-if="current == 1"
           type="primary"
           @click="handleSubmit1"
+        >
+          下一步
+        </a-button>
+
+        <!-- 设置学院的按钮 -->
+        <a-button
+          style="margin-left: 8px"
+          v-if="current == 2"
+          type="primary"
+          @click="handleSubmit2"
         >
           下一步
         </a-button>
@@ -151,7 +236,6 @@
 </template>
 <script>
 export default {
-  inject: ["reload"],
   data() {
     return {
       current: 0,
@@ -160,12 +244,16 @@ export default {
       timer: null,
       form0: this.$form.createForm(this),
       form1: this.$form.createForm(this),
+      form2: this.$form.createForm(this),
       steps: [
         {
           title: "姓名设置"
         },
         {
           title: "邮箱设置"
+        },
+        {
+          title: "学院设置"
         },
         {
           title: "使用须知"
@@ -276,6 +364,59 @@ export default {
         }
       });
     },
+    handleSubmit2(e) {
+      e.preventDefault();
+      this.form2.validateFields((err, values) => {
+        if (!err) {
+          //console.log(values);
+          {
+            this.axios
+              .post(
+                "/userinformation/updatedepartmentDept",
+                this.qs.stringify({
+                  ...values,
+                  classTeacher: this.$store.state.teacherid
+                }),
+                {
+                  headers: {
+                    "Content-Type": "application/x-www-form-urlencoded"
+                  }
+                }
+              )
+              .then(
+                function(res) {
+                  console.log(res.data);
+                  //每条数据需要一个唯一的key值
+                  //this.reload();
+                  if (res.data == 1) {
+                    this.$store.commit(
+                      "changedataTeachedepartmentDept",
+                      values.departmentDept
+                    );
+                    this.current++;
+                  } else {
+                    this.$notification.error({
+                      message: "学院设置失败，请重试"
+                    });
+                  }
+                }.bind(this)
+              )
+              .catch(
+                function(err) {
+                  if (err.response) {
+                    //console.log(err.response);
+                    //控制台打印错误返回的内容
+                    this.$notification.error({
+                      message: "学院设置失败，请重试"
+                    });
+                  }
+                  //bind(this)可以不用
+                }.bind(this)
+              );
+          }
+        }
+      });
+    },
     getToken(e) {
       e.preventDefault();
       this.form1.validateFields(["email"], (err, values) => {
@@ -359,7 +500,22 @@ export default {
       .then(
         function(res) {
           //console.log(res.data);
-          if (res.data.email != null && res.data.email != "null") {
+          if (res.data.name == null || res.data.name == "null") {
+            this.current = 0;
+          }
+          if (res.data.email == null || res.data.email == "null") {
+            this.current = 1;
+          }
+          if (
+            res.data.departmentDept == null ||
+            res.data.departmentDept == "null"
+          ) {
+            this.current = 2;
+          } else {
+            this.$store.commit(
+              "changedataTeachedepartmentDept",
+              res.data.departmentDept
+            );
             this.$store.commit("changeTeachername", res.data.name);
             this.$router.push("/sidebar");
           }
@@ -374,6 +530,7 @@ export default {
           //bind(this)可以不用
         }.bind(this)
       );
+    //this.current = 3;
   }
 };
 </script>

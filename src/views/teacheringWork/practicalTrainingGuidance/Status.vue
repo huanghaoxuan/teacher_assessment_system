@@ -361,6 +361,7 @@ export default {
           "/teacheringworkPracticaltrainingguidance/selectAll",
           {
             params: {
+              departmentDept: this.$store.state.teachedepartmentDept,
               pageNum: pageNum,
               pageSize: 9
             }

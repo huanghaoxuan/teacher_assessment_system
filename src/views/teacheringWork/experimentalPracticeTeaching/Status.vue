@@ -385,6 +385,7 @@ export default {
           "/teacheringworkExperimentalpracticeteaching/selectAll",
           {
             params: {
+              departmentDept: this.$store.state.teachedepartmentDept,
               pageNum: pageNum,
               pageSize: 9
             }

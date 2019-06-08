@@ -373,6 +373,7 @@ export default {
           "/teacheringworkTeachingawards/selectAll",
           {
             params: {
+              departmentDept: this.$store.state.teachedepartmentDept,
               pageNum: pageNum,
               pageSize: 9
             }

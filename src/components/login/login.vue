@@ -86,7 +86,6 @@
 
 <script>
 export default {
-  inject: ["reload"],
   data() {
     return {
       onoff: true,
