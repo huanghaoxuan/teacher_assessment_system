@@ -183,7 +183,7 @@
         <a-button
           v-if="current == 1"
           style="margin-left: 8px"
-          @click="$router.push('/sidebar')"
+          @click="current++"
         >
           暂不设置
         </a-button>
@@ -442,7 +442,7 @@ export default {
                   //每条数据需要一个唯一的key值
                   //this.reload();
                   this.$notification.success({
-                    message: "邮件以成功发送，请在填写的邮箱中查收"
+                    message: "邮件已成功发送，请在填写的邮箱中查收"
                   });
                 }.bind(this)
               )
@@ -502,11 +502,9 @@ export default {
           //console.log(res.data);
           if (res.data.name == null || res.data.name == "null") {
             this.current = 0;
-          }
-          if (res.data.email == null || res.data.email == "null") {
+          } else if (res.data.email == null || res.data.email == "null") {
             this.current = 1;
-          }
-          if (
+          } else if (
             res.data.departmentDept == null ||
             res.data.departmentDept == "null"
           ) {

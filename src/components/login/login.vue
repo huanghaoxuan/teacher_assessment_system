@@ -53,7 +53,7 @@
                 id="btn"
               />
             </form>
-            <!-- <a href="#">忘记密码？</a> -->
+            <a @click="$router.push('/forgetting')">忘记密码？</a>
           </span>
         </div>
 

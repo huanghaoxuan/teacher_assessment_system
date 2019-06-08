@@ -252,6 +252,11 @@ export default new Router({
       component: () => import("./components/setting//Setting.vue")
     },
     {
+      path: "/forgetting",
+      name: "forgetting",
+      component: () => import("./components/setting/Forgetting.vue")
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("./components/login/Login.vue"),
