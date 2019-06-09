@@ -209,13 +209,21 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu key="user" v-if="$store.state.identity == 3">
+        <a-sub-menu key="user" v-if="$store.state.identity >= 2">
           <span slot="title"> <a-icon type="user" /><span>用户管理</span></span>
           <a-menu-item
             key="user_editIdentity"
             @click="() => jump('/user/editIdentity')"
+            v-if="$store.state.identity == 3"
           >
             <a-icon type="user" />账号权限管理</a-menu-item
+          >
+          <a-menu-item
+            key="user_findUser"
+            @click="() => jump('/user/findUser')"
+            v-if="$store.state.identity >= 2"
+          >
+            <a-icon type="user" />账号查询</a-menu-item
           >
         </a-sub-menu>
       </a-menu>
