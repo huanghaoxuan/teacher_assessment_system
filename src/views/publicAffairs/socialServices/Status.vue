@@ -2,6 +2,94 @@
   <div style="background:#ECECEC; padding:30px">
     <a-card title="社会服务">
       <floder slot="extra" v-if="$store.state.identity == 1"></floder>
+      <a-form
+        layout="inline"
+        :form="form"
+        @submit="handleSubmit"
+        v-if="$store.state.identity != 1"
+      >
+        <a-form-item label="教师工号">
+          <a-input
+            v-decorator="['classTeacher']"
+            placeholder="请输入教师工号"
+          />
+        </a-form-item>
+        <a-form-item label="教师名字">
+          <a-input v-decorator="['name']" placeholder="请输入教师名字" />
+        </a-form-item>
+        <a-form-item label="所在学院">
+          <a-select
+            v-decorator="['departmentDept']"
+            placeholder="请输入所在学院"
+            style="width: 200px"
+            :disabled="$store.state.identity == 2"
+          >
+            <a-select-option value="">
+              学院不参与筛选
+            </a-select-option>
+            <a-select-option value="电子与计算机工程学院">
+              电子与计算机工程学院
+            </a-select-option>
+            <a-select-option value="建筑与艺术设计学院">
+              建筑与艺术设计学院
+            </a-select-option>
+            <a-select-option value="土木与交通工程学院">
+              土木与交通工程学院
+            </a-select-option>
+            <a-select-option value="机械与电气工程学院">
+              机械与电气工程学院
+            </a-select-option>
+            <a-select-option value="制药与化学工程学院">
+              制药与化学工程学院
+            </a-select-option>
+            <a-select-option value="经济管理学院">
+              经济管理学院
+            </a-select-option>
+            <a-select-option value="基础部">
+              基础部
+            </a-select-option>
+            <a-select-option value="党政办">
+              党政办
+            </a-select-option>
+            <a-select-option value="保卫处">
+              保卫处
+            </a-select-option>
+            <a-select-option value="组织人事部">
+              组织人事部
+            </a-select-option>
+            <a-select-option value="教务处">
+              教务处
+            </a-select-option>
+            <a-select-option value="学生处">
+              学生处
+            </a-select-option>
+            <a-select-option value="团委">
+              团委
+            </a-select-option>
+            <a-select-option value="财务与资产管理处">
+              财务与资产管理处
+            </a-select-option>
+            <a-select-option value="后勤管理处">
+              后勤管理处
+            </a-select-option>
+            <a-select-option value="质量保证部">
+              质量保证部
+            </a-select-option>
+            <a-select-option value="发展合作处">
+              发展合作处
+            </a-select-option>
+            <a-select-option value="图档信息中心">
+              图档信息中心
+            </a-select-option>
+          </a-select>
+        </a-form-item>
+        <a-form-item>
+          <a-button type="primary" html-type="submit">
+            查询
+          </a-button>
+        </a-form-item>
+      </a-form>
+      <br />
       <a-table
         v-if="$store.state.identity == 1"
         :pagination="pagination"
@@ -193,6 +281,7 @@ export default {
       columns1,
       columns2,
       columns3,
+      form: this.$form.createForm(this),
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },
@@ -261,7 +350,11 @@ export default {
       if (this.$store.state.identity == 1) {
         this.showListData(pagination.current);
       } else {
-        this.showAllListData(pagination.current);
+        this.form.validateFields((err, values) => {
+          if (!err) {
+            this.showAllListData(pagination.current, values);
+          }
+        });
       }
     },
     showListData(pageNum) {
@@ -307,13 +400,13 @@ export default {
           }.bind(this)
         );
     },
-    showAllListData(pageNum) {
+    showAllListData(pageNum, values) {
       this.axios
         .get(
           "/publicaffairsSocialservices/selectAll",
           {
             params: {
-              departmentDept: this.$store.state.teachedepartmentDept,
+              ...values,
               pageNum: pageNum,
               pageSize: 9
             }
@@ -328,11 +421,14 @@ export default {
           function(res) {
             //console.log(res.data);
             //每条数据需要一个唯一的key值
-            for (let index = 0; index < res.data.list.length; index++) {
-              res.data.list[index].key = index;
-              var year = res.data.list[index].year + 1;
-              var yearStr = res.data.list[index].year + " — " + year + " 学年";
-              res.data.list[index].showYear = yearStr;
+            if (res.data.list != null) {
+              for (let index = 0; index < res.data.list.length; index++) {
+                res.data.list[index].key = index;
+                var year = res.data.list[index].year + 1;
+                var yearStr =
+                  res.data.list[index].year + " — " + year + " 学年";
+                res.data.list[index].showYear = yearStr;
+              }
             }
             this.data = res.data.list;
             this.pagination.total = res.data.total;
@@ -349,14 +445,32 @@ export default {
             //bind(this)可以不用
           }.bind(this)
         );
+    },
+    handleSubmit(e) {
+      e.preventDefault();
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          this.showAllListData(1, values);
+        }
+      });
     }
   },
   mounted() {
     //console.log(this.$store.state.teacherid);
     if (this.$store.state.identity == 1) {
+      //教师填写权限时，只能查询自己的信息
       this.showListData(1);
+    } else if (this.$store.state.identity == 2) {
+      //系管理员权限时，只能查询本系的信息
+      this.form.setFieldsValue({
+        departmentDept: this.$store.state.teachedepartmentDept
+      });
+      this.showAllListData(1, {
+        departmentDept: this.$store.state.teachedepartmentDept
+      });
     } else {
-      this.showAllListData(1);
+      //院管理员权限时，查询全部信息
+      this.showAllListData(1, null);
     }
   }
 };
