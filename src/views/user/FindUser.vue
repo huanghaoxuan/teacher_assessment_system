@@ -129,64 +129,70 @@ export default {
     return {
       data: [],
       columns,
-      current: 1,
       form: this.$form.createForm(this),
       pagination: { defaultPageSize: 9, total: 9 }
     };
   },
   methods: {
     handleTableChange(pagination, filters, sorter) {
-      this.current = pagination.current;
-      this.handleSubmit($event);
+      this.form.validateFields((err, values) => {
+        if (!err) {
+          this.getdata(pagination.current, values);
+        }
+      });
+    },
+    getdata(pageNum, values) {
+      //console.log(values)
+      this.axios
+        .get(
+          "/userinformation/selectUserinformation/findUser",
+          {
+            params: {
+              ...values,
+              pageNum: pageNum,
+              pageSize: 9
+            }
+          },
+          {
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            }
+          }
+        )
+        .then(
+          function(res) {
+            //console.log(res.data);
+            //每条数据需要一个唯一的key值
+            this.list = res.data.list;
+            for (let index = 0; index < res.data.list.length; index++) {
+              res.data.list[index].key = index;
+            }
+            this.data = res.data.list;
+            this.pagination.total = res.data.total;
+            //控制台打印请求成功时返回的数据
+            //bind(this)可以不用
+            if (res.data.total == 0) {
+              this.$notification.error({
+                message: "无用户满足查询条件"
+              });
+            }
+          }.bind(this)
+        )
+        .catch(
+          function(err) {
+            if (err.response) {
+              //console.log(err.response);
+              //控制台打印错误返回的内容
+            }
+            //bind(this)可以不用
+          }.bind(this)
+        );
     },
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          this.axios
-            .get(
-              "/userinformation/selectUserinformation/findUser",
-              {
-                params: {
-                  ...values,
-                  pageNum: this.current,
-                  pageSize: 9
-                }
-              },
-              {
-                headers: {
-                  "Content-Type": "application/x-www-form-urlencoded"
-                }
-              }
-            )
-            .then(
-              function(res) {
-                //console.log(res.data);
-                //每条数据需要一个唯一的key值
-                this.list = res.data.list;
-                for (let index = 0; index < res.data.list.length; index++) {
-                  res.data.list[index].key = index;
-                }
-                this.data = res.data.list;
-                this.pagination.total = res.data.total;
-                //控制台打印请求成功时返回的数据
-                //bind(this)可以不用
-                if (res.data.total == 0) {
-                  this.$notification.error({
-                    message: "无用户满足查询条件"
-                  });
-                }
-              }.bind(this)
-            )
-            .catch(
-              function(err) {
-                if (err.response) {
-                  //console.log(err.response);
-                  //控制台打印错误返回的内容
-                }
-                //bind(this)可以不用
-              }.bind(this)
-            );
+          this.getdata(1, values);
         }
       });
     }
