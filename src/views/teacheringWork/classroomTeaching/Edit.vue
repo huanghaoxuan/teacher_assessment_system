@@ -337,7 +337,7 @@ export default {
   methods: {
     showModal() {
       this.visible = true;
-      console.log(this.editData);
+      //console.log(this.editData);
       setTimeout(() => {
         this.form.setFieldsValue(this.editData);
       }, 10);

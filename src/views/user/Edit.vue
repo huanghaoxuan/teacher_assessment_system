@@ -236,6 +236,7 @@
               { rules: [{ required: true, message: '所在学院不能为空' }] }
             ]"
             placeholder="请输入所在学院"
+            style="width: 200px"
           >
             <a-select-option value="电子与计算机工程学院">
               电子与计算机工程学院
