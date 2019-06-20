@@ -141,7 +141,7 @@
         :pagination="pagination"
         :columns="columns3"
         :dataSource="data"
-        :scroll="{ x: 3000, y: 610 }"
+        :scroll="{ x: 2400, y: 610 }"
         @change="handleTableChange"
       >
       </a-table>
