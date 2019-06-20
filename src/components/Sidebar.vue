@@ -6,7 +6,6 @@
   >
     <a-layout-sider :trigger="null" collapsible v-model="collapsed">
       <div class="logo" />
-
       <a-menu theme="dark" :defaultSelectedKeys="['']" mode="inline">
         <a-sub-menu key="teacheringWork">
           <span slot="title"> <a-icon type="user" /><span>教学工作</span></span>
@@ -242,7 +241,7 @@
             >
           </a-select>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <a-col :span="17">
+          <a-col :span="14">
             <a-icon
               class="trigger"
               :type="collapsed ? 'menu-unfold' : 'menu-fold'"
