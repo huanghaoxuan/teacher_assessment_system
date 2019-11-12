@@ -248,6 +248,11 @@ export default new Router({
           path: "/user/findUser",
           name: "findUser",
           component: () => import("./views/user/FindUser.vue")
+        },
+        {
+          path: "/user/resetPassword",
+          name: "findUser",
+          component: () => import("./views/user/ResetPassword.vue")
         }
       ]
     },

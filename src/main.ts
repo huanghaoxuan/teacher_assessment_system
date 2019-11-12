@@ -18,10 +18,9 @@ Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
   //console.log(store.state.loginStatus);
-  if (store.state.loginStatus) {
+  if (store.state.loginStatus || to.path == "/login") {
     next();
   } else {
-    store.commit("isLogin", true);
     next("/login");
 
     let allowBack = true; //    给个默认值true

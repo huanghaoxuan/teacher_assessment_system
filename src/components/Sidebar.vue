@@ -162,7 +162,7 @@
           >
         </a-sub-menu>
 
-        <a-sub-menu key="score" v-if="$store.state.identity != 1">
+        <a-sub-menu key="score" v-if="$store.state.identity == 3">
           <span slot="title">
             <a-icon type="user" /><span>得分信息查询</span></span
           >
@@ -216,6 +216,13 @@
             v-if="$store.state.identity == 3"
           >
             <a-icon type="user" />账号权限管理</a-menu-item
+          >
+          <a-menu-item
+            key="user_resetPassword"
+            @click="() => jump('/user/resetPassword')"
+            v-if="$store.state.identity == 3"
+          >
+            <a-icon type="user" />重置密码</a-menu-item
           >
           <a-menu-item
             key="user_findUser"

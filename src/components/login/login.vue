@@ -53,7 +53,7 @@
                 id="btn"
               />
             </form>
-            <a @click="$router.push('/forgetting')">忘记密码？</a>
+            <!-- <a @click="$router.push('/forgetting')">忘记密码？</a> -->
           </span>
         </div>
 
@@ -133,7 +133,7 @@ export default {
                   this.$store.commit("isLogin", true);
                   this.$store.commit("changeIdentity", res.data);
                   this.$store.commit("changeTeacherid", this.username);
-                  this.$router.push("/setting");
+                  this.$router.push("/sidebar");
                 }
               }.bind(this)
             )
@@ -205,7 +205,7 @@ export default {
                   this.$store.commit("isLogin", true);
                   this.$store.commit("changeIdentity", 1);
                   this.$store.commit("changeTeacherid", this.username);
-                  this.$router.push("/setting");
+                  this.$router.push("/sidebar");
                 } else {
                   this.$notification.error({
                     message: "该账号已经存在"
